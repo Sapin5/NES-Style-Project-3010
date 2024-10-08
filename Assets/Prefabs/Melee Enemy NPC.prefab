@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 4393791461180940854}
   - component: {fileID: 6797263021541246849}
   - component: {fileID: 3517572009196856664}
+  - component: {fileID: 1911341646266772489}
   m_Layer: 0
   m_Name: Melee Enemy NPC
   m_TagString: Untagged
@@ -221,7 +222,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb206912f26c0d64cac4a75f754cbd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerPos: {fileID: 0}
+  chaseRange: 0
+  attackRange: 0
   enemyRenderer: {fileID: 3739543043697955821}
   movementSpeed: 5
   xWanderMaxDist: 5
   maxIdleTime: 4.5
+--- !u!114 &1911341646266772489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187216109226872673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fc4a27b2f26a646ab524a0a63a74f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPos: {fileID: 0}
+  chaseRange: 4
+  attackRange: 1

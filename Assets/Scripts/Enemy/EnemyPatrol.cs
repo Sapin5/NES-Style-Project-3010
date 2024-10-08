@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
-public class EnemyPatrol : MonoBehaviour
+public class EnemyPatrol : EnemyStateHandler
 {
     [Header("Sprite Properties:")]
     [SerializeField] private SpriteRenderer enemyRenderer; 
@@ -23,12 +23,13 @@ public class EnemyPatrol : MonoBehaviour
     private void Start()
     {
         originPos = transform.position;
-
         CreateNewPath();
     }
 
     private void Update() {
-        MovementHandler();
+        Debug.Log(GetCurrentState());
+        if (GetCurrentState() == EnemyState.Patrol)
+            MovementHandler();
     }
 
     private void MovementHandler() {
