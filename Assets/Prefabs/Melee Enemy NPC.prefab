@@ -115,6 +115,8 @@ GameObject:
   - component: {fileID: 6797263021541246849}
   - component: {fileID: 3517572009196856664}
   - component: {fileID: 1911341646266772489}
+  - component: {fileID: 963995002707966587}
+  - component: {fileID: 3609831174984638828}
   m_Layer: 0
   m_Name: Melee Enemy NPC
   m_TagString: Untagged
@@ -222,13 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb206912f26c0d64cac4a75f754cbd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
-  chaseRange: 0
-  attackRange: 0
   enemyRenderer: {fileID: 3739543043697955821}
-  movementSpeed: 5
+  movementSpeed: 3
   xWanderMaxDist: 5
-  maxIdleTime: 4.5
+  maxIdleTime: 3
 --- !u!114 &1911341646266772489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,5 +241,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
-  chaseRange: 4
-  attackRange: 1
+  chaseRange: 5
+  attackRange: 1.3
+  chasingState: {fileID: 963995002707966587}
+  patrollingState: {fileID: 3517572009196856664}
+  attackingState: {fileID: 3609831174984638828}
+--- !u!114 &963995002707966587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187216109226872673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63994ea2a9c99ee4ba07901291234ef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPos: {fileID: 0}
+  chaseSpeed: 3
+  enemyRenderer: {fileID: 3739543043697955821}
+--- !u!114 &3609831174984638828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187216109226872673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476ae9c963e3c674d9ee6e734d172449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
