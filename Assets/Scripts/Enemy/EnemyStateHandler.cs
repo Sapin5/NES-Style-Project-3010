@@ -8,25 +8,27 @@ public class EnemyStateHandler : MonoBehaviour
 {
     [Header("Enemy State Properties:")]
     [SerializeField] private Transform playerPos;
-    [SerializeField] private float chaseRange;
-    [SerializeField] private float attackRange;
+    [SerializeField] private Vector2 chaseRange;
+    [SerializeField] private Vector2 attackRange;
 
     [SerializeField] private EnemyChase chasingState;
     [SerializeField] private EnemyPatrol patrollingState;
     [SerializeField] private EnemyAttack attackingState;
 
     private void Update() {
-        float distFromPlayerX = Math.Abs(playerPos.position.x - transform.position.x);
+        Vector2 distFromPlayer = playerPos.position - transform.position;
+        distFromPlayer.x = Math.Abs(distFromPlayer.x);
+        distFromPlayer.y = Math.Abs(distFromPlayer.y); 
 
-        if (distFromPlayerX <= attackRange) 
+        if ((distFromPlayer.x <= attackRange.x) && (distFromPlayer.y <= attackRange.y)) 
         {
             EnterAttackingState();
         } 
-        else if (distFromPlayerX <= chaseRange && !attackingState.isAttacking)
+        else if ((distFromPlayer.x <= chaseRange.x) && (distFromPlayer.y <= chaseRange.y) && !attackingState.isAttacking)
         {
             EnterChasingState();
         }
-        else if (distFromPlayerX > chaseRange && !attackingState.isAttacking) {
+        else if (((distFromPlayer.x > chaseRange.x) || (distFromPlayer.y > chaseRange.y)) && !attackingState.isAttacking) {
             EnterPatrollingState();
         }
     }
