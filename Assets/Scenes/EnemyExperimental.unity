@@ -729,6 +729,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1180368436}
+    - target: {fileID: 1048970869468162463, guid: c571b1e068bb0bd4fa5c22c0c19f0d19, type: 3}
+      propertyPath: chaseRange
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1830728864992411629, guid: c571b1e068bb0bd4fa5c22c0c19f0d19, type: 3}
       propertyPath: playerPos
       value: 

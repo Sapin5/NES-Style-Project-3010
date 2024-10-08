@@ -10,7 +10,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private SpriteRenderer enemyRenderer; 
 
     
-
+    public bool isAttacking = false;
     private float currentTimer;
     private const float MAX_TIME = 5f;
     private int xDirection = 1;
@@ -27,13 +27,14 @@ public class EnemyAttack : MonoBehaviour
                 leftWeapon.SetActive(false);
                 rightWeapon.SetActive(false);
                 currentTimer = 0;
+                isAttacking = false;
             } else {
-                DecideWeapon();
+                Attack();
             }
         }
     }
 
-    private void DecideWeapon() {
+    private void Attack() {
         if (xDirection == 1) {
             rightWeapon.SetActive(true);
             leftWeapon.SetActive(false);
@@ -41,5 +42,7 @@ public class EnemyAttack : MonoBehaviour
             rightWeapon.SetActive(false);
             leftWeapon.SetActive(true);
         }
+        isAttacking = true;
     }
+    
 }

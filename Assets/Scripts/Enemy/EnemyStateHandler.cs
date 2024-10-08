@@ -22,11 +22,11 @@ public class EnemyStateHandler : MonoBehaviour
         {
             EnterAttackingState();
         } 
-        else if (distFromPlayerX <= chaseRange)
+        else if (distFromPlayerX <= chaseRange && !attackingState.isAttacking)
         {
             EnterChasingState();
         }
-        else {
+        else if (distFromPlayerX > chaseRange && !attackingState.isAttacking) {
             EnterPatrollingState();
         }
     }
@@ -38,7 +38,6 @@ public class EnemyStateHandler : MonoBehaviour
         
         chasingState.enabled = false;
         attackingState.enabled = false;
-        
     }
 
     private void EnterChasingState() {

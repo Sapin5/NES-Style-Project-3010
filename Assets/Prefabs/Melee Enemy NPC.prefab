@@ -538,6 +538,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   rightWeapon: {fileID: 8618377195278945712}
   leftWeapon: {fileID: 6319874082298313143}
-  attackDuration: 2
+  attackDuration: 4
   attackSpeed: 5
   enemyRenderer: {fileID: 3739543043697955821}
+  isAttacking: 0
