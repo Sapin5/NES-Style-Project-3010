@@ -540,3 +540,4 @@ MonoBehaviour:
   leftWeapon: {fileID: 6319874082298313143}
   attackDuration: 2
   attackSpeed: 5
+  enemyRenderer: {fileID: 3739543043697955821}
