@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimationSwapper : MonoBehaviour
@@ -27,21 +26,28 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Idle", true);
                 child.SetBool("Running", false);
                 child.SetBool("Attacking", false);
+                child.SetBool("Jumping", false);
             break;
 
             case "Jumping":
-               
+                child.SetBool("Idle", false);
+                child.SetBool("Running", false);
+                child.SetBool("Attacking", false);
+                child.SetBool("Jumping", true);
             break;
 
             case "Attacking":
-                child.SetBool("Attacking", true);
                 child.SetBool("Idle", false);
+                child.SetBool("Running", false);
+                child.SetBool("Attacking", true);
+                child.SetBool("Jumping", false);
             break;
 
             case "Walking":
-                child.SetBool("Running", true);
                 child.SetBool("Idle", false);
+                child.SetBool("Running", true);
                 child.SetBool("Attacking", false);
+                child.SetBool("Jumping", false);
             break;
 
             case "Dashing":
@@ -50,9 +56,3 @@ public class AnimationSwapper : MonoBehaviour
         }
     }
 }
-/*
-    SetFloat(string name, float value): Sets a float parameter.
-    SetInteger(string name, int value): Sets an integer parameter.
-    SetBool(string name, bool value): Sets a boolean parameter.
-    SetTrigger(string name): Triggers an animation.
-*/

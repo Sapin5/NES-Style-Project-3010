@@ -8,7 +8,7 @@ public class Moveme : MonoBehaviour
     public enum Dash {Ready, Dashing,End, CoolDown};
     public Dash dash;
     private Transform player;
-    private bool touchingGround;
+    private bool touchingGround, spacePressed;
     private float timer;
     private string currentAction, lastAction;
 
@@ -27,8 +27,8 @@ public class Moveme : MonoBehaviour
     }
 
     void FixedUpdate(){
-        Movement();
         DashAbility();
+        Movement();
     }
 
     private void DashAbility(){
@@ -77,6 +77,7 @@ public class Moveme : MonoBehaviour
 
         if (dir != 0) { 
             transform.rotation = Quaternion.Euler(0, dir > 0 ? 0 : 180, 0);
+            //physicsBody.AddForce(new Vector2(Input.GetAxis("Horizontal"), 0)*movespeed, ForceMode2D.Impulse);
             transform.Translate((dir > 0 ? dir : -dir) * Time.deltaTime * movespeed, 0, 0);
         }else if(dir == 0 && touchingGround){
             currentAction = "Idle";
@@ -88,21 +89,29 @@ public class Moveme : MonoBehaviour
     }
 
     private void Attack(){
-        if(Input.GetKey(KeyCode.Space)){
-            for(float i =0; i<0.5f; i+=Time.deltaTime){
-                player.GameObject().SetActive(true);
-                lastAction = currentAction;
-                currentAction = "Attacking";
-            }
-            currentAction = lastAction;
+        if(Input.GetKey(KeyCode.Space) && !spacePressed){
+            spacePressed = true;
+            lastAction = currentAction;
         }
-        player.GameObject().SetActive(false);
+
+        if(spacePressed){
+            timer+=Time.deltaTime;
+            player.GameObject().SetActive(true);
+            currentAction = "Attacking";
+
+            if(timer>=0.3f){
+                player.GameObject().SetActive(false);
+                currentAction = lastAction;
+                spacePressed = false;
+                timer = 0;
+            }
+        }
     }
     
     private void Jumping(){
         if(touchingGround){
-            if((Input.GetKeyDown(KeyCode.UpArrow)|| 
-                    Input.GetKeyDown(KeyCode.W)) && dash != Dash.Dashing){
+            if((Input.GetKey(KeyCode.UpArrow)|| 
+                    Input.GetKey(KeyCode.W)) && dash != Dash.Dashing){
                 physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 touchingGround = false;
                 currentAction = "Jumping";
