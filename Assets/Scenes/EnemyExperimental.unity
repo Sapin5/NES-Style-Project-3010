@@ -704,6 +704,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3609831174984638828, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
+      propertyPath: playerPos
+      value: 
+      objectReference: {fileID: 1180368436}
     - target: {fileID: 9187216109226872673, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_Name
       value: Melee Enemy NPC
@@ -726,6 +730,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1180368436}
     - target: {fileID: 1830728864992411629, guid: c571b1e068bb0bd4fa5c22c0c19f0d19, type: 3}
+      propertyPath: playerPos
+      value: 
+      objectReference: {fileID: 1180368436}
+    - target: {fileID: 2742815563122402554, guid: c571b1e068bb0bd4fa5c22c0c19f0d19, type: 3}
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1180368436}
