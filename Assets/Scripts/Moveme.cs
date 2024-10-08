@@ -90,7 +90,7 @@ public class Moveme : MonoBehaviour
     
     private void Jumping(){
         if((Input.GetKeyDown(KeyCode.UpArrow)|| 
-                Input.GetKeyDown(KeyCode.W))&& touchingGround){
+                Input.GetKeyDown(KeyCode.W))&& touchingGround && dash != Dash.Dashing){
             physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             touchingGround = false;
         }
