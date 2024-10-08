@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3049143949302017163}
   - component: {fileID: 4393791461180940854}
   - component: {fileID: 6797263021541246849}
+  - component: {fileID: 4316129568498085510}
   m_Layer: 0
   m_Name: Melee Enemy NPC
   m_TagString: Untagged
@@ -190,3 +191,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9831369, y: 1.8894404}
   m_EdgeRadius: 0
+--- !u!114 &4316129568498085510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187216109226872673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3596d5deefb2d804eab43a796a8e0eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyRenderer: {fileID: 3739543043697955821}
+  movementSpeed: 5
+  xWanderMaxDist: 5
+  maxIdleTime: 5.5
