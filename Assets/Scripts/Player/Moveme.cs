@@ -77,8 +77,14 @@ public class Moveme : MonoBehaviour
 
         if (dir != 0) { 
             transform.rotation = Quaternion.Euler(0, dir > 0 ? 0 : 180, 0);
-            //physicsBody.AddForce(new Vector2(Input.GetAxis("Horizontal"), 0)*movespeed, ForceMode2D.Impulse);
             transform.Translate((dir > 0 ? dir : -dir) * Time.deltaTime * movespeed, 0, 0);
+/* Reworking Movement, plz dont touch
+            physicsBody.AddForce(new Vector2(Input.GetAxis("Horizontal"), 0)*movespeed, ForceMode2D.Impulse);
+            if(physicsBody.velocity.magnitude > movespeed)
+            {
+               physicsBody.velocity = physicsBody.velocity.normalized * movespeed;
+            }
+*/
         }else if(dir == 0 && touchingGround){
             currentAction = "Idle";
         }
@@ -112,6 +118,7 @@ public class Moveme : MonoBehaviour
         if(touchingGround){
             if((Input.GetKey(KeyCode.UpArrow)|| 
                     Input.GetKey(KeyCode.W)) && dash != Dash.Dashing){
+                //physicsBody.drag = 0f;
                 physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 touchingGround = false;
                 currentAction = "Jumping";
@@ -121,11 +128,16 @@ public class Moveme : MonoBehaviour
                 physicsBody.AddForce(Vector2.down/2, ForceMode2D.Impulse);
             }
         }
+
+        if(physicsBody.velocity.y == 0){
+            touchingGround = true;
+        }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.gameObject.name == "Square") touchingGround = true;
-   
     }
 
     public string Action(){
