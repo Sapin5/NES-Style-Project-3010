@@ -152,9 +152,9 @@ Transform:
   m_GameObject: {fileID: 6319874082298313143}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11, y: -0.000000053941, z: 0}
-  m_LocalScale: {x: 0.07948828, y: 0.119531244, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -0.115, y: -0.000000053941, z: 0}
+  m_LocalScale: {x: 0.104328364, y: 0.15688476, z: 1.3125}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3049143949302017163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -269,7 +269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
   damage: 0
-  knockbackStrength: 5
+  knockbackStrength: 2
+  knockbackDebounce: 0.2
 --- !u!1 &8618377195278945712
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,9 +299,9 @@ Transform:
   m_GameObject: {fileID: 8618377195278945712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.11, y: -0.000000053941, z: 0}
-  m_LocalScale: {x: 0.07948828, y: 0.119531244, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.115, y: -0.000000053941, z: 0}
+  m_LocalScale: {x: 0.104328364, y: 0.15688476, z: 1.3125}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3049143949302017163}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -415,7 +416,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
   damage: 0
-  knockbackStrength: 5
+  knockbackStrength: 2
+  knockbackDebounce: 0.2
 --- !u!1 &9187216109226872673
 GameObject:
   m_ObjectHideFlags: 0
