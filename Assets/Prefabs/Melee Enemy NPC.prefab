@@ -542,7 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyRenderer: {fileID: 3739543043697955821}
   movementSpeed: 1
-  xWanderMaxDist: 4
+  xWanderMaxDist: 2
   maxIdleTime: 3
 --- !u!114 &1911341646266772489
 MonoBehaviour:

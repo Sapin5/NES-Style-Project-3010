@@ -527,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 1339648870}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.964
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 1339648870}
   damage: 0
-  knockbackStrength: 255
+  knockbackStrength: 100
 --- !u!1 &1917773440
 GameObject:
   m_ObjectHideFlags: 0
