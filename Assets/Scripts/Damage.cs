@@ -16,8 +16,15 @@ public class Damage : MonoBehaviour
     private void Update() {
         currentTimer += Time.deltaTime;
     }
-    private void OnTriggerStay2D(Collider2D other) {
-        if (other.gameObject.GetComponent<Rigidbody2D>() != null && currentTimer >= knockbackDebounce) {
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        ApplyKnockback(other);
+    }
+
+    private void ApplyKnockback(Collider2D other)
+    {
+        if (other.gameObject.GetComponent<Rigidbody2D>() != null && currentTimer >= knockbackDebounce)
+        {
             Vector2 forceDirection = new Vector2((other.transform.position.x - wielderTransform.position.x) > 0 ? 1 : -1, 0);
 
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(forceDirection * knockbackStrength, ForceMode2D.Impulse);
@@ -25,4 +32,5 @@ public class Damage : MonoBehaviour
             currentTimer = 0;
         }
     }
+
 }
