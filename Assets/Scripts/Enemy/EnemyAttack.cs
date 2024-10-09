@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor.Animations;
 
 public class EnemyAttack : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] [Range(0.1f, 3f)] private float attackDuration;
     [SerializeField] [Range(0.5f, 15f)]private float attackSpeed;
     [SerializeField] private SpriteRenderer enemyRenderer; 
+    [SerializeField] private Animator animController;
 
     
     public bool isAttacking = false;
@@ -48,6 +50,7 @@ public class EnemyAttack : MonoBehaviour
             leftWeapon.SetActive(true);
         }
         isAttacking = true;
+        animController.SetTrigger("EnemyAttack");
     }
     
     private void AttackExit()

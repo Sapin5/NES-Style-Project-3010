@@ -13,7 +13,6 @@ public class Damage : MonoBehaviour
         if (other.gameObject.GetComponent<Rigidbody2D>() != null) {
             Vector2 force = other.transform.position - wielderTransform.position;
 
-            Debug.Log("BOOM");
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(force * knockbackStrength, ForceMode2D.Impulse);
         }
     }
