@@ -16,7 +16,7 @@ public class Damage : MonoBehaviour
     private void Update() {
         currentTimer += Time.deltaTime;
     }
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerStay2D(Collider2D other) {
         if (other.gameObject.GetComponent<Rigidbody2D>() != null && currentTimer >= knockbackDebounce) {
             Vector2 forceDirection = new Vector2((other.transform.position.x - wielderTransform.position.x) > 0 ? 1 : -1, 0);
 

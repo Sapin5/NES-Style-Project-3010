@@ -50,7 +50,7 @@ public class EnemyAttack : MonoBehaviour
             leftWeapon.SetActive(true);
         }
         isAttacking = true;
-        animController.SetTrigger("EnemyAttack");
+        animController.SetBool("EnemyAttack", true);
     }
     
     private void AttackExit()
@@ -59,5 +59,6 @@ public class EnemyAttack : MonoBehaviour
         rightWeapon.SetActive(false);
         currentTimer = 0;
         isAttacking = false;
+        animController.SetBool("EnemyAttack", false);
     }
 }
