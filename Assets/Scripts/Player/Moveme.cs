@@ -1,25 +1,28 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class Moveme : MonoBehaviour
 {
     [SerializeField]private float jumpForce, dashForce, movespeed;
     private Rigidbody2D physicsBody;
-    public enum Dash {Ready, Dashing,End, CoolDown};
+    public enum Dash {Ready, Dashing, CoolDown, End};
     public Dash dash;
     private Transform player;
-    private bool touchingGround, spacePressed;
+    [SerializeField]private bool touchingGround, spacePressed;
     private float timer;
-    private string currentAction, lastAction;
+    private string currentAction;
+    private bool dashing = false;
 
+    private RigidbodyConstraints2D originalConstraints;
+    
     void Awake(){
-        currentAction = "Idle";
-    }
-    private void Start()
-    {
         player = GetComponent<Transform>().GetChild(0);
         physicsBody = GetComponent<Rigidbody2D>();
+        currentAction = "Idle";
+        originalConstraints = physicsBody.constraints;
     }
+
     void Update()
     {
         Jumping();
@@ -33,35 +36,31 @@ public class Moveme : MonoBehaviour
 
     private void DashAbility(){
         int direction = transform.rotation.y == 0 ? -1 : 1;
-
+        if(Input.GetKey(KeyCode.LeftShift) && !dashing){
+            dash = Dash.Dashing;
+            currentAction = "Dashing";
+            dashing = true;
+        }
         switch(dash){
             case Dash.Ready:
-                if(Input.GetKey(KeyCode.LeftShift)){
-                    dash = Dash.Dashing;
-                }
-                //Debug.Log("Ready to Dash");
                 break;
             case Dash.Dashing:
                 physicsBody.constraints = RigidbodyConstraints2D.FreezePositionY;
                 physicsBody.AddForce(dashForce * direction * Vector2.left, ForceMode2D.Impulse);
-                currentAction = "Dashing";
-                Timer(0.1f, Dash.End);
-                //Debug.Log("Dashing");
-                break;
-            case Dash.End:
-                physicsBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                physicsBody.constraints = RigidbodyConstraints2D.None;
-                physicsBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                dash = Dash.CoolDown;
-                //Debug.Log("Dash Ended");
+                Timer(0.1f, Dash.CoolDown);
+                
                 break;
             case Dash.CoolDown:
-                //Debug.Log("On Cooldown");
-                Timer(1f, Dash.Ready);
+                physicsBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                physicsBody.constraints = originalConstraints;
+                dash = Dash.End;
+                break;
+            case Dash.End:
+                if(Timer(1f,  Dash.Ready)) dashing = false;
                 break;
         }
     }
-    public void Timer(float delay, Dash dash){
+    public bool Timer(float delay, Dash dash){
         timer+=Time.deltaTime;
         // Switches when timer becomes greater than the delay
         if(timer>delay){
@@ -69,8 +68,10 @@ public class Moveme : MonoBehaviour
             timer=0;
             // Switches firingState to whatver state was passed
             this.dash = dash;
-        }
+            return true;
+        }else return false;
     }
+    
 
     private void Movement(){
         float dir = Input.GetAxis("Horizontal");
@@ -78,18 +79,17 @@ public class Moveme : MonoBehaviour
         if (dir != 0) { 
             transform.rotation = Quaternion.Euler(0, dir > 0 ? 0 : 180, 0);
             transform.Translate((dir > 0 ? dir : -dir) * Time.deltaTime * movespeed, 0, 0);
-/* Reworking Movement, plz dont touch
-            physicsBody.AddForce(new Vector2(Input.GetAxis("Horizontal"), 0)*movespeed, ForceMode2D.Impulse);
-            if(physicsBody.velocity.magnitude > movespeed)
-            {
-               physicsBody.velocity = physicsBody.velocity.normalized * movespeed;
-            }
-*/
-        }else if(dir == 0 && touchingGround){
-            currentAction = "Idle";
+        /* Reworking Movement, plz dont touch
+                    physicsBody.AddForce(new Vector2(Input.GetAxis("Horizontal"), 0)*movespeed, ForceMode2D.Impulse);
+                    if(physicsBody.velocity.magnitude > movespeed)
+                    {
+                    physicsBody.velocity = physicsBody.velocity.normalized * movespeed;
+                    }
+        */
         }
-
-        if(touchingGround && dir!=0){
+        if(dir == 0 && touchingGround && dash != Dash.Dashing && dash != Dash.CoolDown){
+            currentAction = "Idle";
+        }else if(touchingGround && dir!=0 && dash != Dash.Dashing && dash != Dash.CoolDown){
             currentAction = "Walking";
         }
     }
@@ -97,7 +97,6 @@ public class Moveme : MonoBehaviour
     private void Attack(){
         if(Input.GetKey(KeyCode.Space) && !spacePressed){
             spacePressed = true;
-            lastAction = currentAction;
         }
 
         if(spacePressed){
@@ -107,10 +106,9 @@ public class Moveme : MonoBehaviour
 
             if(timer>=0.3f){
                 player.GameObject().SetActive(false);
-                currentAction = lastAction;
                 spacePressed = false;
                 timer = 0;
-            }
+           }
         }
     }
     
@@ -118,10 +116,8 @@ public class Moveme : MonoBehaviour
         if(touchingGround){
             if((Input.GetKey(KeyCode.UpArrow)|| 
                     Input.GetKey(KeyCode.W)) && dash != Dash.Dashing){
-                //physicsBody.drag = 0f;
                 physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 touchingGround = false;
-                currentAction = "Jumping";
             }
         }else{
             if(Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S)){
@@ -129,18 +125,16 @@ public class Moveme : MonoBehaviour
             }
         }
 
-        if(physicsBody.velocity.y == 0){
+        if(physicsBody.velocity.y != 0){
+            currentAction = "Jumping";
+            touchingGround = false;
+        }else{
             touchingGround = true;
         }
-
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.name == "Square") touchingGround = true;
     }
 
     public string Action(){
         return currentAction;
     }
+
 }
