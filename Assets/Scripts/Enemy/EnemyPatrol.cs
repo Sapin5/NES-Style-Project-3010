@@ -11,6 +11,8 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private float xWanderMaxDist;
     [SerializeField] [Range(1f, 10f)] private float maxIdleTime;
 
+    [SerializeField] private Animator enemyAnimator;
+
     private Vector3 originPos;
     private float currentTimer;
     private float idleTime;
@@ -40,6 +42,7 @@ public class EnemyPatrol : MonoBehaviour
 
                 //Flip the enemy sprite depending on direction
                 enemyRenderer.flipX = direction == 1 ? false : true;
+                enemyAnimator.SetBool("EnemyWalk", true);
 
             } else {
                 CreateNewPath();
@@ -54,5 +57,6 @@ public class EnemyPatrol : MonoBehaviour
         endPosX = originPos.x + Random.Range(-xWanderMaxDist, xWanderMaxDist);
         
         direction = endPosX > transform.position.x ? 1 : -1;
+        enemyAnimator.SetBool("EnemyWalk", false);
     }    
 }
