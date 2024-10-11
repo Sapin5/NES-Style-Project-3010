@@ -16,6 +16,7 @@ public class Damage : MonoBehaviour
     private void Update() {
         currentTimer += Time.deltaTime;
     }
+    
     private void OnTriggerStay2D(Collider2D other)
     {
         ApplyKnockback(other);
