@@ -2,22 +2,22 @@ using UnityEngine;
 
 public class CamBehaviour : MonoBehaviour
 {
-    public Transform player;
+    [SerializeField]private Transform player;
 
-    public Vector3 offset;
+    [SerializeField]private Vector3 offset = new Vector3(0f, 0.5f, -10f);
 
-    public float smoothSpeed = 0.125f;
+    [SerializeField]private float smoothSpeed = 1;
+    private void Awake() {
+        if(player == null){
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+    }
 
     private void Update() {
         if (player != null)
         {
-            // Target position for the camera
             Vector3 targetPosition = player.position + offset;
-
-            // Smoothly move the camera towards the target position
             Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed);
-
-            // Set the camera's position to the smoothed position
             transform.position = smoothedPosition;
         }
     }

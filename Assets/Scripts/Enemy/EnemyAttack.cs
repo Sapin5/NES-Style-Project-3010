@@ -8,7 +8,11 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private SpriteRenderer enemyRenderer;
 
     int xDirection = 1;
-    
+    private void Awake() {
+        if(playerPos == null){
+            playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+    }
     public void ChooseDirection() {
         xDirection = playerPos.position.x - transform.position.x > 0 ? 1 : -1;
         

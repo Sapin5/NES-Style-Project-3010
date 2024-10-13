@@ -8,6 +8,11 @@ public class Damage : MonoBehaviour
     [SerializeField] [Range(0.1f, 2f)] private float knockbackDebounce;
 
     private float currentTimer = 0;
+    void Awake(){
+        if(wielderTransform == null){
+            wielderTransform = GetComponent<Transform>();
+        }
+    }
 
     public float GetDamage() {
         return damage;
