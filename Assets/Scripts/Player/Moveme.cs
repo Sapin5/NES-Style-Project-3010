@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -5,7 +6,7 @@ using UnityEngine.SocialPlatforms;
 
 public class Moveme : MonoBehaviour
 {
-    [SerializeField]private float jumpForce, dashForce, movespeed, duration =0.5f;
+    [SerializeField]private float jumpForce, dashForce, movespeed, duration=0.5f;
     private Rigidbody2D physicsBody;
     public enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
@@ -14,7 +15,6 @@ public class Moveme : MonoBehaviour
     private float timer;
     private string currentAction;
     private bool dashing;
-
     private int direction;
     private RigidbodyConstraints2D originalConstraints;
     
@@ -41,13 +41,13 @@ public class Moveme : MonoBehaviour
 
     private void DashAbility(){
         float dir = Input.GetAxis("Horizontal");
+
         if(dir < 0){
             direction = -1;
         }else if(dir>0){
             direction = 1;
         }
-        
-        Debug.Log(direction);
+
         if(Input.GetKey(KeyCode.LeftShift) && !dashing){
             dash = Dash.Dashing;
             currentAction = "Dashing";
@@ -57,7 +57,6 @@ public class Moveme : MonoBehaviour
             case Dash.Ready:
                 break;
             case Dash.Dashing:
-                //physicsBody.AddForce(new Vector2(dashForce*direction, 0)+physicsBody.velocity, ForceMode2D.Impulse);
                 physicsBody.velocity = new Vector2((dashForce+movespeed)*direction, physicsBody.velocity.y);
 
                 Timer(duration, Dash.CoolDown);
@@ -92,10 +91,10 @@ public class Moveme : MonoBehaviour
             playerArt.rotation = Quaternion.Euler(0, dir > 0 ? 0 : 180, 0);
             physicsBody.velocity = new Vector2(movespeed*dir, physicsBody.velocity.y);
         }
-        if(dir == 0 && touchingGround && dash != Dash.Dashing && dash != Dash.CoolDown){
+        if(dir == 0 && touchingGround && Dashstate()){
             physicsBody.velocity = new Vector2(0, physicsBody.velocity.y);
             currentAction = "Idle";
-        }else if(touchingGround && dir!=0 && dash != Dash.Dashing && dash != Dash.CoolDown){
+        }else if(touchingGround && dir!=0 && Dashstate()){
             currentAction = "Walking";
         }
     }
@@ -120,8 +119,8 @@ public class Moveme : MonoBehaviour
     
     private void Jumping(){
         if(touchingGround){
-            if((Input.GetKey(KeyCode.UpArrow)|| 
-                    Input.GetKey(KeyCode.W)) && Dashstate()){
+            if((Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W))
+                            && Dashstate()){
                 physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 touchingGround = false;
             }
@@ -146,5 +145,4 @@ public class Moveme : MonoBehaviour
     public string Action(){
         return currentAction;
     }
-
 }
