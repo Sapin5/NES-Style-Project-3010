@@ -8,6 +8,12 @@ public class EnemyChase : MonoBehaviour
     [SerializeField] private float chaseSpeed;
     [SerializeField] private SpriteRenderer enemyRenderer; 
 
+    private void Awake() {
+        if(playerPos == null){
+            playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+    }
+
     private void Update() {
         ChasePlayer();
     }

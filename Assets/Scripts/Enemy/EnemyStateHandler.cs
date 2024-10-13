@@ -17,6 +17,11 @@ public class EnemyStateHandler : MonoBehaviour
 
     private Animator enemyAnimator;
 
+    private void Awake() {
+        if(playerPos == null){
+            playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        }
+    }
     private void Start() {
         enemyAnimator = GetComponent<Animator>();
     }
