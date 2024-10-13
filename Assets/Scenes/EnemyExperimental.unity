@@ -749,7 +749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02cde8c3e3ec8749a0a9f4ad5ae7c51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 1
 --- !u!95 &1108692292
 Animator:
   serializedVersion: 5
@@ -832,7 +831,9 @@ MonoBehaviour:
   jumpForce: 5
   dashForce: 3
   movespeed: 5
-  dash: 0
+  duration: 0.5
+  touchingGround: 0
+  spacePressed: 0
 --- !u!4 &1339648870
 Transform:
   m_ObjectHideFlags: 0
@@ -1132,7 +1133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35bd6b6ee21579d4bbd4c50443a20c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wielderTransform: {fileID: 1339648870}
+  wielderTransform: {fileID: 0}
   damage: 20
   knockbackStrength: 25
   knockbackDebounce: 0.2
