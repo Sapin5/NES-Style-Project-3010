@@ -101,7 +101,7 @@ public class Moveme : MonoBehaviour
     }
 
     private void Attack(){
-        if(Input.GetKey(KeyCode.Space) && !spacePressed && dash != Dash.Dashing && dash != Dash.CoolDown){
+        if(Input.GetKey(KeyCode.Space) && !spacePressed && Dashstate()){
             spacePressed = true;
         }
 
@@ -121,7 +121,7 @@ public class Moveme : MonoBehaviour
     private void Jumping(){
         if(touchingGround){
             if((Input.GetKey(KeyCode.UpArrow)|| 
-                    Input.GetKey(KeyCode.W)) && dash != Dash.Dashing && dash != Dash.CoolDown){
+                    Input.GetKey(KeyCode.W)) && Dashstate()){
                 physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 touchingGround = false;
             }
@@ -131,12 +131,16 @@ public class Moveme : MonoBehaviour
             }
         }
 
-        if(physicsBody.velocity.y != 0 && dash != Dash.Dashing && dash != Dash.CoolDown){
+        if(physicsBody.velocity.y != 0 && Dashstate()){
             currentAction = "Jumping";
             touchingGround = false;
         }else{
             touchingGround = true;
         }
+    }
+
+    private bool Dashstate(){
+        return dash != Dash.Dashing && dash != Dash.CoolDown;
     }
 
     public string Action(){
