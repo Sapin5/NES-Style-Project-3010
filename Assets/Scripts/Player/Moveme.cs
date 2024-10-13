@@ -1,41 +1,53 @@
+using System;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
 public class Moveme : MonoBehaviour
 {
-    [SerializeField]private float jumpForce, dashForce, movespeed;
+    [SerializeField]private float jumpForce, dashForce, movespeed, duration=0.5f;
     private Rigidbody2D physicsBody;
     public enum Dash {Ready, Dashing, CoolDown, End};
-    public Dash dash;
-    private Transform player;
+    private Dash dash;
+    private Transform playerDmgBox, playerArt;
     [SerializeField]private bool touchingGround, spacePressed;
     private float timer;
     private string currentAction;
-    private bool dashing = false;
-
+    private bool dashing;
+    private int direction;
     private RigidbodyConstraints2D originalConstraints;
     
     void Awake(){
-        player = GetComponent<Transform>().GetChild(0);
+        playerDmgBox = GetComponent<Transform>().GetChild(0);
+        playerArt = GetComponent<Transform>().GetChild(1);
         physicsBody = GetComponent<Rigidbody2D>();
         currentAction = "Idle";
         originalConstraints = physicsBody.constraints;
+        dashing = false;
+        direction = 1;
     }
 
     void Update()
     {
-        Jumping();
         Attack();
     }
 
     void FixedUpdate(){
-        DashAbility();
+        Jumping();
         Movement();
+        DashAbility();
     }
 
     private void DashAbility(){
-        int direction = transform.rotation.y == 0 ? -1 : 1;
+        float dir = Input.GetAxis("Horizontal");
+
+        if(dir < 0){
+            direction = -1;
+        }else if(dir>0){
+            direction = 1;
+        }
+
         if(Input.GetKey(KeyCode.LeftShift) && !dashing){
             dash = Dash.Dashing;
             currentAction = "Dashing";
@@ -45,13 +57,12 @@ public class Moveme : MonoBehaviour
             case Dash.Ready:
                 break;
             case Dash.Dashing:
-                physicsBody.constraints = RigidbodyConstraints2D.FreezePositionY;
-                physicsBody.AddForce(dashForce * direction * Vector2.left, ForceMode2D.Impulse);
-                Timer(0.1f, Dash.CoolDown);
-                
+                physicsBody.velocity = new Vector2((dashForce+movespeed)*direction, physicsBody.velocity.y);
+
+                Timer(duration, Dash.CoolDown);
                 break;
             case Dash.CoolDown:
-                physicsBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                physicsBody.constraints = RigidbodyConstraints2D.FreezePositionX;
                 physicsBody.constraints = originalConstraints;
                 dash = Dash.End;
                 break;
@@ -75,37 +86,31 @@ public class Moveme : MonoBehaviour
 
     private void Movement(){
         float dir = Input.GetAxis("Horizontal");
-
-        if (dir != 0) { 
-            transform.rotation = Quaternion.Euler(0, dir > 0 ? 0 : 180, 0);
-            transform.Translate((dir > 0 ? dir : -dir) * Time.deltaTime * movespeed, 0, 0);
-        /* Reworking Movement, plz dont touch
-                    physicsBody.AddForce(new Vector2(Input.GetAxis("Horizontal"), 0)*movespeed, ForceMode2D.Impulse);
-                    if(physicsBody.velocity.magnitude > movespeed)
-                    {
-                    physicsBody.velocity = physicsBody.velocity.normalized * movespeed;
-                    }
-        */
+        if (dir != 0) {
+            playerDmgBox.localPosition = new Vector2(dir > 0 ? 0.2f : -0.24f, 0f);
+            playerArt.rotation = Quaternion.Euler(0, dir > 0 ? 0 : 180, 0);
+            physicsBody.velocity = new Vector2(movespeed*dir, physicsBody.velocity.y);
         }
-        if(dir == 0 && touchingGround && dash != Dash.Dashing && dash != Dash.CoolDown){
+        if(dir == 0 && touchingGround && Dashstate()){
+            physicsBody.velocity = new Vector2(0, physicsBody.velocity.y);
             currentAction = "Idle";
-        }else if(touchingGround && dir!=0 && dash != Dash.Dashing && dash != Dash.CoolDown){
+        }else if(touchingGround && dir!=0 && Dashstate()){
             currentAction = "Walking";
         }
     }
 
     private void Attack(){
-        if(Input.GetKey(KeyCode.Space) && !spacePressed){
+        if(Input.GetKey(KeyCode.Space) && !spacePressed && Dashstate()){
             spacePressed = true;
         }
 
         if(spacePressed){
             timer+=Time.deltaTime;
-            player.GameObject().SetActive(true);
+            playerDmgBox.GameObject().SetActive(true);
             currentAction = "Attacking";
 
             if(timer>=0.3f){
-                player.GameObject().SetActive(false);
+                playerDmgBox.GameObject().SetActive(false);
                 spacePressed = false;
                 timer = 0;
            }
@@ -114,8 +119,8 @@ public class Moveme : MonoBehaviour
     
     private void Jumping(){
         if(touchingGround){
-            if((Input.GetKey(KeyCode.UpArrow)|| 
-                    Input.GetKey(KeyCode.W)) && dash != Dash.Dashing){
+            if((Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W))
+                            && Dashstate()){
                 physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 touchingGround = false;
             }
@@ -125,7 +130,7 @@ public class Moveme : MonoBehaviour
             }
         }
 
-        if(physicsBody.velocity.y != 0){
+        if(physicsBody.velocity.y != 0 && Dashstate()){
             currentAction = "Jumping";
             touchingGround = false;
         }else{
@@ -133,8 +138,11 @@ public class Moveme : MonoBehaviour
         }
     }
 
+    private bool Dashstate(){
+        return dash != Dash.Dashing && dash != Dash.CoolDown;
+    }
+
     public string Action(){
         return currentAction;
     }
-
 }
