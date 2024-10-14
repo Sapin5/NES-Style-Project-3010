@@ -22,6 +22,7 @@ public class EnemyStateHandler : MonoBehaviour
             playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
     }
+    
     private void Start() {
         enemyAnimator = GetComponent<Animator>();
     }

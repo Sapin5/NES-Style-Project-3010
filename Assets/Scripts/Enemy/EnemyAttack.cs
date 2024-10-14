@@ -14,6 +14,7 @@ public class EnemyAttack : MonoBehaviour
             playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         }
     }
+    
     public void ChooseDirection() {
         xDirection = playerPos.position.x - transform.position.x > 0 ? 1 : -1;
         

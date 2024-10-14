@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    [SerializeField] Transform wielderTransform;
+    [SerializeField] private Transform wielderTransform;
     [SerializeField] private float damage;
     [SerializeField] private float knockbackStrength;
     [SerializeField] [Range(0.1f, 2f)] private float knockbackDebounce;
 
     private float currentTimer = 0;
+
     void Awake(){
         if(wielderTransform == null){
             wielderTransform = GetComponent<Transform>();
