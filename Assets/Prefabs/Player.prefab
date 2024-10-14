@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   dashForce: 3
-  movespeed: 5
+  movespeed: 3
   duration: 0.5
   touchingGround: 0
   spacePressed: 0

@@ -6,11 +6,13 @@ using UnityEngine.SocialPlatforms;
 
 public class Moveme : MonoBehaviour
 {
+    [SerializeField] private Vector2 boxSize = new(1f, 1f);
+    [SerializeField] private Vector2 boxLoc = new(1f, 1f);
     [SerializeField]private float jumpForce, dashForce, movespeed, duration=0.5f;
     private Rigidbody2D physicsBody;
-    public enum Dash {Ready, Dashing, CoolDown, End};
+    [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
-    private Transform playerDmgBox, playerArt;
+    private Transform playerDmgBox, playerArt, dashCollider, normalCollider;
     [SerializeField]private bool touchingGround, spacePressed;
     private float timer;
     private string currentAction;
@@ -21,6 +23,9 @@ public class Moveme : MonoBehaviour
     void Awake(){
         playerDmgBox = GetComponent<Transform>().GetChild(0);
         playerArt = GetComponent<Transform>().GetChild(1);
+        normalCollider =  GetComponent<Transform>().GetChild(2);
+        dashCollider = GetComponent<Transform>().GetChild(3);
+
         physicsBody = GetComponent<Rigidbody2D>();
         currentAction = "Idle";
         originalConstraints = physicsBody.constraints;
@@ -57,11 +62,14 @@ public class Moveme : MonoBehaviour
             case Dash.Ready:
                 break;
             case Dash.Dashing:
+                normalCollider.GameObject().SetActive(false);
+                dashCollider.GameObject().SetActive(true);
                 physicsBody.velocity = new Vector2((dashForce+movespeed)*direction, physicsBody.velocity.y);
-
                 Timer(duration, Dash.CoolDown);
                 break;
             case Dash.CoolDown:
+                normalCollider.GameObject().SetActive(true);
+                dashCollider.GameObject().SetActive(false);
                 physicsBody.constraints = RigidbodyConstraints2D.FreezePositionX;
                 physicsBody.constraints = originalConstraints;
                 dash = Dash.End;
@@ -71,7 +79,7 @@ public class Moveme : MonoBehaviour
                 break;
         }
     }
-    public bool Timer(float delay, Dash dash){
+    private bool Timer(float delay, Dash dash){
         timer+=Time.deltaTime;
         // Switches when timer becomes greater than the delay
         if(timer>delay){
@@ -87,7 +95,8 @@ public class Moveme : MonoBehaviour
     private void Movement(){
         float dir = Input.GetAxis("Horizontal");
         if (dir != 0) {
-            playerDmgBox.localPosition = new Vector2(dir > 0 ? 0.2f : -0.24f, 0f);
+            playerDmgBox.localPosition = new Vector2(dir > 0 ? 0.2f : -0.2f, 0f);
+            normalCollider.localPosition = new Vector2(dir > 0 ? 0f : 0.04f, 0f);
             playerArt.rotation = Quaternion.Euler(0, dir > 0 ? 0 : 180, 0);
             physicsBody.velocity = new Vector2(movespeed*dir, physicsBody.velocity.y);
         }
@@ -125,7 +134,7 @@ public class Moveme : MonoBehaviour
                 touchingGround = false;
             }
         }else{
-            if(Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S)){
+            if((Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S)) && physicsBody.velocity.y != 0){
                 physicsBody.AddForce(Vector2.down/2, ForceMode2D.Impulse);
             }
         }
@@ -133,9 +142,34 @@ public class Moveme : MonoBehaviour
         if(physicsBody.velocity.y != 0 && Dashstate()){
             currentAction = "Jumping";
             touchingGround = false;
-        }else{
+        }else if(TouchGround()){
             touchingGround = true;
         }
+
+    }
+
+    private bool TouchGround(){
+        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
+
+        if(temp){
+            if(temp.transform.CompareTag("Ground")){
+                Debug.Log("Collided with " + temp.transform.name);
+                return true;
+                }else{
+                    return false;
+                }
+        }else{
+            Debug.Log("Collided with nothing");
+            return false;
+        }
+
+    }
+
+    void OnDrawGizmos()
+    {
+        // Draw a semitransparent red cube at the transforms position
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
+        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize);
     }
 
     private bool Dashstate(){
