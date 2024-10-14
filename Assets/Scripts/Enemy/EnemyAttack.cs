@@ -1,13 +1,14 @@
 using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
-    [SerializeField] private Transform playerPos;
     [SerializeField] private GameObject rightWeapon;
     [SerializeField] private GameObject leftWeapon;
     
     [SerializeField] private SpriteRenderer enemyRenderer;
 
-    int xDirection = 1;
+    private int xDirection = 1;
+    private Transform playerPos;
+
     private void Awake() {
         if(playerPos == null){
             playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();

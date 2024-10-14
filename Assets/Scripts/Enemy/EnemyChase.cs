@@ -4,9 +4,10 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     [Header("Chasing Properties:")]
-    [SerializeField] private Transform playerPos;
     [SerializeField] private float chaseSpeed;
     [SerializeField] private SpriteRenderer enemyRenderer; 
+
+    private Transform playerPos;
 
     private void Awake() {
         if(playerPos == null){

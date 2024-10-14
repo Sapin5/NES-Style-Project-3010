@@ -7,7 +7,6 @@ using UnityEngine;
 public class EnemyStateHandler : MonoBehaviour
 {
     [Header("Enemy State Properties:")]
-    [SerializeField] private Transform playerPos;
     [SerializeField] private Vector2 chaseRange;
     [SerializeField] private Vector2 attackRange;
 
@@ -16,6 +15,7 @@ public class EnemyStateHandler : MonoBehaviour
     [SerializeField] private EnemyAttack attackingState;
 
     private Animator enemyAnimator;
+    private Transform playerPos;
 
     private void Awake() {
         if(playerPos == null){
