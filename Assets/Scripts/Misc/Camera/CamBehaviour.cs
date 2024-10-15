@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CamBehaviour : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class CamBehaviour : MonoBehaviour
     }
 
     private void Update() {
+
+        if(Input.GetKey(KeyCode.Escape)){
+            Application.Quit();
+            Debug.Log("Diddy time");
+        }
+
         if (player != null)
         {
             Vector3 targetPosition = player.position + offset;
