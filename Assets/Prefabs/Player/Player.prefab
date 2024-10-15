@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3841748179336213469}
   damage: 10
-  knockbackStrength: 4
+  knockbackStrength: 20
   knockbackDebounce: 0.25
 --- !u!1 &5621745969966188425
 GameObject:
