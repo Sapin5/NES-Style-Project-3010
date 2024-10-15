@@ -394,7 +394,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 151394341}
-  - component: {fileID: 151394340}
   - component: {fileID: 151394339}
   - component: {fileID: 151394338}
   m_Layer: 0
@@ -538,14 +537,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &151394340
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 151394337}
-  m_CullTransparentMesh: 1
 --- !u!224 &151394341
 RectTransform:
   m_ObjectHideFlags: 0
@@ -574,7 +565,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154208772}
-  - component: {fileID: 154208771}
   - component: {fileID: 154208770}
   - component: {fileID: 154208769}
   m_Layer: 0
@@ -718,14 +708,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &154208771
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154208768}
-  m_CullTransparentMesh: 1
 --- !u!224 &154208772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -754,7 +736,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 155319642}
-  - component: {fileID: 155319641}
   - component: {fileID: 155319640}
   - component: {fileID: 155319639}
   m_Layer: 0
@@ -898,14 +879,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &155319641
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155319638}
-  m_CullTransparentMesh: 1
 --- !u!224 &155319642
 RectTransform:
   m_ObjectHideFlags: 0
@@ -991,7 +964,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173087326}
-  - component: {fileID: 173087325}
   - component: {fileID: 173087324}
   - component: {fileID: 173087323}
   m_Layer: 0
@@ -1135,14 +1107,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &173087325
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 173087322}
-  m_CullTransparentMesh: 1
 --- !u!224 &173087326
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2973,7 +2937,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 765277911}
-  - component: {fileID: 765277910}
   - component: {fileID: 765277909}
   - component: {fileID: 765277908}
   m_Layer: 0
@@ -3117,14 +3080,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &765277910
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765277907}
-  m_CullTransparentMesh: 1
 --- !u!224 &765277911
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4255,7 +4210,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1139866040}
-  - component: {fileID: 1139866039}
   - component: {fileID: 1139866038}
   - component: {fileID: 1139866037}
   m_Layer: 0
@@ -4399,14 +4353,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &1139866039
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1139866036}
-  m_CullTransparentMesh: 1
 --- !u!224 &1139866040
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6410,7 +6356,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1810759865}
-  - component: {fileID: 1810759864}
   - component: {fileID: 1810759863}
   - component: {fileID: 1810759862}
   m_Layer: 0
@@ -6554,14 +6499,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &1810759864
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1810759861}
-  m_CullTransparentMesh: 1
 --- !u!224 &1810759865
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7599,7 +7536,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2111159916}
-  - component: {fileID: 2111159915}
   - component: {fileID: 2111159914}
   - component: {fileID: 2111159913}
   m_Layer: 0
@@ -7743,14 +7679,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!222 &2111159915
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111159912}
-  m_CullTransparentMesh: 1
 --- !u!224 &2111159916
 RectTransform:
   m_ObjectHideFlags: 0
