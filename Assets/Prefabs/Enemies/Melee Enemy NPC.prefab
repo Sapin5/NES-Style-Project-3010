@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 963995002707966587}
   - component: {fileID: 3609831174984638828}
   - component: {fileID: 5180294861595434745}
-  - component: {fileID: 8460579578769555401}
+  - component: {fileID: 6405310645410700293}
   m_Layer: 3
   m_Name: Melee Enemy NPC
   m_TagString: Untagged
@@ -521,12 +521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fc4a27b2f26a646ab524a0a63a74f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
   chaseRange: {x: 2, y: 0.4}
   attackRange: {x: 0.5, y: 0.4}
   chasingState: {fileID: 963995002707966587}
   patrollingState: {fileID: 3517572009196856664}
   attackingState: {fileID: 3609831174984638828}
+  rangeAttackingState: {fileID: 0}
 --- !u!114 &963995002707966587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8460579578769555401
+--- !u!114 &6405310645410700293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

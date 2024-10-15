@@ -14,7 +14,15 @@ public class Platform : MonoBehaviour
     private float currentTimer;
 
     private void Awake() {
-        playerBody = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        GameObject[] playerObjects = FindObjectsOfType<GameObject>();
+        
+        playerBody = null;
+        foreach (GameObject item in playerObjects) {
+            if (item.GetComponent<Rigidbody2D>() != null) {
+                playerBody = item.GetComponent<Rigidbody2D>();
+            }
+        }
+        
         platformEffector = GetComponent<PlatformEffector2D>();
         platformEffector.surfaceArc = surfaceArc;
 
@@ -25,8 +33,9 @@ public class Platform : MonoBehaviour
         bool registerDownInput = Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S);
         currentTimer += Time.deltaTime;
 
+
         if (playerBody != null && registerDownInput && playerBody.velocity.y == 0f) {
-            Debug.Log("Going Down");
+
             platformEffector.colliderMask = excludePlayerMask;
             currentTimer = 0f;
 
