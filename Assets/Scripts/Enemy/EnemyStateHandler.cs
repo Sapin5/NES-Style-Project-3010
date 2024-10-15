@@ -3,7 +3,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(EnemyPatrol))]
 [RequireComponent(typeof(EnemyChase))]
-[RequireComponent(typeof(EnemyAttack))]
 public class EnemyStateHandler : MonoBehaviour
 {
     [Header("Enemy State Properties:")]
@@ -13,6 +12,7 @@ public class EnemyStateHandler : MonoBehaviour
     [SerializeField] private EnemyChase chasingState;
     [SerializeField] private EnemyPatrol patrollingState;
     [SerializeField] private EnemyAttack attackingState;
+    [SerializeField] private EnemyRangeAttack rangeAttackingState;
 
     private Animator enemyAnimator;
     private Transform playerPos;
@@ -56,7 +56,12 @@ public class EnemyStateHandler : MonoBehaviour
         if (enemyAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Idle") {
             patrollingState.enabled = true;
             chasingState.enabled = false;
-            attackingState.enabled = false;
+
+            if (attackingState != null) {
+                attackingState.enabled = false;
+            } else if (rangeAttackingState != null) {
+                rangeAttackingState.enabled = false;
+            }
         }
         
 
@@ -70,16 +75,25 @@ public class EnemyStateHandler : MonoBehaviour
 
         if (enemyAnimator.GetCurrentAnimatorClipInfo(0)[0].clip.name == "Walk") {
             chasingState.enabled = true;
-            attackingState.enabled = false;
             patrollingState.enabled = false;
+
+            if (attackingState != null) {
+                attackingState.enabled = false;
+            } else if (rangeAttackingState != null) {
+                rangeAttackingState.enabled = false;
+            }
         }
         
     }
 
     private void EnterAttackingState() {
         Debug.Log("Enemy is now attacking!");
-
-        attackingState.enabled = true;
+        
+        if (attackingState != null) {
+            attackingState.enabled = true;
+        } else if (rangeAttackingState != null) {
+            rangeAttackingState.enabled = true;
+        }
 
         chasingState.enabled = false;
         patrollingState.enabled = false;
