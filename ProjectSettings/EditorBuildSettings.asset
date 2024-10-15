@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/EnemyExperimental.unity
+    path: Assets/Scenes/Kenstinkyscene.unity
     guid: f384f3173b9094549aae956e9a1afc77
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9ee12d55f8ff8374e9f261f1134ebe89, type: 2}
