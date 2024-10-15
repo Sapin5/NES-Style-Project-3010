@@ -9,7 +9,7 @@ public class Moveme : MonoBehaviour
     [SerializeField] private Vector2 boxSize = new(1f, 1f);
     [SerializeField] private Vector2 boxLoc = new(1f, 1f);
     [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown;
-    [SerializeField]private bool touchingGround, spacePressed;
+    [SerializeField]private bool touchingGround, spacePressed, doubleJump;
     [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
     private Rigidbody2D physicsBody;
@@ -135,11 +135,16 @@ public class Moveme : MonoBehaviour
     }
     
     private void Jumping(){
+        if(physicsBody.velocity.y < 5 && physicsBody.velocity.y > -100000000){
+            DoubleJump();
+        }
+
         if(touchingGround){
             if((Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W))
                             && Dashstate()){
-                physicsBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce);
                 touchingGround = false;
+                doubleJump = true;
             }
         }else{
             if((Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S)) && physicsBody.velocity.y != 0){
@@ -152,6 +157,16 @@ public class Moveme : MonoBehaviour
             touchingGround = false;
         }else if(TouchGround()){
             touchingGround = true;
+        }
+    }
+
+    private void DoubleJump(){
+        if(!touchingGround && doubleJump){
+            if((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W))
+                            && Dashstate()){
+                physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce/1.5f);
+                doubleJump = false;
+            }
         }
     }
 
