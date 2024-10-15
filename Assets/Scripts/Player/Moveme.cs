@@ -8,7 +8,7 @@ public class Moveme : MonoBehaviour
 {
     [SerializeField] private Vector2 boxSize = new(1f, 1f);
     [SerializeField] private Vector2 boxLoc = new(1f, 1f);
-    [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown;
+    [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown, doubleJumpStr;
     [SerializeField]private bool touchingGround, spacePressed, doubleJump;
     [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
@@ -157,14 +157,14 @@ public class Moveme : MonoBehaviour
             touchingGround = false;
         }else if(TouchGround()){
             touchingGround = true;
+            doubleJump = false;
         }
     }
 
     private void DoubleJump(){
         if(!touchingGround && doubleJump){
-            if((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W))
-                            && Dashstate()){
-                physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce/1.5f);
+            if((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W)) && Dashstate()){
+                physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce/doubleJumpStr);
                 doubleJump = false;
             }
         }
