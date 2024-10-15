@@ -8,16 +8,17 @@ public class Moveme : MonoBehaviour
 {
     [SerializeField] private Vector2 boxSize = new(1f, 1f);
     [SerializeField] private Vector2 boxLoc = new(1f, 1f);
-    [SerializeField]private float jumpForce, dashForce, movespeed, duration=0.5f;
-    private Rigidbody2D physicsBody;
+    [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown;
+    [SerializeField]private bool touchingGround, spacePressed;
     [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
-    private Transform playerDmgBox, playerArt, dashCollider, normalCollider;
-    [SerializeField]private bool touchingGround, spacePressed;
+    private Rigidbody2D physicsBody;
     private float timer;
     private string currentAction;
     private bool dashing;
     private int direction;
+    private Transform playerDmgBox, playerArt, dashCollider, normalCollider;
+
     private RigidbodyConstraints2D originalConstraints;
     
     void Awake(){
@@ -75,10 +76,15 @@ public class Moveme : MonoBehaviour
                 dash = Dash.End;
                 break;
             case Dash.End:
-                if(Timer(1f,  Dash.Ready)) dashing = false;
+                if(Timer(coolDown,  Dash.Ready)) dashing = false;
                 break;
         }
     }
+
+    public void DashTime(float lowerCD){
+        coolDown-=lowerCD;
+    }
+
     private bool Timer(float delay, Dash dash){
         timer+=Time.deltaTime;
         // Switches when timer becomes greater than the delay
@@ -145,7 +151,6 @@ public class Moveme : MonoBehaviour
         }else if(TouchGround()){
             touchingGround = true;
         }
-
     }
 
     private bool TouchGround(){
