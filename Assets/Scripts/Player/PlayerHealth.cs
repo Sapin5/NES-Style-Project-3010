@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Heal(){
-        health += 1;
+        if(health!=totalHealth)health += 1;
     }
 
     public void FullHeal(){
