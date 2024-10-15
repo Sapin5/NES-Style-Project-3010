@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -7,6 +5,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float totalHealth = 10;
     private float health;
 
+    void Update(){
+        Debug.Log($"Health is {health}");
+    }
     private void Awake(){
         health=totalHealth;
     }

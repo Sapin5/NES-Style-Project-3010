@@ -82,7 +82,9 @@ public class Moveme : MonoBehaviour
     }
 
     public void DashTime(float lowerCD){
-        coolDown-=lowerCD;
+        if(coolDown>=0.3){
+            coolDown-=lowerCD;
+        }
     }
 
     private bool Timer(float delay, Dash dash){
