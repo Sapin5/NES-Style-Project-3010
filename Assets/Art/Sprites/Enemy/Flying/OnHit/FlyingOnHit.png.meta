@@ -1,0 +1,305 @@
+fileFormatVersion: 2
+guid: 4c2db39c30bb33a43b158165c24f3abc
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FlyingOnHit_59
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 160
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 653347f272054c141964cb78356fe708
+      internalID: 2141133815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingOnHit_60
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 160
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77447bb7cd8238e469c53e0a8f5bc5e7
+      internalID: -314779103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingOnHit_61
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 160
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7181a2e5d5360fd45920649f179bc600
+      internalID: 407236126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingOnHit_62
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 128
+        width: 160
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa940351cc3f814897560ac7986b719
+      internalID: 495947787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlyingOnHit_63
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 160
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73e953016043a345bf36b380e53889c
+      internalID: -1287362900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: fe2fdb4447d35704f8c4318fd73a65e6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FlyingOnHit_0: -1917864116
+      FlyingOnHit_1: -1892942701
+      FlyingOnHit_10: 409014580
+      FlyingOnHit_11: 419301690
+      FlyingOnHit_12: -956080064
+      FlyingOnHit_13: 269907507
+      FlyingOnHit_14: 1047213888
+      FlyingOnHit_15: -847538769
+      FlyingOnHit_16: -2092261573
+      FlyingOnHit_17: 926669787
+      FlyingOnHit_18: 1214470908
+      FlyingOnHit_19: -395718169
+      FlyingOnHit_2: -1629112535
+      FlyingOnHit_20: -266104842
+      FlyingOnHit_21: 535817261
+      FlyingOnHit_22: 1979389966
+      FlyingOnHit_23: -44744555
+      FlyingOnHit_24: 703198552
+      FlyingOnHit_25: 1358287470
+      FlyingOnHit_26: -1979692982
+      FlyingOnHit_27: 465084296
+      FlyingOnHit_28: -1073075479
+      FlyingOnHit_29: -1968202165
+      FlyingOnHit_3: -749746472
+      FlyingOnHit_30: -402570998
+      FlyingOnHit_31: 944604068
+      FlyingOnHit_32: 368226975
+      FlyingOnHit_33: 1359353228
+      FlyingOnHit_34: 669426358
+      FlyingOnHit_35: -546865085
+      FlyingOnHit_36: 471391792
+      FlyingOnHit_37: 1822308684
+      FlyingOnHit_38: -555259054
+      FlyingOnHit_39: -391562556
+      FlyingOnHit_4: -1314058866
+      FlyingOnHit_40: 1357053055
+      FlyingOnHit_41: 1876220014
+      FlyingOnHit_42: 1470103526
+      FlyingOnHit_43: 1510903813
+      FlyingOnHit_44: 1103747008
+      FlyingOnHit_45: -1530344286
+      FlyingOnHit_46: 1562075725
+      FlyingOnHit_47: 1312112756
+      FlyingOnHit_48: -1715680962
+      FlyingOnHit_49: -1682236379
+      FlyingOnHit_5: -1420696762
+      FlyingOnHit_50: -23563582
+      FlyingOnHit_51: 1334981554
+      FlyingOnHit_52: -1240098651
+      FlyingOnHit_53: 1576401458
+      FlyingOnHit_54: -522121361
+      FlyingOnHit_55: -831993978
+      FlyingOnHit_56: -1388574620
+      FlyingOnHit_57: 1072997066
+      FlyingOnHit_58: -1970412778
+      FlyingOnHit_59: 2141133815
+      FlyingOnHit_6: -2075037504
+      FlyingOnHit_60: -314779103
+      FlyingOnHit_61: 407236126
+      FlyingOnHit_62: 495947787
+      FlyingOnHit_63: -1287362900
+      FlyingOnHit_64: -1316542220
+      FlyingOnHit_65: 293208700
+      FlyingOnHit_66: -1968800937
+      FlyingOnHit_67: 598510112
+      FlyingOnHit_68: 218440921
+      FlyingOnHit_69: -1485638629
+      FlyingOnHit_7: -616617454
+      FlyingOnHit_70: -1812904899
+      FlyingOnHit_71: -1173493711
+      FlyingOnHit_72: 1809203310
+      FlyingOnHit_8: -1535064503
+      FlyingOnHit_9: 224598418
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
