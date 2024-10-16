@@ -3,7 +3,7 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     [SerializeField] Transform wielderTransform;
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     [SerializeField] private float knockbackStrength;
     [SerializeField] [Range(0.1f, 2f)] private float knockbackDebounce;
 
@@ -14,7 +14,7 @@ public class Damage : MonoBehaviour
         }
     }
 
-    public float GetDamage() {
+    public int GetDamage() {
         return damage;
     }
 

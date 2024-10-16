@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private float health;
+    [SerializeField] private int totalHealth = 10;
+    private int health;
     [SerializeField] private Animator animator;
 
-    public float GetHealth() {
+    public int GetHealth() {
         return health;
     }
 
-    private void UpdateHealth(float dmg) {
+    private void UpdateHealth(int dmg) {
         health -= dmg;
     }
 
