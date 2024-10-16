@@ -28,7 +28,6 @@ public class EnemyStateHandler : MonoBehaviour
     }
 
     private void Update() {
-        Debug.Log("Walking?: " + enemyAnimator.GetBool("EnemyWalk") + " , AND attacking?: " + enemyAnimator.GetBool("EnemyAttack"));
 
         Vector2 distFromPlayer = playerPos.position - transform.position;
         distFromPlayer.x = Math.Abs(distFromPlayer.x);
@@ -48,7 +47,6 @@ public class EnemyStateHandler : MonoBehaviour
     }
 
     private void EnterPatrollingState() {
-        Debug.Log("Enemy is patrolling.");
         
         enemyAnimator.SetBool("EnemyAttack", false);
         enemyAnimator.SetBool("EnemyWalk", false);
@@ -68,7 +66,6 @@ public class EnemyStateHandler : MonoBehaviour
     }
 
     private void EnterChasingState() {
-        Debug.Log("Enemy is chasing the player.");
 
         enemyAnimator.SetBool("EnemyWalk", true);
         enemyAnimator.SetBool("EnemyAttack", false);
@@ -87,7 +84,6 @@ public class EnemyStateHandler : MonoBehaviour
     }
 
     private void EnterAttackingState() {
-        Debug.Log("Enemy is now attacking!");
         
         if (attackingState != null) {
             attackingState.enabled = true;
