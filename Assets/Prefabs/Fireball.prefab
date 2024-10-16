@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 4405018171426645776}
   - component: {fileID: 6952180131491354714}
   - component: {fileID: 4290351270083389835}
-  m_Layer: 0
+  - component: {fileID: 8620729535342542955}
+  - component: {fileID: 6850889029195621652}
+  m_Layer: 3
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,3 +121,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b8594b7f67ab24b84e19cdc34e7494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8620729535342542955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095116655373967299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bd6b6ee21579d4bbd4c50443a20c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wielderTransform: {fileID: 0}
+  damage: 1
+  knockbackStrength: 0
+  knockbackDebounce: 0.126
+--- !u!61 &6850889029195621652
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9095116655373967299}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.014524557}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.64}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.10127115, y: 0.11183454}
+  m_EdgeRadius: 0
