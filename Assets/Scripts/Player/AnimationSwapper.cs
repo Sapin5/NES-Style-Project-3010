@@ -13,7 +13,7 @@ public class AnimationSwapper : MonoBehaviour
     void Update(){
         AnimatePlayer();
     }
-
+ 
     private void AnimatePlayer(){
         switch (moveme.Action()){
             case "Idle":
@@ -21,6 +21,7 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Idle",       true);
                 child.SetBool("Running",    false);
                 child.SetBool("Jumping",    false);
+                child.SetBool("Crouching",    false);
             break;
 
             case "Jumping":
@@ -28,6 +29,7 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Idle",       false);
                 child.SetBool("Running",    false);
                 child.SetBool("Jumping",    true);
+                child.SetBool("Crouching",    false);
             break;
 
             case "Walking":
@@ -35,6 +37,7 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Idle",       false);
                 child.SetBool("Running",    true);
                 child.SetBool("Jumping",    false);
+                child.SetBool("Crouching",    false);
             break;
 
             case "Dashing":
@@ -42,6 +45,7 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Idle",       false);
                 child.SetBool("Running",    false);
                 child.SetBool("Jumping",    false);
+                child.SetBool("Crouching",    false);
             break;
 
             case "Crouching":

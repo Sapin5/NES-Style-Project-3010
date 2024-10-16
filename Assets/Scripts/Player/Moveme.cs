@@ -1,8 +1,5 @@
-using System;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 public class Moveme : MonoBehaviour
 {
@@ -19,9 +16,7 @@ public class Moveme : MonoBehaviour
     private bool dashing;
     private int direction;
     private Transform playerDmgBox, playerArt, dashCollider, normalCollider;
-
     private RigidbodyConstraints2D originalConstraints;
-    
     void Awake(){
         playerDmgBox = GetComponent<Transform>().GetChild(0);
         playerArt = GetComponent<Transform>().GetChild(1);
@@ -38,9 +33,7 @@ public class Moveme : MonoBehaviour
     void Update()
     {
         Attack();
-
-        // DO NOT ENABLE IT WILL CUASE ISSUES
-        //Crouch();
+        Crouch();
     }
 
     void FixedUpdate(){
@@ -102,7 +95,6 @@ public class Moveme : MonoBehaviour
             return true;
         }else return false;
     }
-    
 
     private void Movement(){
         float dir = Input.GetAxis("Horizontal");
@@ -114,9 +106,44 @@ public class Moveme : MonoBehaviour
         }
         if(dir == 0 && touchingGround && Dashstate()){
             physicsBody.velocity = new Vector2(0, physicsBody.velocity.y);
-            currentAction = "Idle";
+            if(!Crouch()){
+                currentAction = "Idle";
+            }
         }else if(touchingGround && dir!=0 && Dashstate()){
-            currentAction = "Walking";
+            if(!Crouch()){
+                currentAction = "Walking";
+            }
+        }
+    }
+
+    private bool Crouch(){
+        if(Jammed() && TouchGround() && dash != Dash.Dashing){
+            playerArt.localPosition = new Vector2(0, 0.26f);
+            normalCollider.GameObject().SetActive(false);
+            dashCollider.GameObject().SetActive(true);
+            currentAction = "Crouching";
+            return true;
+        }else{
+            playerArt.localPosition = new Vector2(0, 0.17f);
+            normalCollider.GameObject().SetActive(true);
+            dashCollider.GameObject().SetActive(false);
+            return false;
+        }
+    }
+
+    private bool Jammed(){
+        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
+
+        if(temp){
+            if(temp.transform.CompareTag("Ground")){
+                Debug.Log("2Collided with " + temp.transform.name);
+                return true;
+                }else{
+                    return false;
+                }
+        }else{
+            Debug.Log("2Collided with nothing");
+            return false;
         }
     }
 
@@ -189,37 +216,6 @@ public class Moveme : MonoBehaviour
 
     }
 
-    private bool Crouch(){
-        if(Jammed() && TouchGround() && dash != Dash.Dashing){
-            playerArt.localPosition = new Vector2(0, 0.26f);
-            normalCollider.GameObject().SetActive(false);
-            dashCollider.GameObject().SetActive(true);
-            currentAction = "Crouching";
-            return true;
-        }else{
-            playerArt.localPosition = new Vector2(0, 0.17f);
-            normalCollider.GameObject().SetActive(true);
-            dashCollider.GameObject().SetActive(false);
-            return false;
-        }
-    }
-
-    private bool Jammed(){
-        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
-
-        if(temp){
-            if(temp.transform.CompareTag("Ground")){
-                Debug.Log("2Collided with " + temp.transform.name);
-                return true;
-                }else{
-                    return false;
-                }
-        }else{
-            Debug.Log("2Collided with nothing");
-            return false;
-        }
-    }
-
     void OnDrawGizmos()
     {
         // Draw a semitransparent red cube at the transforms position
@@ -229,7 +225,7 @@ public class Moveme : MonoBehaviour
     }
 
     private bool Dashstate(){
-        return dash != Dash.Dashing && dash != Dash.CoolDown;
+        return dash != Dash.Dashing;
     }
 
     public string Action(){
