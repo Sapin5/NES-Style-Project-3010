@@ -2254,7 +2254,8 @@ MonoBehaviour:
   fullHP: {fileID: 1039871750, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
   emptyHP: {fileID: -193520982, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
   isShieldGUIHandler: 0
-  shieldOrderNum: 0
+  fullShield: {fileID: 0}
+  emptyShield: {fileID: 0}
 --- !u!1001 &486314538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2580,6 +2581,10 @@ PrefabInstance:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 960376439079278821, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
+      propertyPath: knockbackStrength
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 963995002707966587, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: playerPos
       value: 
@@ -2591,6 +2596,10 @@ PrefabInstance:
     - target: {fileID: 2265973701374749255, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: damage
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2265973701374749255, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
+      propertyPath: knockbackStrength
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3944,22 +3953,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 960376439079278821, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 963995002707966587, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911341646266772489, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265973701374749255, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.37
@@ -3999,22 +3992,6 @@ PrefabInstance:
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3609831174984638828, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714742412970025383, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 8460579578769555401, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: health
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8618377195278945712, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 9187216109226872673, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_Name
@@ -5234,8 +5211,9 @@ MonoBehaviour:
   isHealthGUIHandler: 0
   fullHP: {fileID: 0}
   emptyHP: {fileID: 0}
-  isShieldGUIHandler: 0
-  shieldOrderNum: 0
+  isShieldGUIHandler: 1
+  fullShield: {fileID: 564056666, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
+  emptyShield: {fileID: 1058881596, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
 --- !u!1001 &1433031479
 PrefabInstance:
   m_ObjectHideFlags: 0

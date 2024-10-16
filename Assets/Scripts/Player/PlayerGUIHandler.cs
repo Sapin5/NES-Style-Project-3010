@@ -29,24 +29,35 @@ public class PlayerGUIHandler : MonoBehaviour
                 shieldGUIObjects.Add(transform.GetChild(i).gameObject);
             } 
         }
-        
     }
 
+    private void Update() {
+        if (isShieldGUIHandler && Input.GetKeyDown(KeyCode.Space)) {
+            Debug.Log("DA WOM: " + shieldGUIObjects[0]);
+        }
+            
+    }
+
+
     public void UpdateHealthGUI(int newHealth) {
-        for (int i = 0; i < healthGUIObjects.Count; i++) {
-            if (i < newHealth)
-                healthGUIObjects[i].GetComponent<Image>().sprite = fullHP;
-            else
-                healthGUIObjects[i].GetComponent<Image>().sprite = emptyHP;
+        if (isHealthGUIHandler) {
+            for (int i = 0; i < healthGUIObjects.Count; i++) {
+                if (i < newHealth)
+                    healthGUIObjects[i].GetComponent<Image>().sprite = fullHP;
+                else
+                    healthGUIObjects[i].GetComponent<Image>().sprite = emptyHP;
+            }   
         }
     }
 
     public void UpdateShieldGUI(int newShield) {
-        for (int i = 0; i < shieldGUIObjects.Count; i++) {
-            if (i < newShield)
-                shieldGUIObjects[i].GetComponent<Image>().sprite = fullHP;
-            else
-                shieldGUIObjects[i].GetComponent<Image>().sprite = emptyHP;
+        if (isShieldGUIHandler) {
+            for (int i = 0; i < shieldGUIObjects.Count; i++) {
+                if (i < newShield)
+                    shieldGUIObjects[i].GetComponent<Image>().sprite = fullShield;
+                else
+                    shieldGUIObjects[i].GetComponent<Image>().sprite = emptyShield;
+            }
         }
     }
 }
