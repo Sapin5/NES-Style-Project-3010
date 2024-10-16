@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private int totalHealth = 10;
+    [SerializeField] private PlayerGUIHandler playerGUIHandler;
     private int health;
 
     void Update(){
@@ -14,6 +15,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealth(int dmg) {
         health -= dmg;
+        playerGUIHandler.UpdateHealthGUI(health);
+        playerGUIHandler.UpdateShieldGUI(health);
     }
 
     public void Heal(){

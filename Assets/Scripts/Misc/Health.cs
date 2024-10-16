@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int totalHealth = 10;
+    [SerializeField] private int totalHealth;
     private int health;
     [SerializeField] private Animator animator;
 
