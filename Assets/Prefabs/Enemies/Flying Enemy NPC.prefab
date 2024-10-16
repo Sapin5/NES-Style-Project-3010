@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 6047446795995880303}
   - component: {fileID: 7017389036079577695}
   - component: {fileID: 6257771356590232840}
+  - component: {fileID: 5880564576460492017}
   m_Layer: 3
   m_Name: Flying Enemy NPC
   m_TagString: Untagged
@@ -282,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5fc4a27b2f26a646ab524a0a63a74f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseRange: {x: 2.5, y: 1.5}
+  chaseRange: {x: 2.5, y: 2.5}
   attackRange: {x: 1, y: 1.5}
   chasingState: {fileID: 1830728864992411629}
   patrollingState: {fileID: 2654924138557006030}
@@ -303,6 +304,9 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   chaseSpeed: 1
   enemyRenderer: {fileID: 2877031598390482555}
+  isFlyingEnemy: 1
+  yFromPlayer: 1
+  withinTargetRangeY: 0.2
 --- !u!95 &6047446795995880303
 Animator:
   serializedVersion: 5
@@ -336,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 40
   animator: {fileID: 6047446795995880303}
 --- !u!114 &6257771356590232840
 MonoBehaviour:
@@ -355,3 +359,30 @@ MonoBehaviour:
   projectileSpeed: 1
   selfDestructTimer: 4
   enemyRenderer: {fileID: 2877031598390482555}
+--- !u!50 &5880564576460492017
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7743743893731216119}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 15
+  m_LinearDrag: 2
+  m_AngularDrag: 2
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 6

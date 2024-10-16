@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18414402886978366}
   - component: {fileID: 7014005364947016248}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Dash
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
