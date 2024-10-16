@@ -20,7 +20,6 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Dashing",    false);
                 child.SetBool("Idle",       true);
                 child.SetBool("Running",    false);
-                child.SetBool("Attacking",  false);
                 child.SetBool("Jumping",    false);
             break;
 
@@ -28,23 +27,13 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Dashing",    false);
                 child.SetBool("Idle",       false);
                 child.SetBool("Running",    false);
-                child.SetBool("Attacking",  false);
                 child.SetBool("Jumping",    true);
-            break;
-
-            case "Attacking":
-                child.SetBool("Dashing",    false);
-                child.SetBool("Idle",       false);
-                child.SetBool("Running",    false);
-                child.SetBool("Attacking",  true);
-                child.SetBool("Jumping",    false);;
             break;
 
             case "Walking":
                 child.SetBool("Dashing",    false);
                 child.SetBool("Idle",       false);
                 child.SetBool("Running",    true);
-                child.SetBool("Attacking",  false);
                 child.SetBool("Jumping",    false);
             break;
 
@@ -52,9 +41,16 @@ public class AnimationSwapper : MonoBehaviour
                 child.SetBool("Dashing",    true);
                 child.SetBool("Idle",       false);
                 child.SetBool("Running",    false);
-                child.SetBool("Attacking",  false);
                 child.SetBool("Jumping",    false);
             break;
+
+            case "Crouching":
+                child.SetBool("Dashing",    false);
+                child.SetBool("Idle",       false);
+                child.SetBool("Running",    false);
+                child.SetBool("Jumping",    false);
+                child.SetBool("Crouching",    true);
+                break;
         }
     }
 }

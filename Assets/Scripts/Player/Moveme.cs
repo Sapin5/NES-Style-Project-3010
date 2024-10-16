@@ -8,7 +8,8 @@ public class Moveme : MonoBehaviour
 {
     [SerializeField] private Vector2 boxSize = new(1f, 1f);
     [SerializeField] private Vector2 boxLoc = new(1f, 1f);
-    [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown, doubleJumpStr;
+    [SerializeField] private Vector2 boxLocHead = new(1f, 1f);
+    [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown, doubleJumpStr = 1f;
     [SerializeField]private bool touchingGround, spacePressed, doubleJump;
     [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
@@ -26,8 +27,8 @@ public class Moveme : MonoBehaviour
         playerArt = GetComponent<Transform>().GetChild(1);
         normalCollider =  GetComponent<Transform>().GetChild(2);
         dashCollider = GetComponent<Transform>().GetChild(3);
-
         physicsBody = GetComponent<Rigidbody2D>();
+
         currentAction = "Idle";
         originalConstraints = physicsBody.constraints;
         dashing = false;
@@ -37,6 +38,9 @@ public class Moveme : MonoBehaviour
     void Update()
     {
         Attack();
+
+        // DO NOT ENABLE IT WILL CUASE ISSUES
+        //Crouch();
     }
 
     void FixedUpdate(){
@@ -54,7 +58,7 @@ public class Moveme : MonoBehaviour
             direction = 1;
         }
 
-        if(Input.GetKey(KeyCode.LeftShift) && !dashing){
+        if(Input.GetKey(KeyCode.LeftShift) && !dashing && !spacePressed){
             dash = Dash.Dashing;
             currentAction = "Dashing";
             dashing = true;
@@ -119,14 +123,13 @@ public class Moveme : MonoBehaviour
     private void Attack(){
         if(Input.GetKey(KeyCode.Space) && !spacePressed && Dashstate()){
             spacePressed = true;
+            playerArt.GetComponent<Animator>().SetTrigger("Attack");
         }
 
         if(spacePressed){
             timer+=Time.deltaTime;
             playerDmgBox.GameObject().SetActive(true);
-            currentAction = "Attacking";
-
-            if(timer>=0.3f){
+            if(timer>0.4f){
                 playerDmgBox.GameObject().SetActive(false);
                 spacePressed = false;
                 timer = 0;
@@ -135,7 +138,7 @@ public class Moveme : MonoBehaviour
     }
     
     private void Jumping(){
-        if(physicsBody.velocity.y < 5 && physicsBody.velocity.y > -100000000){
+        if(physicsBody.velocity.y!=0){
             DoubleJump();
         }
 
@@ -157,7 +160,6 @@ public class Moveme : MonoBehaviour
             touchingGround = false;
         }else if(TouchGround()){
             touchingGround = true;
-            doubleJump = false;
         }
     }
 
@@ -187,11 +189,43 @@ public class Moveme : MonoBehaviour
 
     }
 
+    private bool Crouch(){
+        if(Jammed() && TouchGround() && dash != Dash.Dashing){
+            playerArt.localPosition = new Vector2(0, 0.26f);
+            normalCollider.GameObject().SetActive(false);
+            dashCollider.GameObject().SetActive(true);
+            currentAction = "Crouching";
+            return true;
+        }else{
+            playerArt.localPosition = new Vector2(0, 0.17f);
+            normalCollider.GameObject().SetActive(true);
+            dashCollider.GameObject().SetActive(false);
+            return false;
+        }
+    }
+
+    private bool Jammed(){
+        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
+
+        if(temp){
+            if(temp.transform.CompareTag("Ground")){
+                Debug.Log("2Collided with " + temp.transform.name);
+                return true;
+                }else{
+                    return false;
+                }
+        }else{
+            Debug.Log("2Collided with nothing");
+            return false;
+        }
+    }
+
     void OnDrawGizmos()
     {
         // Draw a semitransparent red cube at the transforms position
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize);
+        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSize);
     }
 
     private bool Dashstate(){
