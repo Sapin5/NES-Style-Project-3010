@@ -62,6 +62,7 @@ public class Moveme : MonoBehaviour
             case Dash.Dashing:
                 normalCollider.GameObject().SetActive(false);
                 dashCollider.GameObject().SetActive(true);
+                playerArt.localPosition = new Vector2(0f, 0.08f);
                 physicsBody.velocity = new Vector2((dashForce+movespeed)*direction, physicsBody.velocity.y);
                 Timer(duration, Dash.CoolDown);
                 break;
@@ -117,18 +118,20 @@ public class Moveme : MonoBehaviour
     }
 
     private bool Crouch(){
-        if(Jammed() && TouchGround() && dash != Dash.Dashing){
-            playerArt.localPosition = new Vector2(0, 0.26f);
+        if(Jammed() && TouchGround() && Dashstate()){
+            playerArt.localPosition = new Vector2(0, 0.15f);
             normalCollider.GameObject().SetActive(false);
             dashCollider.GameObject().SetActive(true);
             currentAction = "Crouching";
             return true;
-        }else{
+        }else if(Dashstate()){
             playerArt.localPosition = new Vector2(0, 0.17f);
             normalCollider.GameObject().SetActive(true);
             dashCollider.GameObject().SetActive(false);
             return false;
         }
+        return false;
+        
     }
 
     private bool Jammed(){
@@ -165,9 +168,6 @@ public class Moveme : MonoBehaviour
     }
     
     private void Jumping(){
-        if(physicsBody.velocity.y!=0){
-            DoubleJump();
-        }
 
         if(touchingGround){
             if((Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W))
@@ -183,6 +183,7 @@ public class Moveme : MonoBehaviour
         }
 
         if(physicsBody.velocity.y != 0 && Dashstate()){
+            DoubleJump();
             currentAction = "Jumping";
             touchingGround = false;
         }else if(TouchGround()){
