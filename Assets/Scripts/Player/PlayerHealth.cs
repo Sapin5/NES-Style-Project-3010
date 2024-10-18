@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float totalHealth = 10;
-    private float health;
+    [SerializeField] private int totalHealth = 10;
+    [SerializeField] private PlayerGUIHandler playerGUIHandler;
+    private int health;
 
     void Update(){
         Debug.Log($"Health is {health}");
@@ -12,8 +13,10 @@ public class PlayerHealth : MonoBehaviour
         health=totalHealth;
     }
 
-    private void UpdateHealth(float dmg) {
+    private void UpdateHealth(int dmg) {
         health -= dmg;
+        playerGUIHandler.UpdateHealthGUI(health);
+        playerGUIHandler.UpdateShieldGUI(health);
     }
 
     public void Heal(){
@@ -21,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void FullHeal(){
-        float tempHealth = totalHealth-health;
+        int tempHealth = totalHealth-health;
 
         health+=tempHealth;
     }

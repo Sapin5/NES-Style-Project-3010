@@ -204,13 +204,11 @@ public class Moveme : MonoBehaviour
 
         if(temp){
             if(temp.transform.CompareTag("Ground")){
-                Debug.Log("Collided with " + temp.transform.name);
                 return true;
                 }else{
                     return false;
                 }
         }else{
-            Debug.Log("Collided with nothing");
             return false;
         }
 

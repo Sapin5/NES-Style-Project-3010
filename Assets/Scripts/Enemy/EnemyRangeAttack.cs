@@ -20,10 +20,6 @@ public class EnemyRangeAttack : MonoBehaviour
         }
     }
 
-    private void Update() {
-        Debug.Log((playerPos.position - attackOriginPos.position).normalized);
-    }
-
     public void ChooseDirection() {
         xDirection = playerPos.position.x - transform.position.x > 0 ? 1 : -1;
 
