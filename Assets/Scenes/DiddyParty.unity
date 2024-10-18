@@ -2108,7 +2108,7 @@ Transform:
   m_GameObject: {fileID: 568347673}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -671.30316, y: 490.476, z: -34714.285}
+  m_LocalPosition: {x: -640, y: 480, z: 0}
   m_LocalScale: {x: 385.7143, y: 385.7143, z: 385.7143}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2955,7 +2955,7 @@ Transform:
   m_GameObject: {fileID: 766275231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -580.0002, y: 490.476, z: -34714.285}
+  m_LocalPosition: {x: -560, y: 480, z: 0}
   m_LocalScale: {x: 385.7143, y: 385.7143, z: 385.7143}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3178,7 +3178,7 @@ Transform:
   m_GameObject: {fileID: 969124707}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -823.1639, y: 490.476, z: -34714.285}
+  m_LocalPosition: {x: -800, y: 480, z: 0}
   m_LocalScale: {x: 385.7143, y: 385.7143, z: 385.7143}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3267,7 +3267,7 @@ Transform:
   m_GameObject: {fileID: 992426751}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -747.99976, y: 491.6619, z: -34714.285}
+  m_LocalPosition: {x: -720, y: 480, z: 0}
   m_LocalScale: {x: 385.7143, y: 385.7143, z: 385.7143}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5687,18 +5687,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3563670990035570635, guid: d587ce6d445b75547a89fe57c8b30f9c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563670990035570635, guid: d587ce6d445b75547a89fe57c8b30f9c, type: 3}
-      propertyPath: orthographic size
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3563670990035570635, guid: d587ce6d445b75547a89fe57c8b30f9c, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7106984494858895798, guid: d587ce6d445b75547a89fe57c8b30f9c, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -7547,7 +7535,7 @@ Transform:
   m_GameObject: {fileID: 2002117202}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -899.8605, y: 491.6619, z: -34714.285}
+  m_LocalPosition: {x: -880, y: 480, z: 0}
   m_LocalScale: {x: 385.7143, y: 385.7143, z: 385.7143}
   m_ConstrainProportionsScale: 0
   m_Children: []
