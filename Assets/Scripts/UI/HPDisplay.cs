@@ -44,4 +44,8 @@ public class HPDisplay : MonoBehaviour
             heart.ConvertTo<Transform>().GetComponent<SpriteRenderer>().sprite = heartStage[track2];
         }
     }
+
+    public void temp(int i){
+
+    }
 }

@@ -9,7 +9,6 @@ public class Shield : MonoBehaviour
     private float timer = 0;
 
     private void Awake(){
-        shield=totalShield;
         shield = totalShield;
         shieldDisplay = FindAnyObjectByType<Canvas>().GetComponent<Transform>().GetChild(0).GetChild(1).GetComponent<ShieldDisplay>();
     }
