@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 320255245}
   - component: {fileID: 320255244}
   - component: {fileID: 320255243}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1943,7 +1943,7 @@ GameObject:
   - component: {fileID: 374881474}
   - component: {fileID: 374881473}
   - component: {fileID: 374881472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (16)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2308,6 +2308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8412004809963672458, guid: af93f2a4b605699429102efa5c20ca23, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2577,33 +2581,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 960376439079278821, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 960376439079278821, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: knockbackStrength
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 963995002707966587, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911341646266772489, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265973701374749255, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: damage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265973701374749255, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: knockbackStrength
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.238
+      value: -21.36
       objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2640,22 +2620,6 @@ PrefabInstance:
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3609831174984638828, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7714742412970025383, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 8460579578769555401, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: health
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8618377195278945712, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
       objectReference: {fileID: 0}
     - target: {fileID: 9187216109226872673, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_Name
@@ -2719,7 +2683,7 @@ GameObject:
   - component: {fileID: 719928256}
   - component: {fileID: 719928255}
   - component: {fileID: 719928254}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (26)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2923,7 +2887,7 @@ GameObject:
   - component: {fileID: 751098110}
   - component: {fileID: 751098109}
   - component: {fileID: 751098108}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (17)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4798,7 +4762,7 @@ GameObject:
   - component: {fileID: 1281465248}
   - component: {fileID: 1281465247}
   - component: {fileID: 1281465246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (15)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5895,7 +5859,7 @@ GameObject:
   - component: {fileID: 1665175811}
   - component: {fileID: 1665175810}
   - component: {fileID: 1665175809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6591,7 +6555,7 @@ GameObject:
   - component: {fileID: 1855383630}
   - component: {fileID: 1855383629}
   - component: {fileID: 1855383628}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7009,7 +6973,7 @@ GameObject:
   - component: {fileID: 1887600380}
   - component: {fileID: 1887600379}
   - component: {fileID: 1887600378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (8)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7399,7 +7363,7 @@ GameObject:
   - component: {fileID: 2087384814}
   - component: {fileID: 2087384813}
   - component: {fileID: 2087384812}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7903,7 +7867,7 @@ GameObject:
   - component: {fileID: 2125253498}
   - component: {fileID: 2125253497}
   - component: {fileID: 2125253496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (27)
   m_TagString: Ground
   m_Icon: {fileID: 0}
