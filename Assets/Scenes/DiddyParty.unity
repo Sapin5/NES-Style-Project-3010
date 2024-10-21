@@ -1714,7 +1714,7 @@ GameObject:
   - component: {fileID: 360255425}
   m_Layer: 0
   m_Name: Square (3)
-  m_TagString: Ground
+  m_TagString: CrouchCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3157,7 +3157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79511ff10edd9cd488f4182dbafdfa41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalShield: 11
+  totalShield: 100
   shieldDisplay: {fileID: 0}
 --- !u!1001 &823044180
 PrefabInstance:
@@ -3674,7 +3674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8052015667622658747, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
       propertyPath: totalHealth
-      value: 17
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9170100893945876552, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
       propertyPath: m_LocalScale.x

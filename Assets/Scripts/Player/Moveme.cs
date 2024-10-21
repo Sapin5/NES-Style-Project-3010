@@ -10,7 +10,6 @@ public class Moveme : MonoBehaviour
 
     [Header("Jumping Properties:")]
     [SerializeField] private float jumpForce;
-    [SerializeField] private float doubleJumpStr = 1f;
     [SerializeField] private bool touchingGround;
     [SerializeField] private bool spacePressed;
 

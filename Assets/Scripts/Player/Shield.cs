@@ -5,12 +5,17 @@ public class Shield : MonoBehaviour
     [Header("Shield Properties:")]
     [SerializeField] private float totalShield = 10;
     private float shield;
-    [SerializeField] ShieldDisplay shieldDisplay;
+    [SerializeField] private ShieldDisplay shieldDisplay;
+    [SerializeField] private float rechargeDelay;
     private float timer = 0;
+
+
 
     private void Awake(){
         if(totalShield%2!=0){
             totalShield+=1;
+        }else if(totalShield>30){
+            totalShield=30;
         }
         shield = totalShield;
         shieldDisplay = FindAnyObjectByType<Canvas>().GetComponent<Transform>().GetChild(0).GetChild(1).GetComponent<ShieldDisplay>();
@@ -18,7 +23,7 @@ public class Shield : MonoBehaviour
 
     void Update(){
         Debug.Log($"shield is {shield}");
-        if(shield!=totalShield && Timer(4)){
+        if(shield!=totalShield && Timer(rechargeDelay)){
             shield += 1;
             shieldDisplay.HealOne();
         }
@@ -47,9 +52,13 @@ public class Shield : MonoBehaviour
     }
 
     public void IncreaseShield(int amount){
-        shieldDisplay.IncreaseShields();
-        totalShield+=amount;
-        FullShield();
+        if(totalShield <30){
+            shieldDisplay.IncreaseShields();
+            totalShield+=amount;
+            FullShield();
+        }else{
+            FullShield();
+        }
     }
 
     public void FullShield(){

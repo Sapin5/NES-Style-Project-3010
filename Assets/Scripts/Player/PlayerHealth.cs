@@ -17,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     private void Awake(){
         if(totalHealth%2!=0){
             totalHealth+=1;
+        }else if(totalHealth > 30){
+            totalHealth = 30;
         }
 
         hasShield = TryGetComponent<Shield>(out _);
