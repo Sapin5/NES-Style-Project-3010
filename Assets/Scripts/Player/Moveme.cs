@@ -29,12 +29,17 @@ public class Moveme : MonoBehaviour
     private int direction;
     private Transform playerDmgBox, playerArt, dashCollider, normalCollider;
     private RigidbodyConstraints2D originalConstraints;
+
+    private PlayerHealth health;
+    private Shield shield;
     void Awake(){
         playerDmgBox = GetComponent<Transform>().GetChild(0);
         playerArt = GetComponent<Transform>().GetChild(1);
         normalCollider =  GetComponent<Transform>().GetChild(2);
         dashCollider = GetComponent<Transform>().GetChild(3);
         physicsBody = GetComponent<Rigidbody2D>();
+        health = GetComponent<PlayerHealth>();
+        shield = GetComponent<Shield>();
 
         currentAction = "Idle";
         originalConstraints = physicsBody.constraints;
@@ -44,14 +49,19 @@ public class Moveme : MonoBehaviour
 
     void Update()
     {
-        Attack();
-        Crouch();
+        if(health.RemainingHealth() > 0){
+            Attack();
+            Crouch();
+        }
+        
     }
 
     void FixedUpdate(){
-        Jumping();
-        Movement();
-        DashAbility();
+        if(health.RemainingHealth() > 0){
+            Jumping();
+            Movement();
+            DashAbility();
+        }
     }
 
     private void DashAbility(){
@@ -151,13 +161,11 @@ public class Moveme : MonoBehaviour
 
         if(temp){
             if(temp.transform.CompareTag("CrouchCollider")){
-                Debug.Log("2Collided with " + temp.transform.name);
                 return true;
                 }else{
                     return false;
                 }
         }else{
-            Debug.Log("2Collided with nothing");
             return false;
         }
     }
@@ -208,7 +216,6 @@ public class Moveme : MonoBehaviour
             if(temp.transform.CompareTag("Ground") ||
                temp.transform.CompareTag("CrouchCollider"))
             {
-                Debug.Log("Collided with " + temp.transform.name);
                 return true;
                 }else{
                     return false;

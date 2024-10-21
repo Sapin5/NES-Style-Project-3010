@@ -19,7 +19,6 @@ public class Health : MonoBehaviour
     {
         if (other.GetComponent<Damage>() != null) {
             UpdateHealth(other.GetComponent<Damage>().GetDamage());
-            Debug.Log(other.transform.name);
             if (health > 0)
                 animator.SetTrigger("OnHit");
             else

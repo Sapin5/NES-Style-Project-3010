@@ -34,10 +34,6 @@ public class PlayerHealth : MonoBehaviour
     }
 
     void Update(){
-        if(health <= 0){
-            SceneManager.LoadScene(currentSceneName);
-        }
-        Debug.Log($"Health is {health}");
         if(Input.GetKeyDown(KeyCode.J)){
             shield = GetComponent<Shield>().ShieldLeft();
             UpdateHealth(1);
@@ -72,12 +68,15 @@ public class PlayerHealth : MonoBehaviour
         if(other.transform.CompareTag("Weapon")){
             UpdateHealth(other.transform.GetComponent<Damage>().GetDamage());
             shield = GetComponent<Shield>().ShieldLeft();
-            Debug.Log(health);
         }
     }
 
     public float GetHealth(){
         return totalHealth;
+    }
+
+    public float RemainingHealth(){
+        return health;
     }
 }
 
