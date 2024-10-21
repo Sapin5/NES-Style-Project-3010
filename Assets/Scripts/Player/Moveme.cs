@@ -3,11 +3,23 @@ using UnityEngine;
 
 public class Moveme : MonoBehaviour
 {
+    [Header("Box Collider Settings:")]
     [SerializeField] private Vector2 boxSize = new(1f, 1f);
     [SerializeField] private Vector2 boxLoc = new(1f, 1f);
     [SerializeField] private Vector2 boxLocHead = new(1f, 1f);
-    [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown, doubleJumpStr = 1f;
-    [SerializeField]private bool touchingGround, spacePressed, doubleJump;
+
+    [Header("Jumping Properties:")]
+    [SerializeField] private float jumpForce;
+    [SerializeField] private bool touchingGround;
+    [SerializeField] private bool spacePressed;
+
+    [Header("Movement Speed:")]
+    [SerializeField] private float movespeed;
+
+    [Header("Dash Properties:")]
+    [SerializeField] private float duration;
+    [SerializeField] private float coolDown;
+    [SerializeField] private float dashForce;
     [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
     private Rigidbody2D physicsBody;
@@ -62,6 +74,7 @@ public class Moveme : MonoBehaviour
             case Dash.Dashing:
                 normalCollider.GameObject().SetActive(false);
                 dashCollider.GameObject().SetActive(true);
+                playerArt.localPosition = new Vector2(0f, 0.08f);
                 physicsBody.velocity = new Vector2((dashForce+movespeed)*direction, physicsBody.velocity.y);
                 Timer(duration, Dash.CoolDown);
                 break;
@@ -117,25 +130,27 @@ public class Moveme : MonoBehaviour
     }
 
     private bool Crouch(){
-        if(Jammed() && TouchGround() && dash != Dash.Dashing){
-            playerArt.localPosition = new Vector2(0, 0.26f);
+        if(Jammed() && TouchGround() && Dashstate()){
+            playerArt.localPosition = new Vector2(0, 0.15f);
             normalCollider.GameObject().SetActive(false);
             dashCollider.GameObject().SetActive(true);
             currentAction = "Crouching";
             return true;
-        }else{
+        }else if(Dashstate()){
             playerArt.localPosition = new Vector2(0, 0.17f);
             normalCollider.GameObject().SetActive(true);
             dashCollider.GameObject().SetActive(false);
             return false;
         }
+        return false;
+        
     }
 
     private bool Jammed(){
-        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
+        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSize, 0f, Vector2.down, boxLocHead.y);
 
         if(temp){
-            if(temp.transform.CompareTag("Ground")){
+            if(temp.transform.CompareTag("CrouchCollider")){
                 Debug.Log("2Collided with " + temp.transform.name);
                 return true;
                 }else{
@@ -165,16 +180,12 @@ public class Moveme : MonoBehaviour
     }
     
     private void Jumping(){
-        if(physicsBody.velocity.y!=0){
-            DoubleJump();
-        }
 
         if(touchingGround){
             if((Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W))
                             && Dashstate()){
                 physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce);
                 touchingGround = false;
-                doubleJump = true;
             }
         }else{
             if((Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S)) && physicsBody.velocity.y != 0){
@@ -190,20 +201,14 @@ public class Moveme : MonoBehaviour
         }
     }
 
-    private void DoubleJump(){
-        if(!touchingGround && doubleJump){
-            if((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W)) && Dashstate()){
-                physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce/doubleJumpStr);
-                doubleJump = false;
-            }
-        }
-    }
-
     private bool TouchGround(){
         RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
 
         if(temp){
-            if(temp.transform.CompareTag("Ground")){
+            if(temp.transform.CompareTag("Ground") ||
+               temp.transform.CompareTag("CrouchCollider"))
+            {
+                Debug.Log("Collided with " + temp.transform.name);
                 return true;
                 }else{
                     return false;
