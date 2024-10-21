@@ -185,7 +185,6 @@ GameObject:
   - component: {fileID: 7017389036079577695}
   - component: {fileID: 6257771356590232840}
   - component: {fileID: 5880564576460492017}
-  - component: {fileID: 5371604523429121428}
   m_Layer: 3
   m_Name: Flying Enemy NPC
   m_TagString: Weapon
@@ -387,19 +386,3 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 6
---- !u!114 &5371604523429121428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7743743893731216119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35bd6b6ee21579d4bbd4c50443a20c8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wielderTransform: {fileID: 0}
-  damage: 1
-  knockbackStrength: 5
-  knockbackDebounce: 0.1
