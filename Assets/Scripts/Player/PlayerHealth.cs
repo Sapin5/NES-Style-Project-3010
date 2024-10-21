@@ -48,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
             health -= dmg;
             hpDisplay.UpdateHP();
         }
+    }
 
     public void Heal(){
         if(!shield){
@@ -64,6 +65,7 @@ public class PlayerHealth : MonoBehaviour
             hpDisplay.FullHeal();
             health+=tempHealth;
         }
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -78,3 +80,4 @@ public class PlayerHealth : MonoBehaviour
         return totalHealth;
     }
 }
+
