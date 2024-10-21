@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5880564576460492017}
   m_Layer: 3
   m_Name: Flying Enemy NPC
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,7 +238,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00204058, y: -0.21111326}
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 40
+  health: 40
   animator: {fileID: 6047446795995880303}
 --- !u!114 &6257771356590232840
 MonoBehaviour:
