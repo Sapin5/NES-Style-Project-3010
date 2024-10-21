@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 1577469806799272612}
   - component: {fileID: 5062223782792706811}
   - component: {fileID: 8052015667622658747}
+  - component: {fileID: 2273694405842808814}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -131,14 +132,12 @@ MonoBehaviour:
   boxLoc: {x: 0.02, y: 0.2}
   boxLocHead: {x: 0, y: 0.2}
   jumpForce: 4.3
-  dashForce: 3
+  touchingGround: 0
+  spacePressed: 0
   movespeed: 3
   duration: 0.5
   coolDown: 1
-  doubleJumpStr: 1
-  touchingGround: 0
-  spacePressed: 0
-  doubleJump: 0
+  dashForce: 3
 --- !u!50 &5062223782792706811
 Rigidbody2D:
   serializedVersion: 4
@@ -179,6 +178,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalHealth: 10
+  hpDisplay: {fileID: 0}
+  shield: 0
+  hasShield: 0
+--- !u!114 &2273694405842808814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047469335837280185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79511ff10edd9cd488f4182dbafdfa41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalShield: 100
+  shieldDisplay: {fileID: 0}
+  rechargeDelay: 4
 --- !u!1 &5561999462085978421
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +365,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -854006819, guid: 5f30fbc7ffb898f44a9bd622de83b2f5, type: 3}
+  m_Sprite: {fileID: 1422722946, guid: f152956a6b9d1b54db715c73629fba1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

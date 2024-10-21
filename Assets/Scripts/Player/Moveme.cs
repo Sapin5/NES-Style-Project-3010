@@ -147,7 +147,7 @@ public class Moveme : MonoBehaviour
     }
 
     private bool Jammed(){
-        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
+        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSize, 0f, Vector2.down, boxLocHead.y);
 
         if(temp){
             if(temp.transform.CompareTag("CrouchCollider")){
