@@ -3,11 +3,24 @@ using UnityEngine;
 
 public class Moveme : MonoBehaviour
 {
+    [Header("Box Collider Settings:")]
     [SerializeField] private Vector2 boxSize = new(1f, 1f);
     [SerializeField] private Vector2 boxLoc = new(1f, 1f);
     [SerializeField] private Vector2 boxLocHead = new(1f, 1f);
-    [SerializeField]private float jumpForce, dashForce, movespeed, duration, coolDown, doubleJumpStr = 1f;
-    [SerializeField]private bool touchingGround, spacePressed, doubleJump;
+
+    [Header("Jumping Properties:")]
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float doubleJumpStr = 1f;
+    [SerializeField] private bool touchingGround;
+    [SerializeField] private bool spacePressed;
+
+    [Header("Movement Speed:")]
+    [SerializeField] private float movespeed;
+
+    [Header("Dash Properties:")]
+    [SerializeField] private float duration;
+    [SerializeField] private float coolDown;
+    [SerializeField] private float dashForce;
     [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
     private Dash dash;
     private Rigidbody2D physicsBody;
@@ -138,7 +151,7 @@ public class Moveme : MonoBehaviour
         RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
 
         if(temp){
-            if(temp.transform.CompareTag("Ground")){
+            if(temp.transform.CompareTag("CrouchCollider")){
                 Debug.Log("2Collided with " + temp.transform.name);
                 return true;
                 }else{
@@ -174,7 +187,6 @@ public class Moveme : MonoBehaviour
                             && Dashstate()){
                 physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce);
                 touchingGround = false;
-                doubleJump = true;
             }
         }else{
             if((Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S)) && physicsBody.velocity.y != 0){
@@ -183,7 +195,6 @@ public class Moveme : MonoBehaviour
         }
 
         if(physicsBody.velocity.y != 0 && Dashstate()){
-            DoubleJump();
             currentAction = "Jumping";
             touchingGround = false;
         }else if(TouchGround()){
@@ -191,20 +202,13 @@ public class Moveme : MonoBehaviour
         }
     }
 
-    private void DoubleJump(){
-        if(!touchingGround && doubleJump){
-            if((Input.GetKeyDown(KeyCode.UpArrow)|| Input.GetKeyDown(KeyCode.W)) && Dashstate()){
-                physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce/doubleJumpStr);
-                doubleJump = false;
-            }
-        }
-    }
-
     private bool TouchGround(){
         RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
 
         if(temp){
-            if(temp.transform.CompareTag("Ground")){
+            if(temp.transform.CompareTag("Ground") ||
+               temp.transform.CompareTag("CrouchCollider"))
+            {
                 Debug.Log("Collided with " + temp.transform.name);
                 return true;
                 }else{

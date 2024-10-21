@@ -6,21 +6,30 @@ public class HPDisplay : MonoBehaviour
 {
     private int track2 = 0;
     private int currheart = 1;
+
+    [Header("Icon for Hearts or Shields:")]
     [SerializeField] private GameObject heartPrefab;
-    [SerializeField] private int heartToAdd;
-    private ArrayList hearts = new();
-    private Transform heartDisp;
+    [Header("Sprites for different states:")]
     [SerializeField]private Sprite[] heartStage;
+    private float heartToAdd;
+    private readonly ArrayList hearts = new();
+    private Transform heartDisp;
+    
     private Vector3 distanceBetween = new (0f, 0f, 0f);
+    [Header("Enable if this is the Shield:")]
+    [SerializeField] private bool isShield;
 
     private void Awake(){
-    
+        if(!isShield){
+            heartToAdd = FindAnyObjectByType<PlayerHealth>().GetHealth()/2;
+        }else{
+            heartToAdd = FindAnyObjectByType<Shield>().GetShield()/2;
+        }
         heartDisp = GetComponent<Transform>();
     
         for(int i = 0; i<heartToAdd; i++){
             AddHearts();
         }
-
         CheckHeartAmount();
     }
 
@@ -39,7 +48,7 @@ public class HPDisplay : MonoBehaviour
     public void UpdateHP(){
         track2+=1;
         hearts[^currheart].ConvertTo<Transform>().GetComponent<SpriteRenderer>().sprite = heartStage[track2];
-        if(track2 >= 2){
+        if(track2 >= heartStage.Length-1){
             currheart+=1;
             track2 = 0;
         }

@@ -1,14 +1,17 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Shield : MonoBehaviour
 {
+    [Header("Shield Properties:")]
     [SerializeField] private float totalShield = 10;
     private float shield;
     [SerializeField] ShieldDisplay shieldDisplay;
     private float timer = 0;
 
     private void Awake(){
+        if(totalShield%2!=0){
+            totalShield+=1;
+        }
         shield = totalShield;
         shieldDisplay = FindAnyObjectByType<Canvas>().GetComponent<Transform>().GetChild(0).GetChild(1).GetComponent<ShieldDisplay>();
     }
@@ -68,5 +71,9 @@ public class Shield : MonoBehaviour
         }else{
             return true;
         }
+    }
+
+    public float GetShield(){
+        return totalShield;
     }
 }

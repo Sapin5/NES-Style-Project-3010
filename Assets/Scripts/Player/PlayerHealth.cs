@@ -1,18 +1,24 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Health Properties:")]
     [SerializeField] private float totalHealth = 10;
     private float health;
     [SerializeField] HPDisplay hpDisplay;
     string currentSceneName;
+
+    [Header("Select Shield if the player has shields:")]
     [SerializeField] private bool shield;
 
     [SerializeField] private bool hasShield;
 
     private void Awake(){
+        if(totalHealth%2!=0){
+            totalHealth+=1;
+        }
+
         hasShield = TryGetComponent<Shield>(out _);
 
         if(hasShield == true){
@@ -65,5 +71,9 @@ public class PlayerHealth : MonoBehaviour
             shield = GetComponent<Shield>().ShieldLeft();
             Debug.Log(health);
         }
+    }
+
+    public float GetHealth(){
+        return totalHealth;
     }
 }
