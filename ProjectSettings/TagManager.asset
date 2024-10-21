@@ -8,6 +8,7 @@ TagManager:
   - Weapon
   - PickUps
   - CrouchCollider
+  - HealthUI
   layers:
   - Default
   - TransparentFX

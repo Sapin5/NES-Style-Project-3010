@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2265973701374749255}
   m_Layer: 3
   m_Name: Left Weapon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
-  damage: 0
+  damage: 1
   knockbackStrength: 2
   knockbackDebounce: 0.2
 --- !u!1 &8618377195278945712
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 960376439079278821}
   m_Layer: 3
   m_Name: Right Weapon
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
-  damage: 0
+  damage: 1
   knockbackStrength: 2
   knockbackDebounce: 0.2
 --- !u!1 &9187216109226872673
@@ -542,6 +542,9 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   chaseSpeed: 1
   enemyRenderer: {fileID: 3739543043697955821}
+  isFlyingEnemy: 0
+  yFromPlayer: 0
+  withinTargetRangeY: 0
 --- !u!114 &3609831174984638828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,5 +594,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  totalHealth: 100
   animator: {fileID: 5180294861595434745}

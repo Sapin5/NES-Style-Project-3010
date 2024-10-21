@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     [SerializeField] private bool hasShield;
 
+
     private void Awake(){
         if(totalHealth%2!=0){
             totalHealth+=1;
@@ -42,13 +43,11 @@ public class PlayerHealth : MonoBehaviour
             UpdateHealth(1);
         }
     }
-
     private void UpdateHealth(float dmg) {
         if(!shield){
             health -= dmg;
             hpDisplay.UpdateHP();
         }
-    }
 
     public void Heal(){
         if(!shield){
@@ -65,7 +64,7 @@ public class PlayerHealth : MonoBehaviour
             hpDisplay.FullHeal();
             health+=tempHealth;
         }
-    }
+
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Weapon")){

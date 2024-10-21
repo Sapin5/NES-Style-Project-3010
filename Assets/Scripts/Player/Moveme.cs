@@ -214,7 +214,6 @@ public class Moveme : MonoBehaviour
                     return false;
                 }
         }else{
-            Debug.Log("Collided with nothing");
             return false;
         }
 
