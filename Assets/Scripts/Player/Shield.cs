@@ -5,7 +5,7 @@ public class Shield : MonoBehaviour
 {
     [SerializeField] private float totalShield = 10;
     private float shield;
-    [SerializeField] HPDisplay shieldDisplay;
+    [SerializeField] ShieldDisplay shieldDisplay;
     private float timer = 0;
 
     private void Awake(){
@@ -15,7 +15,7 @@ public class Shield : MonoBehaviour
 
     void Update(){
         Debug.Log($"shield is {shield}");
-        if(shield!=totalShield && Timer(2)){
+        if(shield!=totalShield && Timer(4)){
             shield += 1;
             shieldDisplay.HealOne();
         }
@@ -37,8 +37,16 @@ public class Shield : MonoBehaviour
     }
 
     private void Updateshield(float dmg) {
-        shield -= dmg;
-        shieldDisplay.UpdateHP();
+        if(shield > 0){
+            shield -= dmg;
+            shieldDisplay.UpdateHP();
+        }
+    }
+
+    public void IncreaseShield(int amount){
+        shieldDisplay.IncreaseShields();
+        totalShield+=amount;
+        FullShield();
     }
 
     public void FullShield(){

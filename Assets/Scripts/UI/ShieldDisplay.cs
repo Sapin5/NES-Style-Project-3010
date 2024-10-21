@@ -1,8 +1,7 @@
-using UnityEngine.UIElements;
-
 public class ShieldDisplay : HPDisplay
 {
-    private void Update(){
-        temp(1);
+    public void IncreaseShields(){
+        AddHearts();
+        CheckHeartAmount();
     }
 }

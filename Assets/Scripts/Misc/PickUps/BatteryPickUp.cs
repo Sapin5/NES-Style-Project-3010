@@ -25,7 +25,7 @@ public class BatteryPickUp : MonoBehaviour
                 break;
 
             case "Shield":
-                //player.GetComponentInParent<Shield>().Shields();
+                player.GetComponentInParent<Shield>().IncreaseShield(2);
                 break;
 
             case "Battery":

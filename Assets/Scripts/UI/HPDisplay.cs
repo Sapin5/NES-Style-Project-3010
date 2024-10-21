@@ -5,14 +5,33 @@ using UnityEngine;
 public class HPDisplay : MonoBehaviour
 {
     private int track2 = 0;
-    private int currheart =1;
+    private int currheart = 1;
+    [SerializeField] private GameObject heartPrefab;
+    [SerializeField] private int heartToAdd;
     private ArrayList hearts = new();
-    private Transform heartdisp;
+    private Transform heartDisp;
     [SerializeField]private Sprite[] heartStage;
+    private Vector3 distanceBetween = new (0f, 0f, 0f);
 
     private void Awake(){
-        heartdisp = GetComponent<Transform>();
-        foreach (Transform child in heartdisp){
+    
+        heartDisp = GetComponent<Transform>();
+    
+        for(int i = 0; i<heartToAdd; i++){
+            AddHearts();
+        }
+
+        CheckHeartAmount();
+    }
+
+    public void AddHearts(){
+        GameObject obj = Instantiate(heartPrefab, transform.position+distanceBetween, transform.rotation) ;
+        obj.transform.SetParent(heartDisp, true);
+        distanceBetween+=new Vector3(0.2f, 0f, 0f);
+    }
+
+    public void CheckHeartAmount(){
+        foreach (Transform child in heartDisp){
             hearts.Add(child);
         }
     }
@@ -43,9 +62,5 @@ public class HPDisplay : MonoBehaviour
         foreach (Transform heart in hearts){
             heart.ConvertTo<Transform>().GetComponent<SpriteRenderer>().sprite = heartStage[track2];
         }
-    }
-
-    public void temp(int i){
-
     }
 }
