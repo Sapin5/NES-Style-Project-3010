@@ -1526,7 +1526,7 @@ GameObject:
   - component: {fileID: 320255245}
   - component: {fileID: 320255244}
   - component: {fileID: 320255243}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1948,7 +1948,7 @@ GameObject:
   - component: {fileID: 374881474}
   - component: {fileID: 374881473}
   - component: {fileID: 374881472}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (16)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2406,7 +2406,7 @@ GameObject:
   - component: {fileID: 564198267}
   - component: {fileID: 564198266}
   - component: {fileID: 564198265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (12)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -2755,25 +2755,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1033117004}
     m_Modifications:
-    - target: {fileID: 960376439079278821, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: damage
-      value: 1
+    - target: {fileID: 2382015286258463632, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35220432
       objectReference: {fileID: 0}
-    - target: {fileID: 963995002707966587, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1911341646266772489, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2265973701374749255, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: damage
-      value: 1
+    - target: {fileID: 2382015286258463632, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2271
       objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.782242
+      value: 10.34
       objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2811,21 +2803,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3609831174984638828, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: playerPos
-      value: 
+    - target: {fileID: 8576511779030447498, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.33425564
       objectReference: {fileID: 0}
-    - target: {fileID: 7714742412970025383, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
-      objectReference: {fileID: 0}
-    - target: {fileID: 8460579578769555401, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: health
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 8618377195278945712, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
-      propertyPath: m_TagString
-      value: Weapon
+    - target: {fileID: 8576511779030447498, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.2361
       objectReference: {fileID: 0}
     - target: {fileID: 9187216109226872673, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_Name
@@ -2845,7 +2829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 681885683}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3067,7 +3051,7 @@ GameObject:
   - component: {fileID: 719928256}
   - component: {fileID: 719928255}
   - component: {fileID: 719928254}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (26)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3206,7 +3190,7 @@ GameObject:
   - component: {fileID: 751098110}
   - component: {fileID: 751098109}
   - component: {fileID: 751098108}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (17)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -3983,7 +3967,7 @@ GameObject:
   - component: {fileID: 1057663201}
   - component: {fileID: 1057663200}
   - component: {fileID: 1057663199}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (9)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -4832,7 +4816,7 @@ GameObject:
   - component: {fileID: 1189389536}
   - component: {fileID: 1189389535}
   - component: {fileID: 1189389534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CrouchCollider
   m_TagString: CrouchCollider
   m_Icon: {fileID: 0}
@@ -5211,7 +5195,7 @@ GameObject:
   - component: {fileID: 1258746850}
   - component: {fileID: 1258746849}
   - component: {fileID: 1258746848}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (11)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5340,7 +5324,7 @@ GameObject:
   - component: {fileID: 1266358387}
   - component: {fileID: 1266358386}
   - component: {fileID: 1266358385}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (14)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5558,7 +5542,7 @@ GameObject:
   - component: {fileID: 1281465248}
   - component: {fileID: 1281465247}
   - component: {fileID: 1281465246}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (15)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5687,7 +5671,7 @@ GameObject:
   - component: {fileID: 1284396914}
   - component: {fileID: 1284396913}
   - component: {fileID: 1284396912}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (8)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -6656,7 +6640,7 @@ GameObject:
   - component: {fileID: 1665175811}
   - component: {fileID: 1665175810}
   - component: {fileID: 1665175809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6961,7 +6945,7 @@ GameObject:
   - component: {fileID: 1728998102}
   - component: {fileID: 1728998101}
   - component: {fileID: 1728998100}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (13)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -7504,7 +7488,7 @@ GameObject:
   - component: {fileID: 1855383630}
   - component: {fileID: 1855383629}
   - component: {fileID: 1855383628}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7989,7 +7973,7 @@ GameObject:
   - component: {fileID: 1887600380}
   - component: {fileID: 1887600379}
   - component: {fileID: 1887600378}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (8)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8262,7 +8246,7 @@ GameObject:
   - component: {fileID: 1981316181}
   - component: {fileID: 1981316180}
   - component: {fileID: 1981316179}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (7)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8514,7 +8498,7 @@ GameObject:
   - component: {fileID: 2087384814}
   - component: {fileID: 2087384813}
   - component: {fileID: 2087384812}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (5)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -8994,7 +8978,7 @@ GameObject:
   - component: {fileID: 2125253498}
   - component: {fileID: 2125253497}
   - component: {fileID: 2125253496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Square (27)
   m_TagString: Ground
   m_Icon: {fileID: 0}
