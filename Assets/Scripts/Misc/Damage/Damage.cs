@@ -25,6 +25,7 @@ public class Damage : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         ApplyKnockback(other);
+        Debug.Log("WAKKAA");
     }
 
     private void ApplyKnockback(Collider2D other)

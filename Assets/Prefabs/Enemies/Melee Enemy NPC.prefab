@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
   damage: 1
-  knockbackStrength: 2
+  knockbackStrength: 25
   knockbackDebounce: 0.2
 --- !u!1 &8618377195278945712
 GameObject:
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
   damage: 1
-  knockbackStrength: 2
+  knockbackStrength: 25
   knockbackDebounce: 0.2
 --- !u!1 &9187216109226872673
 GameObject:
@@ -395,6 +395,8 @@ GameObject:
   - component: {fileID: 3609831174984638828}
   - component: {fileID: 5180294861595434745}
   - component: {fileID: 6405310645410700293}
+  - component: {fileID: 8462074564709121261}
+  - component: {fileID: 5661190183112192749}
   m_Layer: 3
   m_Name: Melee Enemy NPC
   m_TagString: Untagged
@@ -476,7 +478,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.01959569, y: -0.083439894}
@@ -594,5 +596,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 100
+  health: 100
   animator: {fileID: 5180294861595434745}
+--- !u!114 &8462074564709121261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187216109226872673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35bd6b6ee21579d4bbd4c50443a20c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wielderTransform: {fileID: 3049143949302017163}
+  damage: 1
+  knockbackStrength: 15
+  knockbackDebounce: 0.1
+--- !u!61 &5661190183112192749
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187216109226872673}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 264
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01959569, y: -0.083439894}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2353784, y: 0.27126765}
+  m_EdgeRadius: 0

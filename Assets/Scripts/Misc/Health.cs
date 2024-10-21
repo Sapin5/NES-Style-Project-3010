@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int totalHealth;
-    private int health;
+    [SerializeField] private int health;
     [SerializeField] private Animator animator;
 
     public int GetHealth() {
@@ -19,7 +18,6 @@ public class Health : MonoBehaviour
     {
         if (other.GetComponent<Damage>() != null) {
             UpdateHealth(other.GetComponent<Damage>().GetDamage());
-            Debug.Log(other.transform.name);
             if (health > 0)
                 animator.SetTrigger("OnHit");
             else
