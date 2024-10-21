@@ -4,14 +4,20 @@ public class AnimationSwapper : MonoBehaviour
 {
     private Moveme moveme;
     private Animator child;
+    private PlayerHealth health;
 
     void Start(){
         moveme = gameObject.GetComponentInParent<Moveme>();
         child = GetComponent<Animator>();
+        health = GetComponentInParent<PlayerHealth>();
     }
 
     void Update(){
-        AnimatePlayer();
+        if(health.RemainingHealth()==0){
+            child.SetTrigger("Dead");
+        }else{
+            AnimatePlayer();
+        }
     }
  
     private void AnimatePlayer(){

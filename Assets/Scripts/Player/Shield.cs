@@ -8,9 +8,7 @@ public class Shield : MonoBehaviour
     [SerializeField] private ShieldDisplay shieldDisplay;
     [SerializeField] private float rechargeDelay;
     private float timer = 0;
-
-
-
+    private PlayerHealth health;
     private void Awake(){
         if(totalShield%2!=0){
             totalShield+=1;
@@ -19,11 +17,11 @@ public class Shield : MonoBehaviour
         }
         shield = totalShield;
         shieldDisplay = FindAnyObjectByType<Canvas>().GetComponent<Transform>().GetChild(0).GetChild(1).GetComponent<ShieldDisplay>();
+        health = GetComponent<PlayerHealth>();
     }
 
     void Update(){
-        Debug.Log($"shield is {shield}");
-        if(shield!=totalShield && Timer(rechargeDelay)){
+        if(shield!=totalShield && Timer(rechargeDelay) && health.RemainingHealth() > 0){
             shield += 1;
             shieldDisplay.HealOne();
         }
@@ -70,7 +68,6 @@ public class Shield : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Weapon")){
             Updateshield(other.transform.GetComponent<Damage>().GetDamage());
-            Debug.Log(shield);
         }
     }
 

@@ -20,7 +20,6 @@ public class CamBehaviour : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Escape)){
             Application.Quit();
-            Debug.Log("Diddy time");
         }
 
         if (player != null)
