@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 5062223782792706811}
   - component: {fileID: 8052015667622658747}
   - component: {fileID: 2273694405842808814}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1b32264d0fd5f4890afbd36f3afa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 10
+  totalHealth: 2
   hpDisplay: {fileID: 0}
   shield: 0
   hasShield: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79511ff10edd9cd488f4182dbafdfa41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalShield: 100
+  totalShield: 2
   shieldDisplay: {fileID: 0}
   rechargeDelay: 4
 --- !u!1 &5561999462085978421
@@ -223,8 +223,8 @@ Transform:
   m_GameObject: {fileID: 5561999462085978421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.32, z: 0.32}
+  m_LocalPosition: {x: 0.3, y: 0, z: 0}
+  m_LocalScale: {x: 0.35, y: 0.32, z: 0.32}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3841748179336213469}
@@ -318,7 +318,7 @@ Transform:
   m_GameObject: {fileID: 5621745969966188425}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.01839592}
+  m_LocalPosition: {x: 0, y: 0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -112,10 +112,6 @@ public class Moveme : MonoBehaviour
         }
     }
 
-    public float ReturnCooldownTime(){
-        return coolDown;
-    }
-
     private bool Timer(float delay, Dash dash){
         timer+=Time.deltaTime;
         // Switches when timer becomes greater than the delay
