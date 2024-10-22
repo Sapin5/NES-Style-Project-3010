@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Kenstinkyscene.unity
     guid: f384f3173b9094549aae956e9a1afc77
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/DiddyParty.unity
+    guid: ffb4000474b44234b84e108d5854f64e
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9ee12d55f8ff8374e9f261f1134ebe89, type: 2}

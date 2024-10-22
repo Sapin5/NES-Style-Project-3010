@@ -78,6 +78,7 @@ public class Moveme : MonoBehaviour
             currentAction = "Dashing";
             dashing = true;
         }
+
         switch(dash){
             case Dash.Ready:
                 break;
@@ -99,6 +100,10 @@ public class Moveme : MonoBehaviour
                 if(Timer(coolDown,  Dash.Ready)) dashing = false;
                 break;
         }
+    }
+
+    public bool Dashing(){
+        return dashing;
     }
 
     public void DashTime(float lowerCD){
