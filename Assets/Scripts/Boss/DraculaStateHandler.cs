@@ -4,16 +4,29 @@ public class DraculaStateHandler : MonoBehaviour
 {
     [SerializeField] private float maxIdleTime;
     [SerializeField] private Animator draculaAnimator;
+
+    [Header("Dracula Melee Attack 2 Properties:")]
+    [SerializeField] private float xOffset;
+    [SerializeField] private float yOffset;
+    private Transform playerPos;
+    private bool isAttacking2 = false;
+    private Vector3 movePosition2;
     
     private enum State { Idle, MeleeAttack1 , MeleeAttack2 , ProjectileAttack } ;
     private State currentState;
 
     private float currentIdleTimer = 0f;
 
-    // Start is called before the first frame update
-    private void Start()
+    private Vector3 ORIGINAL_POS = new Vector3(0, -0.80f, 0); 
+
+    private void Awake()
     {
         currentState = State.Idle;
+        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
+        if (playerPos == null) {
+            Debug.LogError("No player position in DraculaStateHandler class. D: ");
+        }
     } 
 
     private void Update()
@@ -94,4 +107,24 @@ public class DraculaStateHandler : MonoBehaviour
         currentState = calculatedState;
     }
     
+
+    //Used for the melee attack 2, for repositioning infront of player
+    public void MoveBesidePlayer() {
+        movePosition2 = playerPos.position + new Vector3(xOffset, yOffset, 0);
+        isAttacking2 = true;
+    }
+
+    //Used for the melee attack 2, for repositioning back to the original position
+    public void MoveToOriginalPos() {
+        isAttacking2 = false;
+    }
+
+    //For moving when casting melee attack 2
+    private void LateUpdate() {
+        if (currentState == State.MeleeAttack2 && isAttacking2) {
+            transform.position = movePosition2;
+        } else if (currentState == State.MeleeAttack2 && !isAttacking2) {
+            transform.position = ORIGINAL_POS;
+        }
+    }
 }
