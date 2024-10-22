@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1638358591, guid: bdf8b514fef90fa42b6201a3d66cef7b, type: 3}
+  m_Sprite: {fileID: 1250237287, guid: e5e0e957d4f38ee45a69b87d56d46e81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -112,8 +112,8 @@ Transform:
   m_GameObject: {fileID: 7714742412970025383}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2271, y: -0.0808, z: 0}
-  m_LocalScale: {x: 0.35220432, y: 0.2920471, z: 1.3125}
+  m_LocalPosition: {x: -0.1287, y: -0.1507, z: 0}
+  m_LocalScale: {x: 0.15535733, y: 0.3386147, z: 1.3125}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3049143949302017163}
@@ -259,8 +259,8 @@ Transform:
   m_GameObject: {fileID: 8618377195278945712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2361, y: -0.0808, z: 0}
-  m_LocalScale: {x: 0.33425564, y: 0.2920471, z: 1.3125}
+  m_LocalPosition: {x: 0.1472, y: -0.1507, z: 0}
+  m_LocalScale: {x: 0.15645926, y: 0.3386147, z: 1.3125}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3049143949302017163}
@@ -480,7 +480,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01959569, y: -0.083439894}
+  m_Offset: {x: 0.011529386, y: -0.14438516}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -491,7 +491,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2353784, y: 0.27126765}
+  m_Size: {x: 0.19158757, y: 0.3378451}
   m_EdgeRadius: 0
 --- !u!114 &3517572009196856664
 MonoBehaviour:
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: {x: 2, y: 0.4}
-  attackRange: {x: 0.5, y: 0.4}
+  attackRange: {x: 0.25, y: 0.4}
   chasingState: {fileID: 963995002707966587}
   patrollingState: {fileID: 3517572009196856664}
   attackingState: {fileID: 3609831174984638828}
@@ -629,7 +629,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01959569, y: -0.083439894}
+  m_Offset: {x: 0.012682334, y: -0.14466372}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -640,5 +640,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2353784, y: 0.27126765}
+  m_Size: {x: 0.19389346, y: 0.3384022}
   m_EdgeRadius: 0
