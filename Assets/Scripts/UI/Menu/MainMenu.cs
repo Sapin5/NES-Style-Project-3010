@@ -45,4 +45,8 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 0;
         gamePaused = true;
     }
+
+    public void Controls(){
+        SceneManager.LoadScene(gameScenes[2]);
+    }
 }
