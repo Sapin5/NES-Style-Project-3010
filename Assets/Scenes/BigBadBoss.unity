@@ -900,6 +900,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dracula Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8415813472368464394, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 801269433, guid: a066ee3f87d37df42941953c9a96017c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
