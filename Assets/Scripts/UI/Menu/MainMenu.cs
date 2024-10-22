@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string[] gameScenes;
     public static bool gamePaused = false;
-    private static bool mainMenu = true;
+    private static bool mainMenu = false;
     [SerializeField] private GameObject pauseMenuUI;
 
     public void PlayGame(){
@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
     }
 
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.Escape) && !mainMenu){
+        if(Input.GetKeyDown(KeyCode.Escape)){
             if(gamePaused){
                 Resume();
             }
@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
 
     private void Pause(){
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0;
+        Time.timeScale = 0.1f;
         gamePaused = true;
     }
 

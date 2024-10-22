@@ -2869,7 +2869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use WASD or arrow keys to move
+  m_text: Use arrow keys to move
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3749,7 +3749,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Touch the square to reset
+  m_text: Touch the square to progress
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5010,10 +5010,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2089017864}
     m_Modifications:
-    - target: {fileID: 1801259124393071685, guid: af93f2a4b605699429102efa5c20ca23, type: 3}
-      propertyPath: excludePlayerMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 5390694388368414082, guid: af93f2a4b605699429102efa5c20ca23, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.990242
@@ -7199,7 +7195,7 @@ GameObject:
   - component: {fileID: 1981316179}
   m_Layer: 7
   m_Name: Square (7)
-  m_TagString: Ground
+  m_TagString: CrouchCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8208,12 +8204,27 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 76094170}
+    - target: {fileID: 7511273933707873638, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511273933707873638, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511273933707873638, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8013762808100877337, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3488373246509425691, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+    - {fileID: 8816416636154483202, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+    - {fileID: 4490562794870354292, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}

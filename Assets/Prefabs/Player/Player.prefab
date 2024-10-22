@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be1b32264d0fd5f4890afbd36f3afa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalHealth: 2
+  totalHealth: 10
   hpDisplay: {fileID: 0}
   shield: 0
   hasShield: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79511ff10edd9cd488f4182dbafdfa41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalShield: 2
+  totalShield: 10
   shieldDisplay: {fileID: 0}
   rechargeDelay: 4
 --- !u!1 &5561999462085978421
