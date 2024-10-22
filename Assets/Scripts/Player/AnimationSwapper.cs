@@ -3,18 +3,18 @@ using UnityEngine;
 public class AnimationSwapper : MonoBehaviour
 {
     private Moveme moveme;
-    private Animator child;
+    private Animator animator;
     private PlayerHealth health;
 
     void Start(){
         moveme = gameObject.GetComponentInParent<Moveme>();
-        child = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         health = GetComponentInParent<PlayerHealth>();
     }
 
     void Update(){
         if(health.RemainingHealth()==0){
-            child.SetTrigger("Dead");
+            animator.SetTrigger("Dead");
         }else{
             AnimatePlayer();
         }
@@ -23,43 +23,43 @@ public class AnimationSwapper : MonoBehaviour
     private void AnimatePlayer(){
         switch (moveme.Action()){
             case "Idle":
-                child.SetBool("Dashing",    false);
-                child.SetBool("Idle",       true);
-                child.SetBool("Running",    false);
-                child.SetBool("Jumping",    false);
-                child.SetBool("Crouching",    false);
+                animator.SetBool("Dashing",    false);
+                animator.SetBool("Idle",       true);
+                animator.SetBool("Running",    false);
+                animator.SetBool("Jumping",    false);
+                animator.SetBool("Crouching",    false);
             break;
 
             case "Jumping":
-                child.SetBool("Dashing",    false);
-                child.SetBool("Idle",       false);
-                child.SetBool("Running",    false);
-                child.SetBool("Jumping",    true);
-                child.SetBool("Crouching",    false);
+                animator.SetBool("Dashing",    false);
+                animator.SetBool("Idle",       false);
+                animator.SetBool("Running",    false);
+                animator.SetBool("Jumping",    true);
+                animator.SetBool("Crouching",    false);
             break;
 
             case "Walking":
-                child.SetBool("Dashing",    false);
-                child.SetBool("Idle",       false);
-                child.SetBool("Running",    true);
-                child.SetBool("Jumping",    false);
-                child.SetBool("Crouching",    false);
+                animator.SetBool("Dashing",    false);
+                animator.SetBool("Idle",       false);
+                animator.SetBool("Running",    true);
+                animator.SetBool("Jumping",    false);
+                animator.SetBool("Crouching",    false);
             break;
 
             case "Dashing":
-                child.SetBool("Dashing",    true);
-                child.SetBool("Idle",       false);
-                child.SetBool("Running",    false);
-                child.SetBool("Jumping",    false);
-                child.SetBool("Crouching",    false);
+                animator.SetBool("Dashing",    true);
+                animator.SetBool("Idle",       false);
+                animator.SetBool("Running",    false);
+                animator.SetBool("Jumping",    false);
+                animator.SetBool("Crouching",    false);
             break;
 
             case "Crouching":
-                child.SetBool("Dashing",    false);
-                child.SetBool("Idle",       false);
-                child.SetBool("Running",    false);
-                child.SetBool("Jumping",    false);
-                child.SetBool("Crouching",    true);
+                animator.SetBool("Dashing",    false);
+                animator.SetBool("Idle",       false);
+                animator.SetBool("Running",    false);
+                animator.SetBool("Jumping",    false);
+                animator.SetBool("Crouching",    true);
                 break;
         }
     }
