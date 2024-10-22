@@ -26,11 +26,15 @@ public class EnemyRangeAttack : MonoBehaviour
         float originPosX = Math.Abs(attackOriginPos.localPosition.x);
         
         if (xDirection == 1) {
-            enemyRenderer.flipX = false;
+            if (enemyRenderer)
+                enemyRenderer.flipX = false;
+            
             attackOriginPos.localPosition = new Vector3(originPosX, attackOriginPos.localPosition.y, 0);
             
         } else {
-            enemyRenderer.flipX = true;
+            if (enemyRenderer)
+                enemyRenderer.flipX = true;
+            
             attackOriginPos.localPosition = new Vector3(-originPosX, attackOriginPos.localPosition.y, 0);
         }
     }

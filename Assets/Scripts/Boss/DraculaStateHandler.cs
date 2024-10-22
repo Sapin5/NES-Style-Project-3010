@@ -8,53 +8,67 @@ public class DraculaStateHandler : MonoBehaviour
     private enum State { Idle, MeleeAttack1 , MeleeAttack2 , ProjectileAttack } ;
     private State currentState;
 
-    private float currentTimer = 0f;
+    private float currentIdleTimer = 0f;
 
     // Start is called before the first frame update
     private void Start()
     {
         currentState = State.Idle;
-        //Pick and play a random state  
     } 
 
-    // Update is called once per frame
     private void Update()
     {
-        //Pick a random state
-
-        //if [ATTACK], enable attack animator and turn other states off
-        //after attack, move back to original flying spot.
-        //once in original spot, idle for ____ amount of seconds.
-
-        // THEN, PICK A RANDOM ATTACK!! 
-        //repeat
-        //(also if Dracula is attacked, go back to original spot like as explained above, EXCEPT that Dracula is invulnerable)
-        //-----------------------------------------------------------
         switch (currentState) {
-            case State.Idle:
+
+            case State.Idle: //---------------------------IDLE---------------------------------
                 draculaAnimator.SetBool("Idle", true);
 
-                if (currentTimer >= maxIdleTime) {
-                    currentState = ChooseRandomState();
+                draculaAnimator.SetBool("MeleeAttack1", false);
+                draculaAnimator.SetBool("MeleeAttack2", false);
+                draculaAnimator.SetBool("ProjectileAttack", false);
+
+                currentIdleTimer += Time.deltaTime;
+
+                if (currentIdleTimer >= maxIdleTime) {
+                    ChooseRandomState();
+                    currentIdleTimer = 0;
                 }
 
                 return;
-            case State.MeleeAttack1:
+
+            case State.MeleeAttack1: //---------------------------MELEE ATTACK 1---------------------------------
                 draculaAnimator.SetBool("MeleeAttack1", true);
+
+                draculaAnimator.SetBool("Idle", false);
+                draculaAnimator.SetBool("MeleeAttack2", false);
+                draculaAnimator.SetBool("ProjectileAttack", false);
+                
                 return;
-            case State.MeleeAttack2:
+
+            case State.MeleeAttack2: //---------------------------MELEE ATTACK 2---------------------------------
                 draculaAnimator.SetBool("MeleeAttack2", true);
+
+                draculaAnimator.SetBool("Idle", false);
+                draculaAnimator.SetBool("MeleeAttack1", false);
+                draculaAnimator.SetBool("ProjectileAttack", false);
+
                 return;
-            case State.ProjectileAttack:
+
+            case State.ProjectileAttack: //---------------------------PROJECTILE ATTACK---------------------------------
                 draculaAnimator.SetBool("ProjectileAttack", true);
+
+                draculaAnimator.SetBool("MeleeAttack2", false);
+                draculaAnimator.SetBool("Idle", false);
+                draculaAnimator.SetBool("MeleeAttack1", false);
+
                 return;
         }
     
     }
 
     //Choose a random state that isn't the current state
-    private State ChooseRandomState() { 
-        const int numStates = 4;
+    public void ChooseRandomState() { 
+        const int numStates = 400;
 
         bool foundState = false;
         State calculatedState = State.Idle;
@@ -62,19 +76,14 @@ public class DraculaStateHandler : MonoBehaviour
         while (!foundState) {
             int randomState = Random.Range(0, numStates);
 
-            switch (randomState) {
-                case 0:
-                    calculatedState = State.Idle;
-                    break;
-                case 1:
-                    calculatedState = State.MeleeAttack2;
-                    break;
-                case 2:
-                    calculatedState = State.ProjectileAttack;
-                    break;
-                default:
-                    calculatedState = State.Idle;
-                    break;
+            if (randomState < 100) {
+                calculatedState = State.Idle;
+            } else if (randomState < 200) {
+                calculatedState = State.MeleeAttack1;
+            } else if (randomState < 300) {
+                calculatedState = State.MeleeAttack2;
+            } else {
+                calculatedState = State.ProjectileAttack;
             }
 
             if (currentState != calculatedState) {
@@ -82,7 +91,7 @@ public class DraculaStateHandler : MonoBehaviour
             }
         }
 
-        return calculatedState;
+        currentState = calculatedState;
     }
     
 }
