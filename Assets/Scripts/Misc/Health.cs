@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int totalHealth;
-    private int health;
+    [SerializeField] private int health;
     [SerializeField] private Animator animator;
 
     public int GetHealth() {
@@ -18,6 +17,8 @@ public class Health : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Damage>() != null) {
+
+            Debug.Log(health);
             UpdateHealth(other.GetComponent<Damage>().GetDamage());
             if (health > 0)
                 animator.SetTrigger("OnHit");
