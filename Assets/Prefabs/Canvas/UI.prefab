@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5432677602119005467}
-  - component: {fileID: 1181806930117396186}
+  - component: {fileID: 4508129291275639057}
   m_Layer: 5
   m_Name: Hearts
   m_TagString: Untagged
@@ -196,7 +196,7 @@ RectTransform:
   m_AnchoredPosition: {x: -747.4, y: 490}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1181806930117396186
+--- !u!114 &4508129291275639057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,15 +205,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2669794636705488279}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57e36a086060f7748b0b92b53eec2648, type: 3}
+  m_Script: {fileID: 11500000, guid: 53ea2777567c8df4c998796495a0b82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xPadding: 0.15
   heartPrefab: {fileID: 7884424350933006593, guid: a027cedfa1da9764896141910fbe3ed4, type: 3}
-  heartStage:
-  - {fileID: -27480903, guid: 23586f1e1b81fde4287d34f2f18c3326, type: 3}
-  - {fileID: -1460572073, guid: 23586f1e1b81fde4287d34f2f18c3326, type: 3}
-  - {fileID: -30127457, guid: 23586f1e1b81fde4287d34f2f18c3326, type: 3}
-  isShield: 0
+  FullHP_Sprite: {fileID: 1039871750, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
+  HalfHP_Sprite: {fileID: -434674125, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
+  EmptyHP_Sprite: {fileID: -193520982, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
 --- !u!1 &5068149454963857378
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,12 +419,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442cdf903f4f86342ac2ce6ddbc46e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartPrefab: {fileID: 2811443909902230367, guid: 729faaa961e6bd4429e7b7e97c4efe2a, type: 3}
-  heartStage:
-  - {fileID: -110325888, guid: 040a5a321b9dbf345b3a16dad33efc43, type: 3}
-  - {fileID: -611745612, guid: 040a5a321b9dbf345b3a16dad33efc43, type: 3}
-  - {fileID: -628438556, guid: 040a5a321b9dbf345b3a16dad33efc43, type: 3}
-  isShield: 1
+  xPadding: 0.15
+  shieldPrefab: {fileID: 2811443909902230367, guid: 729faaa961e6bd4429e7b7e97c4efe2a, type: 3}
+  FullShield_Sprite: {fileID: 564056666, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
+  HalfShield_Sprite: {fileID: 1389165551, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
+  EmptyShield_Sprite: {fileID: 1058881596, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
 --- !u!1 &6842941731350863400
 GameObject:
   m_ObjectHideFlags: 0

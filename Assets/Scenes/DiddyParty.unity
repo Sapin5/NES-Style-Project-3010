@@ -1738,28 +1738,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360255423}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &364580495 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2669794636705488279, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+--- !u!114 &364580497 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4508129291275639057, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
   m_PrefabInstance: {fileID: 5958667481255470327}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &364580497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364580495}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53ea2777567c8df4c998796495a0b82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xPadding: 0.15
-  heartPrefab: {fileID: 7884424350933006593, guid: a027cedfa1da9764896141910fbe3ed4, type: 3}
-  FullHP_Sprite: {fileID: 1039871750, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
-  HalfHP_Sprite: {fileID: -434674125, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
-  EmptyHP_Sprite: {fileID: -193520982, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
 --- !u!1 &374881470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,24 +1888,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2047469335837280185, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
   m_PrefabInstance: {fileID: 1064712947}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &408314746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 408314739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 14
-  shield: 14
-  enemyAnimator: {fileID: 0}
-  isPlayer: 1
-  healthDisplay: {fileID: 364580497}
-  shieldDisplay: {fileID: 734138637}
 --- !u!4 &409337949 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8107806412549715611, guid: 4aa3e90943eb7d642993ac50a8fd4598, type: 3}
@@ -3510,6 +3481,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 899456821985636215, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
+      propertyPath: healthDisplay
+      value: 
+      objectReference: {fileID: 364580497}
+    - target: {fileID: 899456821985636215, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
+      propertyPath: shieldDisplay
+      value: 
+      objectReference: {fileID: 734138637}
     - target: {fileID: 2047469335837280185, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3557,10 +3536,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2047469335837280185, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 408314746}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
 --- !u!4 &1069705958 stripped
 Transform:
@@ -8273,34 +8249,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 76094170}
-    - target: {fileID: 8111147858524623825, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
-      propertyPath: xPadding
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8111147858524623825, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
-      propertyPath: shieldPrefab
-      value: 
-      objectReference: {fileID: 2811443909902230367, guid: 729faaa961e6bd4429e7b7e97c4efe2a, type: 3}
-    - target: {fileID: 8111147858524623825, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
-      propertyPath: FullShield_Sprite
-      value: 
-      objectReference: {fileID: 564056666, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
-    - target: {fileID: 8111147858524623825, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
-      propertyPath: HalfShield_Sprite
-      value: 
-      objectReference: {fileID: 1389165551, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
-    - target: {fileID: 8111147858524623825, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
-      propertyPath: EmptyShield_Sprite
-      value: 
-      objectReference: {fileID: 1058881596, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
-    m_RemovedComponents:
-    - {fileID: 1181806930117396186, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2669794636705488279, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 364580497}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

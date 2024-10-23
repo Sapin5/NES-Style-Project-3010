@@ -22,6 +22,13 @@ public class Health : MonoBehaviour
         originalHealth = health;
         originalShield = shield;
 
+        if (healthDisplay == null) {
+            healthDisplay = FindObjectOfType<HealthDisplay>();
+        }
+        if (shieldDisplay == null) {
+            shieldDisplay = FindObjectOfType<ShieldDisplay>();
+        }
+
         if (health % 2 != 0 && isPlayer) {
             Debug.LogError("THE PLAYER'S HP MUST BE EVEN !!! >:( ");
             health += 1;
@@ -83,11 +90,6 @@ public class Health : MonoBehaviour
                 enemyAnimator.SetTrigger("OnHit");
             else if (health <= 0 && !isPlayer)
                 enemyAnimator.SetTrigger("Die");
-
-            Debug.Log($"The HEALTH is: [{health}] while the SHIELD is : [{shield}]");
-            if (isPlayer) {
-
-            }
         }
     }
 
