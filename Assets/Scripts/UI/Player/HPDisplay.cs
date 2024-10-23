@@ -72,4 +72,12 @@ public class HPDisplay : MonoBehaviour
             heart.ConvertTo<Transform>().GetComponent<SpriteRenderer>().sprite = heartStage[track2];
         }
     }
+
+    public void BigHit(){
+        currheart =1;
+        track2 = 0;
+        foreach (Transform heart in hearts){
+            heart.ConvertTo<Transform>().GetComponent<SpriteRenderer>().sprite = heartStage[track2];
+        }
+    }
 }
