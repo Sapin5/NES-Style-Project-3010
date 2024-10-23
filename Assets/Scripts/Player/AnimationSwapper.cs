@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using UnityEngine;
 
 public class AnimationSwapper : MonoBehaviour
@@ -5,11 +6,13 @@ public class AnimationSwapper : MonoBehaviour
     private Moveme moveme;
     private Animator animator;
     private PlayerHealth health;
+    private ParticleSystem particles;
 
     void Start(){
         moveme = gameObject.GetComponentInParent<Moveme>();
         animator = GetComponent<Animator>();
         health = GetComponentInParent<PlayerHealth>();
+        particles = GetComponent<ParticleSystem>();
     }
 
     void Update(){
@@ -23,6 +26,7 @@ public class AnimationSwapper : MonoBehaviour
     private void AnimatePlayer(){
         switch (moveme.Action()){
             case "Idle":
+                particles.Stop();
                 animator.SetBool("Dashing",    false);
                 animator.SetBool("Idle",       true);
                 animator.SetBool("Running",    false);
@@ -31,6 +35,7 @@ public class AnimationSwapper : MonoBehaviour
             break;
 
             case "Jumping":
+                particles.Stop();
                 animator.SetBool("Dashing",    false);
                 animator.SetBool("Idle",       false);
                 animator.SetBool("Running",    false);
@@ -39,6 +44,7 @@ public class AnimationSwapper : MonoBehaviour
             break;
 
             case "Walking":
+                particles.Stop();
                 animator.SetBool("Dashing",    false);
                 animator.SetBool("Idle",       false);
                 animator.SetBool("Running",    true);
@@ -47,6 +53,7 @@ public class AnimationSwapper : MonoBehaviour
             break;
 
             case "Dashing":
+                particles.Play();
                 animator.SetBool("Dashing",    true);
                 animator.SetBool("Idle",       false);
                 animator.SetBool("Running",    false);
@@ -55,6 +62,7 @@ public class AnimationSwapper : MonoBehaviour
             break;
 
             case "Crouching":
+                particles.Stop();
                 animator.SetBool("Dashing",    false);
                 animator.SetBool("Idle",       false);
                 animator.SetBool("Running",    false);
@@ -62,5 +70,9 @@ public class AnimationSwapper : MonoBehaviour
                 animator.SetBool("Crouching",    true);
                 break;
         }
+    }
+
+    public void StopParticles(){
+        particles.Stop();
     }
 }
