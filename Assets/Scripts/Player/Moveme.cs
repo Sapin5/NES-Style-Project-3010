@@ -30,16 +30,14 @@ public class Moveme : MonoBehaviour
     private Transform playerDmgBox, playerArt, dashCollider, normalCollider;
     private RigidbodyConstraints2D originalConstraints;
 
-    private PlayerHealth health;
-    private Shield shield;
+    private Health playerHealth;
     void Awake(){
         playerDmgBox = GetComponent<Transform>().GetChild(0);
         playerArt = GetComponent<Transform>().GetChild(1);
         normalCollider =  GetComponent<Transform>().GetChild(2);
         dashCollider = GetComponent<Transform>().GetChild(3);
         physicsBody = GetComponent<Rigidbody2D>();
-        health = GetComponent<PlayerHealth>();
-        shield = GetComponent<Shield>();
+        playerHealth = GetComponent<Health>();
 
         currentAction = "Idle";
         originalConstraints = physicsBody.constraints;
@@ -49,7 +47,7 @@ public class Moveme : MonoBehaviour
 
     void Update()
     {
-        if(health.RemainingHealth() > 0){
+        if(playerHealth.GetHealth() > 0){
             Attack();
             Crouch();
         }
@@ -57,7 +55,7 @@ public class Moveme : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if(health.RemainingHealth() > 0){
+        if(playerHealth.GetHealth() > 0){
             Jumping();
             Movement();
             DashAbility();

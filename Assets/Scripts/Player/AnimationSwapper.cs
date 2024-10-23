@@ -5,18 +5,18 @@ public class AnimationSwapper : MonoBehaviour
 {
     private Moveme moveme;
     private Animator animator;
-    private PlayerHealth health;
+    private Health playerHealth;
     private ParticleSystem particles;
 
     void Start(){
         moveme = gameObject.GetComponentInParent<Moveme>();
         animator = GetComponent<Animator>();
-        health = GetComponentInParent<PlayerHealth>();
+        playerHealth = GetComponentInParent<Health>();
         particles = GetComponent<ParticleSystem>();
     }
 
     void Update(){
-        if(health.RemainingHealth()==0){
+        if(playerHealth.GetHealth() == 0){
             animator.SetTrigger("Dead");
         }else{
             AnimatePlayer();

@@ -3,27 +3,91 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [Header("General Properties:")]
     [SerializeField] private int health;
-    [SerializeField] private Animator animator;
+    [SerializeField] private int shield;
+
+    [Header("Enemy Properties:")]
+    [SerializeField] private Animator enemyAnimator;
+
+    [Header("Player Properties:")]
+    [SerializeField] private bool isPlayer;
+    [SerializeField] private HealthDisplay healthDisplay;
+    [SerializeField] private ShieldDisplay shieldDisplay;
+
+    private int originalHealth;
+    private int originalShield;
+
+    private void Awake() {
+        originalHealth = health;
+        originalShield = shield;
+
+        if (health % 2 != 0 && isPlayer) {
+            Debug.LogError("THE PLAYER'S HP MUST BE EVEN !!! >:( ");
+            health += 1;
+        } else if (shield % 2 != 0 && isPlayer) {
+            Debug.LogError("THE PLAYER'S SHIELD MUST BE EVEN !!! >:( ");
+            health += 1;
+        }
+
+        if (isPlayer) {
+            healthDisplay.SetUpUI(health);
+            shieldDisplay.SetUpUI(health);
+        }
+    }
+
+    private void Update() {
+    }
 
     public int GetHealth() {
         return health;
     }
 
-    private void UpdateHealth(int dmg) {
+    public int GetShield() {
+        return health;
+    }
+
+    private void IntakeDamage(int dmg) {
+
+        if (isPlayer && shield > 0) {
+            shield -= dmg; 
+            dmg = shield < 0 ? -shield : 0;
+            shieldDisplay.UpdateShield(shield);
+        }
+        
         health -= dmg;
+        
+        if (isPlayer && shield <= 0)
+            healthDisplay.UpdateHealth(health);
+    }
+
+    public void Heal(int healHealth, int healShield) {
+        if (isPlayer) {
+            health += healHealth;
+            shield += healShield;
+
+            health = health > originalHealth ? originalHealth : health;
+            shield = shield > originalShield ? originalShield: shield;
+
+            healthDisplay.UpdateHealth(health);
+            shieldDisplay.UpdateShield(shield);
+
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Damage>() != null) {
+            IntakeDamage(other.GetComponent<Damage>().GetDamage());
+            if (health > 0 && !isPlayer)
+                enemyAnimator.SetTrigger("OnHit");
+            else if (health <= 0 && !isPlayer)
+                enemyAnimator.SetTrigger("Die");
 
-            Debug.Log(health);
-            UpdateHealth(other.GetComponent<Damage>().GetDamage());
-            if (health > 0)
-                animator.SetTrigger("OnHit");
-            else
-                animator.SetTrigger("Die");
+            Debug.Log($"The HEALTH is: [{health}] while the SHIELD is : [{shield}]");
+            if (isPlayer) {
+
+            }
         }
     }
 

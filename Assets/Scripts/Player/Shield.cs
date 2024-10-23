@@ -23,7 +23,7 @@ public class Shield : MonoBehaviour
     void Update(){
         if(shield!=totalShield && Timer(rechargeDelay) && health.RemainingHealth() > 0){
             shield += 1;
-            shieldDisplay.HealOne();
+            //shieldDisplay.HealOne();
         }
 
         if(Input.GetKeyDown(KeyCode.J) && shield !=0){
@@ -45,13 +45,13 @@ public class Shield : MonoBehaviour
     private void Updateshield(float dmg) {
         if(shield > 0){
             shield -= dmg;
-            shieldDisplay.UpdateHP();
+            //shieldDisplay.UpdateHP();
         }
     }
 
     public void IncreaseShield(int amount){
         if(totalShield <30){
-            shieldDisplay.IncreaseShields();
+            //shieldDisplay.IncreaseShields();
             totalShield+=amount;
             FullShield();
         }else{
@@ -61,7 +61,7 @@ public class Shield : MonoBehaviour
 
     public void FullShield(){
         float tempshield = totalShield-shield;
-        shieldDisplay.FullHeal();
+        //shieldDisplay.FullHeal();
         shield+=tempshield;
     }
 
