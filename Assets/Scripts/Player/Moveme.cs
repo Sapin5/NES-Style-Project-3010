@@ -221,7 +221,6 @@ public class Moveme : MonoBehaviour
         
 
         if(temp){
-            Debug.Log($"Temp {temp.transform.name}");
             if(temp.transform.CompareTag("Ground") ||
                temp.transform.CompareTag("CrouchCollider"))
             {
