@@ -8704,6 +8704,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 5820173622937585662, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -900
+      objectReference: {fileID: 0}
     - target: {fileID: 5993188061517919464, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
       propertyPath: m_Camera
       value: 
