@@ -2250,12 +2250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce8530349d1fb54ab9a5dc9bff857c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHealthGUIHandler: 1
-  fullHP: {fileID: 1039871750, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
-  emptyHP: {fileID: -193520982, guid: ef171c57be70c6843a08f42b8d6af693, type: 3}
-  isShieldGUIHandler: 0
-  fullShield: {fileID: 0}
-  emptyShield: {fileID: 0}
 --- !u!1001 &486314538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2587,7 +2581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.019
+      value: -1.843
       objectReference: {fileID: 0}
     - target: {fileID: 3049143949302017163, guid: a40eb13f19ae8dd4ab03633e772508c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5172,12 +5166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce8530349d1fb54ab9a5dc9bff857c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isHealthGUIHandler: 0
-  fullHP: {fileID: 0}
-  emptyHP: {fileID: 0}
-  isShieldGUIHandler: 1
-  fullShield: {fileID: 564056666, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
-  emptyShield: {fileID: 1058881596, guid: 4ee5dad4d53f1e24aa1b87ba0ae8ffb7, type: 3}
 --- !u!1001 &1433031479
 PrefabInstance:
   m_ObjectHideFlags: 0

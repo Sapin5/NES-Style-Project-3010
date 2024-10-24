@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5880564576460492017}
   m_Layer: 3
   m_Name: Flying Enemy NPC
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,15 +17,15 @@ public class BatteryPickUp : MonoBehaviour
                 break;
 
             case "Heart":
-                player.GetComponentInParent<PlayerHealth>().FullHeal();
+                player.GetComponentInParent<Health>().Heal(99999, 0);
                 break;
 
             case "Health":
-                player.GetComponentInParent<PlayerHealth>().Heal();
+                player.GetComponentInParent<Health>().Heal(1,0);
                 break;
 
             case "Shield":
-                player.GetComponentInParent<Shield>().IncreaseShield(2);
+                player.GetComponentInParent<Health>().Heal(0, 99999);
                 break;
 
             case "Battery":
