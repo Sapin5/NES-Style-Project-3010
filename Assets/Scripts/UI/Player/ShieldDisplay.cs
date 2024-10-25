@@ -24,11 +24,13 @@ public class ShieldDisplay : MonoBehaviour
     public void UpdateShield(int newShield)
     {
         shield = newShield;
+        //CheckIfExtraShield();
         UpdateUI();
     }
 
     private void UpdateUI()
     {
+        numShields = shield/2;
         //Clear old UI
         for (int i = 0; i < transform.childCount; i++) {
             Destroy(transform.GetChild(i).gameObject);

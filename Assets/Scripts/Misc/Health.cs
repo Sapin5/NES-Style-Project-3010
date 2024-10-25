@@ -68,7 +68,10 @@ public class Health : MonoBehaviour
             healthDisplay.UpdateHealth(health);
     }
 
-    public void Heal(int healHealth, int healShield) {
+    public void Heal(int healHealth, int healShield, int extraShield = 0) {
+        if(extraShield%2!=0){
+            extraShield+=1;
+        }
         if (isPlayer) {
             health += healHealth;
             shield += healShield;
@@ -77,7 +80,7 @@ public class Health : MonoBehaviour
             shield = shield > originalShield ? originalShield: shield;
 
             healthDisplay.UpdateHealth(health);
-            shieldDisplay.UpdateShield(shield);
+            shieldDisplay.UpdateShield(shield + extraShield);
 
         }
     }
