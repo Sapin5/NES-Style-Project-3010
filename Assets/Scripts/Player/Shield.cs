@@ -25,9 +25,10 @@ public class Shield : MonoBehaviour
             shield += 1;
             shieldDisplay.HealOne();
         }
-
-        if(Input.GetKeyDown(KeyCode.J) && shield !=0){
-            Updateshield(1);
+        for(int i =0; i<=1; i ++){
+            if(Input.GetKeyDown(KeyCode.J) && shield !=0){
+                Updateshield(1);
+            }
         }
     }
 
@@ -42,6 +43,11 @@ public class Shield : MonoBehaviour
         }else return false;
     }
 
+    private void BigHit(int dmg){
+        for(int i =0; i<dmg; i ++){
+            Updateshield(1);
+        }
+    }
     private void Updateshield(float dmg) {
         if(shield > 0){
             shield -= dmg;
@@ -61,16 +67,17 @@ public class Shield : MonoBehaviour
 
     public void FullShield(){
         float tempshield = totalShield-shield;
-        shieldDisplay.FullHeal();
+        shieldDisplay.FullHeal(); 
         shield+=tempshield;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Weapon")){
-            Updateshield(other.transform.GetComponent<Damage>().GetDamage());
+            BigHit(other.transform.GetComponent<Damage>().GetDamage());
         }
     }
 
+    /*
     public bool ShieldLeft(){
         if(shield == 0){
             return false;
@@ -78,8 +85,14 @@ public class Shield : MonoBehaviour
             return true;
         }
     }
+    */
+
+    public float ShieldLeft(){
+        return shield;  
+    }
 
     public float GetShield(){
         return totalShield;
     }
+
 }

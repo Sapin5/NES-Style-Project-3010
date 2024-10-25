@@ -14,7 +14,9 @@ public class HPDisplay : MonoBehaviour
     private float heartToAdd;
     private readonly ArrayList hearts = new();
     private Transform heartDisp;
+
     
+    private Vector3 diddy = new (0.125f, 0f, 0f);
     private Vector3 distanceBetween = new (0f, 0f, 0f);
     [Header("Enable if this is the Shield:")]
     [SerializeField] private bool isShield;
@@ -33,10 +35,13 @@ public class HPDisplay : MonoBehaviour
         CheckHeartAmount();
     }
 
+    private void Update(){
+    }
+
     public void AddHearts(){
         GameObject obj = Instantiate(heartPrefab, transform.position+distanceBetween, transform.rotation) ;
         obj.transform.SetParent(heartDisp, true);
-        distanceBetween+=new Vector3(0.2f, 0f, 0f);
+        distanceBetween+=diddy;
     }
 
     public void CheckHeartAmount(){
@@ -66,14 +71,6 @@ public class HPDisplay : MonoBehaviour
     }
 
     public void FullHeal(){
-        currheart =1;
-        track2 = 0;
-        foreach (Transform heart in hearts){
-            heart.ConvertTo<Transform>().GetComponent<SpriteRenderer>().sprite = heartStage[track2];
-        }
-    }
-
-    public void BigHit(){
         currheart =1;
         track2 = 0;
         foreach (Transform heart in hearts){
