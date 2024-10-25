@@ -37,7 +37,7 @@ public class ShieldDisplay : MonoBehaviour
         }
 
         //Display new UI
-        for (int i = 0; i < numShields; i++)
+        for (int i = 0; i < shield/2; i++)
         {
             Vector3 spaceFromOrigin = new Vector3(i * xPadding, 0, 0);
 

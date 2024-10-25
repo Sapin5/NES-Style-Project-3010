@@ -17,7 +17,8 @@ public class BatteryPickUp : MonoBehaviour
                 break;
 
             case "Heart":
-                player.GetComponentInParent<Health>().Heal(99999, 0);          //Heal(x, y)   ~~> x is healing health, and the y is healing shield
+            //Heal(x, y)   ~~> x is healing health, and the y is healing shield
+                player.GetComponentInParent<Health>().Heal(99999, 0);          
                 break;
 
             case "Health":

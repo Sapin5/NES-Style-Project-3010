@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     [Header("General Properties:")]
     [SerializeField] private int health;
-    [SerializeField] private int shield;
+    [SerializeField] private int currentShield;
 
     [Header("Enemy Properties:")]
     [SerializeField] private Animator enemyAnimator;
@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
 
     private void Awake() {
         originalHealth = health;
-        originalShield = shield;
+        originalShield = currentShield;
 
         if (healthDisplay == null) {
             healthDisplay = FindObjectOfType<HealthDisplay>();
@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
         if (health % 2 != 0 && isPlayer) {
             Debug.LogError("THE PLAYER'S HP MUST BE EVEN !!! >:( ");
             health += 1;
-        } else if (shield % 2 != 0 && isPlayer) {
+        } else if (currentShield % 2 != 0 && isPlayer) {
             Debug.LogError("THE PLAYER'S SHIELD MUST BE EVEN !!! >:( ");
             health += 1;
         }
@@ -56,15 +56,15 @@ public class Health : MonoBehaviour
 
     private void IntakeDamage(int dmg) {
 
-        if (isPlayer && shield > 0) {
-            shield -= dmg; 
-            dmg = shield < 0 ? -shield : 0;
-            shieldDisplay.UpdateShield(shield);
+        if (isPlayer && currentShield > 0) {
+            currentShield -= dmg; 
+            dmg = currentShield < 0 ? -currentShield : 0;
+            shieldDisplay.UpdateShield(currentShield);
         }
         
         health -= dmg;
         
-        if (isPlayer && shield <= 0)
+        if (isPlayer && currentShield <= 0)
             healthDisplay.UpdateHealth(health);
     }
 
@@ -72,15 +72,20 @@ public class Health : MonoBehaviour
         if(extraShield%2!=0){
             extraShield+=1;
         }
+
         if (isPlayer) {
             health += healHealth;
-            shield += healShield;
+            currentShield += healShield;
 
             health = health > originalHealth ? originalHealth : health;
-            shield = shield > originalShield ? originalShield: shield;
+            currentShield = currentShield > originalShield ? originalShield: currentShield;
+
+            if (extraShield > 0) {
+                originalShield += extraShield;
+            }
 
             healthDisplay.UpdateHealth(health);
-            shieldDisplay.UpdateShield(shield + extraShield);
+            shieldDisplay.UpdateShield(currentShield + extraShield);
 
         }
     }
