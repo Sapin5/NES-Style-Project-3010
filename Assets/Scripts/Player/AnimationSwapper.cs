@@ -16,7 +16,7 @@ public class AnimationSwapper : MonoBehaviour
     }
 
     void Update(){
-        if(playerHealth.GetHealth() == 0){
+        if(playerHealth.GetHealth() <= 0){
             animator.SetTrigger("Dead");
         }else{
             AnimatePlayer();
