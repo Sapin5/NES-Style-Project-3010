@@ -35,9 +35,6 @@ public class HPDisplay : MonoBehaviour
         CheckHeartAmount();
     }
 
-    private void Update(){
-    }
-
     public void AddHearts(){
         GameObject obj = Instantiate(heartPrefab, transform.position+distanceBetween, transform.rotation) ;
         obj.transform.SetParent(heartDisp, true);

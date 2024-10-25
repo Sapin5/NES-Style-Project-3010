@@ -52,6 +52,8 @@ public class Moveme : MonoBehaviour
         if(health.RemainingHealth() > 0){
             Attack();
             Crouch();
+        }else{
+            physicsBody.velocity = new Vector2(0, physicsBody.velocity.y);
         }
         
     }

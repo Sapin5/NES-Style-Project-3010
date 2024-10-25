@@ -30,17 +30,13 @@ public class PlayerHealth : MonoBehaviour
         hpDisplay = FindAnyObjectByType<Canvas>().GetComponent<Transform>().GetChild(0).GetChild(0).GetComponent<HPDisplay>();
     }
 
-    private void BigHit(int dmg){
-        for(int i =0; i<dmg; i ++){
-            UpdateHealth(1);
-        }
-    }
-
-    private void UpdateHealth(float dmg) {
-        if(shield == 0){
+    public void UpdateHealth(float dmg){
+        for(float i =0; i<dmg; i ++){
             Debug.Log(shield);
-            health -= dmg;
-            hpDisplay.UpdateHP();
+            health -= 1;
+            if(health>=0){
+                hpDisplay.UpdateHP();
+            }
         }
     }
 
@@ -65,7 +61,7 @@ public class PlayerHealth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         shield = GetComponent<Shield>().ShieldLeft();
         if(other.transform.CompareTag("Weapon") && shield == 0){
-            BigHit(other.transform.GetComponent<Damage>().GetDamage());
+            UpdateHealth(other.transform.GetComponent<Damage>().GetDamage());
         }
     }
 

@@ -9,6 +9,8 @@ public class Shield : MonoBehaviour
     [SerializeField] private float rechargeDelay;
     private float timer = 0;
     private PlayerHealth health;
+
+    private float bleedDmg;
     private void Awake(){
         if(totalShield%2!=0){
             totalShield+=1;
@@ -25,10 +27,9 @@ public class Shield : MonoBehaviour
             shield += 1;
             shieldDisplay.HealOne();
         }
-        for(int i =0; i<=1; i ++){
-            if(Input.GetKeyDown(KeyCode.J) && shield !=0){
-                Updateshield(1);
-            }
+
+        if(Input.GetKeyDown(KeyCode.J)){
+            Updateshield(6);
         }
     }
 
@@ -43,15 +44,17 @@ public class Shield : MonoBehaviour
         }else return false;
     }
 
-    private void BigHit(int dmg){
-        for(int i =0; i<dmg; i ++){
-            Updateshield(1);
-        }
-    }
+
     private void Updateshield(float dmg) {
-        if(shield > 0){
-            shield -= dmg;
-            shieldDisplay.UpdateHP();
+        if(dmg>shield){
+            health.UpdateHealth(Mathf.Abs(shield-dmg));
+        }
+        for(float i =0; i<dmg; i ++){
+            if(shield > 0){
+                shield--;
+                shieldDisplay.UpdateHP();
+            
+            }
         }
     }
 
@@ -73,19 +76,9 @@ public class Shield : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.transform.CompareTag("Weapon")){
-            BigHit(other.transform.GetComponent<Damage>().GetDamage());
+            Updateshield(other.transform.GetComponent<Damage>().GetDamage());
         }
     }
-
-    /*
-    public bool ShieldLeft(){
-        if(shield == 0){
-            return false;
-        }else{
-            return true;
-        }
-    }
-    */
 
     public float ShieldLeft(){
         return shield;  
@@ -93,6 +86,9 @@ public class Shield : MonoBehaviour
 
     public float GetShield(){
         return totalShield;
+    }
+    public float DmgBleed(){
+        return bleedDmg;
     }
 
 }
