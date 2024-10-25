@@ -46,8 +46,8 @@ public class Shield : MonoBehaviour
 
 
     private void Updateshield(float dmg) {
-        if(dmg>shield){
-            health.UpdateHealth(Mathf.Abs(shield-dmg));
+        if(dmg>shield && shield!=0){
+            health.BleedHealth(Mathf.Abs(shield-dmg));
         }
         for(float i =0; i<dmg; i ++){
             if(shield > 0){

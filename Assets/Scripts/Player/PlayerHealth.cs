@@ -30,12 +30,22 @@ public class PlayerHealth : MonoBehaviour
         hpDisplay = FindAnyObjectByType<Canvas>().GetComponent<Transform>().GetChild(0).GetChild(0).GetComponent<HPDisplay>();
     }
 
-    public void UpdateHealth(float dmg){
+    public void BleedHealth(float dmg){
         for(float i =0; i<dmg; i ++){
-            Debug.Log(shield);
             health -= 1;
             if(health>=0){
                 hpDisplay.UpdateHP();
+            } 
+        }
+    }
+
+    private void UpdateHealth(float dmg){
+        if(shield == 0){
+            for(float i =0; i<dmg; i ++){
+                health -= 1;
+                if(health>=0){
+                    hpDisplay.UpdateHP();
+                }
             }
         }
     }
