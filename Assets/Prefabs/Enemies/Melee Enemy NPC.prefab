@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
-  damage: 1
+  damage: 3
   knockbackStrength: 25
   knockbackDebounce: 0.2
 --- !u!1 &8618377195278945712
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
-  damage: 1
+  damage: 3
   knockbackStrength: 25
   knockbackDebounce: 0.2
 --- !u!1 &9187216109226872673
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 30
   animator: {fileID: 5180294861595434745}
 --- !u!61 &5661190183112192749
 BoxCollider2D:
