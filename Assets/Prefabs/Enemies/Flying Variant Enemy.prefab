@@ -187,10 +187,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackOriginPos: {fileID: 3400650958268879640}
-  projectilePrefab: {fileID: 9095116655373967299, guid: 4396a283b09ae7240a9e97f426cfebfb, type: 3}
+  projectilePrefab: {fileID: 9095116655373967299, guid: 52e056762e3be6d4c8ad8c965241699b, type: 3}
   projectileSpeed: 1
   selfDestructTimer: 4
   enemyRenderer: {fileID: 6217811790772884474}
+  isAFlyingVariant: 1
+  numFireballs: 3
+  angleBetween: 10
 --- !u!50 &6218916464715903288
 Rigidbody2D:
   serializedVersion: 4
