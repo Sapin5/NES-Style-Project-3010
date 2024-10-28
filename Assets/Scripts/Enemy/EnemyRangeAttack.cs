@@ -59,8 +59,12 @@ public class EnemyRangeAttack : MonoBehaviour
                 projectiles[i] = Instantiate(projectilePrefab, attackOriginPos.position, Quaternion.identity);
 
                 Vector3 direction = (playerPos.position - attackOriginPos.position).normalized;
-
-                direction = Quaternion.Euler(0, 0, i*angleBetween) * direction;
+                
+                if (numFireballs % 2 != 0) {
+                    direction = Quaternion.Euler(0, 0, i*angleBetween - angleBetween) * direction;
+                } else {
+                    direction = Quaternion.Euler(0, 0, i*angleBetween - angleBetween - angleBetween/2) * direction;
+                }
                 projectiles[i].GetComponent<EnemyProjectile>().SetProjectile(projectileSpeed, direction);
 
                 Destroy(projectiles[i], selfDestructTimer);
