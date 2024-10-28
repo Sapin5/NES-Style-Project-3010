@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: {x: 2.5, y: 2.5}
-  attackRange: {x: 1, y: 1.5}
+  attackRange: {x: 1, y: 1}
   chasingState: {fileID: 1830728864992411629}
   patrollingState: {fileID: 2654924138557006030}
   attackingState: {fileID: 0}
@@ -305,7 +305,7 @@ MonoBehaviour:
   chaseSpeed: 1
   enemyRenderer: {fileID: 2877031598390482555}
   isFlyingEnemy: 1
-  yFromPlayer: 1
+  yFromPlayer: 0.8
   withinTargetRangeY: 0.2
 --- !u!95 &6047446795995880303
 Animator:
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 20
   animator: {fileID: 6047446795995880303}
 --- !u!114 &6257771356590232840
 MonoBehaviour:

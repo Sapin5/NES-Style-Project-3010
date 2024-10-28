@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,6 +11,11 @@ public class EnemyRangeAttack : MonoBehaviour
     [SerializeField] private float selfDestructTimer;
 
     [SerializeField] private SpriteRenderer enemyRenderer;
+
+    [Header("Variant Flying Enemy:")]
+    [SerializeField] private bool isAFlyingVariant;
+    [SerializeField] private int numFireballs;
+    [SerializeField] private float angleBetween;
 
     private int xDirection = 1;
     private Transform playerPos;
@@ -40,12 +46,36 @@ public class EnemyRangeAttack : MonoBehaviour
     }
 
     public void RangeAttack() {
+        if (!isAFlyingVariant) {
+            GameObject projectile = Instantiate(projectilePrefab, attackOriginPos.position, Quaternion.identity);
 
-        GameObject projectile = Instantiate(projectilePrefab, attackOriginPos.position, Quaternion.identity);
+            Vector3 direction = (playerPos.position - attackOriginPos.position).normalized;
+            projectile.GetComponent<EnemyProjectile>().SetProjectile(projectileSpeed, direction);
+            
+            Destroy(projectile, selfDestructTimer);
+        } else {
+            GameObject[] projectiles = new GameObject[numFireballs];
+            for (int i = 0; i < projectiles.Length; i++) {
+                projectiles[i] = Instantiate(projectilePrefab, attackOriginPos.position, Quaternion.identity);
 
-        Vector3 direction = (playerPos.position - attackOriginPos.position).normalized;
-        projectile.GetComponent<EnemyProjectile>().SetProjectile(projectileSpeed, direction);
-        Destroy(projectile, selfDestructTimer);
+                Vector3 direction = (playerPos.position - attackOriginPos.position).normalized;
+                
+                if (numFireballs % 2 != 0) {
+                    direction = Quaternion.Euler(0, 0, i*angleBetween - angleBetween) * direction;
+                } else {
+                    direction = Quaternion.Euler(0, 0, i*angleBetween - angleBetween - angleBetween/2) * direction;
+                }
+                projectiles[i].GetComponent<EnemyProjectile>().SetProjectile(projectileSpeed, direction);
+
+                Destroy(projectiles[i], selfDestructTimer);
+            }
+
+            if (numFireballs % 2 != 0) { //if odd
+            }
+
+            Quaternion currentDirection = Quaternion.AngleAxis(angleBetween, Vector3.forward);
+            
+        }
     }
 
 }
