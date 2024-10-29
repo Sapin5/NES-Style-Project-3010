@@ -112,8 +112,8 @@ Transform:
   m_GameObject: {fileID: 7714742412970025383}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2271, y: -0.0808, z: 0}
-  m_LocalScale: {x: 0.35220432, y: 0.2920471, z: 1.3125}
+  m_LocalPosition: {x: -0.1501, y: -0.171, z: 0}
+  m_LocalScale: {x: 0.2283969, y: 0.2920471, z: 1.3125}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3049143949302017163}
@@ -259,8 +259,8 @@ Transform:
   m_GameObject: {fileID: 8618377195278945712}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2361, y: -0.0808, z: 0}
-  m_LocalScale: {x: 0.33425564, y: 0.2920471, z: 1.3125}
+  m_LocalPosition: {x: 0.1501, y: -0.171, z: 0}
+  m_LocalScale: {x: 0.22839688, y: 0.2920471, z: 1.3125}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3049143949302017163}
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: {x: 2, y: 0.4}
-  attackRange: {x: 0.5, y: 0.4}
+  attackRange: {x: 0.4, y: 0.4}
   chasingState: {fileID: 963995002707966587}
   patrollingState: {fileID: 3517572009196856664}
   attackingState: {fileID: 3609831174984638828}
