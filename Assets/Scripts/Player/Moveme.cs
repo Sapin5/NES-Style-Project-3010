@@ -5,6 +5,7 @@ public class Moveme : MonoBehaviour
 {
     [Header("Box Collider Settings:")]
     [SerializeField] private Vector2 boxSize = new(1f, 1f);
+    [SerializeField] private Vector2 boxSizeHead = new(1f, 1f);
     [SerializeField] private Vector2 boxLoc = new(1f, 1f);
     [SerializeField] private Vector2 boxLocHead = new(1f, 1f);
 
@@ -31,7 +32,7 @@ public class Moveme : MonoBehaviour
     private RigidbodyConstraints2D originalConstraints;
 
     private PlayerHealth health;
-    private Shield shield;
+
     void Awake(){
         playerDmgBox = GetComponent<Transform>().GetChild(0);
         playerArt = GetComponent<Transform>().GetChild(1);
@@ -39,7 +40,6 @@ public class Moveme : MonoBehaviour
         dashCollider = GetComponent<Transform>().GetChild(3);
         physicsBody = GetComponent<Rigidbody2D>();
         health = GetComponent<PlayerHealth>();
-        shield = GetComponent<Shield>();
 
         currentAction = "Idle";
         originalConstraints = physicsBody.constraints;
@@ -63,6 +63,8 @@ public class Moveme : MonoBehaviour
             Jumping();
             Movement();
             DashAbility();
+        }else{
+            physicsBody.velocity = new Vector2(0, physicsBody.velocity.y);
         }
     }
 
@@ -162,19 +164,19 @@ public class Moveme : MonoBehaviour
         return false;
         
     }
-
+    [SerializeField] private ContactFilter2D contactFilter;
     private bool Jammed(){
-        RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSize, 0f, Vector2.down, boxLocHead.y);
-
-        if(temp){
-            if(temp.transform.CompareTag("CrouchCollider")){
-                return true;
-                }else{
-                    return false;
+        RaycastHit2D[] results = new RaycastHit2D[9];
+        Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSizeHead, 0f, Vector2.down, contactFilter, results);
+        foreach (var r in results) {
+            if(r.collider !=null){
+                if(r.collider.CompareTag("CrouchCollider")){
+                    Debug.Log("touchingcrouchcollider");
+                    return true;
                 }
-        }else{
-            return false;
+            }
         }
+        return false;
     }
 
     private void Attack(){
@@ -220,8 +222,6 @@ public class Moveme : MonoBehaviour
     private bool TouchGround(){
         RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
 
-        
-
         if(temp){
             Debug.Log($"Temp {temp.transform.name}");
             if(temp.transform.CompareTag("Ground") ||
@@ -242,7 +242,7 @@ public class Moveme : MonoBehaviour
         // Draw a semitransparent red cube at the transforms position
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize);
-        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSize);
+        Gizmos.DrawCube(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSizeHead);
     }
 
     private bool Dashstate(){
