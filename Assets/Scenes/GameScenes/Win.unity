@@ -239,6 +239,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 54741915}
     - target: {fileID: 6107390699826321783, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
+      propertyPath: m_Name
+      value: WinScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 6107390699826321783, guid: eae72863a006a2d46a1eb1daad10241f, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}

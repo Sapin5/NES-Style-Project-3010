@@ -170,8 +170,9 @@ public class Moveme : MonoBehaviour
         Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSizeHead, 0f, Vector2.down, contactFilter, results, boxLocHead.y);
         foreach (var r in results) {
             if(r.collider !=null){
+                Debug.Log("'Collided With Nothing'");
                 if(r.collider.CompareTag("CrouchCollider")){
-
+                    Debug.Log("'Collided With Ground'");
                     return true;
                 }
             }
