@@ -73,7 +73,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00204058, y: -0.21111326}
+  m_Offset: {x: 0.0064330064, y: 0.046620563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -84,7 +84,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21941924, y: 0.34787175}
+  m_Size: {x: 0.19891688, y: 0.14871368}
   m_EdgeRadius: 0
 --- !u!114 &7467487500151548432
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: {x: 2.5, y: 2.5}
-  attackRange: {x: 1, y: 1}
+  attackRange: {x: 1, y: 0.7}
   chasingState: {fileID: 4023349838502084828}
   patrollingState: {fileID: 7467487500151548432}
   attackingState: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   chaseSpeed: 1
   enemyRenderer: {fileID: 6217811790772884474}
   isFlyingEnemy: 1
-  yFromPlayer: 0.8
+  yFromPlayer: 0.5
   withinTargetRangeY: 0.2
 --- !u!95 &5373860383168750744
 Animator:
