@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6218916464715903288}
   m_Layer: 3
   m_Name: Flying Variant Enemy
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00204058, y: -0.21111326}
+  m_Offset: {x: 0.0064330064, y: 0.046620563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -84,7 +84,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21941924, y: 0.34787175}
+  m_Size: {x: 0.19891688, y: 0.14871368}
   m_EdgeRadius: 0
 --- !u!114 &7467487500151548432
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: {x: 2.5, y: 2.5}
-  attackRange: {x: 1, y: 1}
+  attackRange: {x: 1, y: 0.7}
   chasingState: {fileID: 4023349838502084828}
   patrollingState: {fileID: 7467487500151548432}
   attackingState: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   chaseSpeed: 1
   enemyRenderer: {fileID: 6217811790772884474}
   isFlyingEnemy: 1
-  yFromPlayer: 0.8
+  yFromPlayer: 0.5
   withinTargetRangeY: 0.2
 --- !u!95 &5373860383168750744
 Animator:
@@ -149,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 4032513428160744155}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a9145f1fb323ca14e9c7ef7d469e130a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 905d0b54f506f994ab79603e80c01fc1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -247,7 +247,7 @@ Transform:
   m_GameObject: {fileID: 6302272158574444737}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.135, y: 0.131, z: 0}
+  m_LocalPosition: {x: 0.125, y: 0.089, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -378,8 +378,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1006425115, guid: 4192bdbc01ea39e42b1384177af7c6e2, type: 3}
-  m_Color: {r: 0, g: 0.90190077, b: 1, a: 1}
+  m_Sprite: {fileID: -1112188980, guid: f684d2d6f4d17354facdf95da66806c5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
@@ -12,5 +13,9 @@ public class EnemyProjectile : MonoBehaviour
 
     private void Update() {
         transform.Translate(direction * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        Destroy(gameObject);
     }
 }

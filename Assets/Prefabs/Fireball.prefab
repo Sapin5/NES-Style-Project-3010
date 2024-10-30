@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6952180131491354714}
   - component: {fileID: 4290351270083389835}
   - component: {fileID: 8620729535342542955}
-  - component: {fileID: 6850889029195621652}
+  - component: {fileID: 5923728324640178583}
   m_Layer: 3
   m_Name: Fireball
   m_TagString: Weapon
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.208, y: 0.095, z: -0.0015650394}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -724420316, guid: 19181be1219be5846a96e3ae14e6ad60, type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: -515555090, guid: 6424a387a011a6240bd1f63b431ad735, type: 3}
   m_Color: {r: 1, g: 0.5714842, b: 0.4764151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 9095116655373967299}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 497d57bf757b0694cb0b16fa4bcadbfa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1ab14dbf43b4e8f42929218d0a08d104, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -137,8 +137,8 @@ MonoBehaviour:
   damage: 3
   knockbackStrength: 0
   knockbackDebounce: 0.126
---- !u!61 &6850889029195621652
-BoxCollider2D:
+--- !u!58 &5923728324640178583
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,16 +169,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.014524557}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.00047996044, y: 0.0009639561}
   serializedVersion: 2
-  m_Size: {x: 0.10127115, y: 0.11183454}
-  m_EdgeRadius: 0
+  m_Radius: 0.06877267
