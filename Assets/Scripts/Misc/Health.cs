@@ -17,8 +17,6 @@ public class Health : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.GetComponent<Damage>() != null) {
-
-            Debug.Log(health);
             UpdateHealth(other.GetComponent<Damage>().GetDamage());
             if (health > 0)
                 animator.SetTrigger("OnHit");

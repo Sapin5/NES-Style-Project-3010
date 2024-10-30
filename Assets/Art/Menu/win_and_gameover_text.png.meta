@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f0d0b55fd3011e4caae749c1a176bbb
+guid: 0b5ce2e1af8223541af0d128d3412fd0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,85 +97,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuButtons_Sheet_1
+      name: win_and_gameover_text_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 78
-        width: 115
-        height: 33
+        x: 11
+        y: 13
+        width: 234
+        height: 38
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e1dc269d72c9d04090ef0d2aa81d6ad
-      internalID: -1308947182
+      spriteID: 5e4f24bec3d90cb49b52849b35aae8a7
+      internalID: -1329960941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuButtons_Sheet_4
+      name: win_and_gameover_text_4
       rect:
         serializedVersion: 2
-        x: 261
-        y: 78
-        width: 245
-        height: 35
+        x: 263
+        y: 17
+        width: 242
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60bcc581606dcd45abad013d2383ea3
-      internalID: 143940859
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuButtons_Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 72
-        y: 12
-        width: 112
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 936deca6b1a171a4c943ae34ef173540
-      internalID: 1736188748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MenuButtons_Sheet_10
-      rect:
-        serializedVersion: 2
-        x: 283
-        y: 15
-        width: 202
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4aa95b8114f9764d8d1e545b01d6e56
-      internalID: 1006453572
+      spriteID: 9fe3289587b1de94293012b9c076f97f
+      internalID: -1235830237
       vertices: []
       indices: 
       edges: []
@@ -183,7 +141,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 60699a8687a10164eaad1640d395b440
+    spriteID: 10e9d1a8a95ae8f448a31e7cabe13cb1
     internalID: 0
     vertices: []
     indices: 
@@ -191,20 +149,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MenuButtons_Sheet_0: -605913662
-      MenuButtons_Sheet_1: -1308947182
-      MenuButtons_Sheet_10: 1006453572
-      MenuButtons_Sheet_11: 802008024
-      MenuButtons_Sheet_12: -360153523
-      MenuButtons_Sheet_13: -1008696612
-      MenuButtons_Sheet_2: 296385317
-      MenuButtons_Sheet_3: -1899973551
-      MenuButtons_Sheet_4: 143940859
-      MenuButtons_Sheet_5: 290155026
-      MenuButtons_Sheet_6: 379848742
-      MenuButtons_Sheet_7: 976015141
-      MenuButtons_Sheet_8: 1736188748
-      MenuButtons_Sheet_9: -308236016
+      win_and_gameover_text_0: -1329960941
+      win_and_gameover_text_1: -1029937786
+      win_and_gameover_text_2: 184706178
+      win_and_gameover_text_3: -1931865908
+      win_and_gameover_text_4: -1235830237
+      win_and_gameover_text_5: 1287758630
+      win_and_gameover_text_6: 272263631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

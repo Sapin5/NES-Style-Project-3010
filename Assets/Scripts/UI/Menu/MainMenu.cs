@@ -1,13 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private string[] gameScenes;
-    public static bool gamePaused = false;
+    protected static bool gamePaused = false;
     private static bool mainMenu = true;
-    [SerializeField] private GameObject pauseMenuUI;
 
+    [Header("Game Screens:")]
+    [SerializeField] private GameObject pauseMenuUI;
+    [SerializeField] private GameObject LossScreen;
     public void PlayGame(){
         SceneManager.LoadScene(gameScenes[1]);
         Time.timeScale = 1;
@@ -35,12 +36,14 @@ public class MainMenu : MonoBehaviour
     }
 
     public void Resume(){
+        LossScreen.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         gamePaused = false;
     }
 
     private void Pause(){
+        LossScreen.SetActive(false);
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         gamePaused = true;
@@ -48,5 +51,6 @@ public class MainMenu : MonoBehaviour
 
     public void Controls(){
         SceneManager.LoadScene(gameScenes[2]);
+        Time.timeScale = 1;
     }
 }

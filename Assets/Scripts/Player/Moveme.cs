@@ -167,11 +167,11 @@ public class Moveme : MonoBehaviour
     [SerializeField] private ContactFilter2D contactFilter;
     private bool Jammed(){
         RaycastHit2D[] results = new RaycastHit2D[9];
-        Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSizeHead, 0f, Vector2.down, contactFilter, results);
+        Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSizeHead, 0f, Vector2.down, contactFilter, results, boxLocHead.y);
         foreach (var r in results) {
             if(r.collider !=null){
                 if(r.collider.CompareTag("CrouchCollider")){
-                    Debug.Log("touchingcrouchcollider");
+
                     return true;
                 }
             }
@@ -223,7 +223,6 @@ public class Moveme : MonoBehaviour
         RaycastHit2D temp  = Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)-boxLoc, boxSize, 0f, Vector2.down, boxLoc.y);
 
         if(temp){
-            Debug.Log($"Temp {temp.transform.name}");
             if(temp.transform.CompareTag("Ground") ||
                temp.transform.CompareTag("CrouchCollider"))
             {
