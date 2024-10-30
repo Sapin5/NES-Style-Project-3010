@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 213801273569864526}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.135, y: 0.131, z: 0}
+  m_LocalPosition: {x: 0.125, y: 0.089, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -157,12 +157,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1006425115, guid: 4192bdbc01ea39e42b1384177af7c6e2, type: 3}
+  m_Sprite: {fileID: 466504117, guid: 6cfa2158ba636e242a11589d758ebd56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.28}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 5880564576460492017}
   m_Layer: 3
   m_Name: Flying Enemy NPC
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -202,7 +202,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.299, y: -0.38, z: 0}
-  m_LocalScale: {x: 1.2928501, y: 1.2928501, z: 1.2928501}
+  m_LocalScale: {x: 1.9877571, y: 1.9877571, z: 1.9877571}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6396596272851318128}
@@ -241,7 +241,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00204058, y: -0.21111326}
+  m_Offset: {x: 0.0064330064, y: 0.046620563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -252,7 +252,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21941924, y: 0.34787175}
+  m_Size: {x: 0.19891688, y: 0.14871368}
   m_EdgeRadius: 0
 --- !u!114 &2654924138557006030
 MonoBehaviour:
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRenderer: {fileID: 2877031598390482555}
-  movementSpeed: 1
+  movementSpeed: 0.7
   xWanderMaxDist: 2
   maxIdleTime: 3
   enemyAnimator: {fileID: 6047446795995880303}
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseRange: {x: 2.5, y: 2.5}
-  attackRange: {x: 1, y: 1}
+  attackRange: {x: 1, y: 0.7}
   chasingState: {fileID: 1830728864992411629}
   patrollingState: {fileID: 2654924138557006030}
   attackingState: {fileID: 0}
@@ -302,10 +302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
-  chaseSpeed: 1
+  chaseSpeed: 0.7
   enemyRenderer: {fileID: 2877031598390482555}
   isFlyingEnemy: 1
-  yFromPlayer: 0.8
+  yFromPlayer: 0.5
   withinTargetRangeY: 0.2
 --- !u!95 &6047446795995880303
 Animator:
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 30
   animator: {fileID: 6047446795995880303}
 --- !u!114 &6257771356590232840
 MonoBehaviour:
@@ -359,6 +359,9 @@ MonoBehaviour:
   projectileSpeed: 1
   selfDestructTimer: 4
   enemyRenderer: {fileID: 2877031598390482555}
+  isAFlyingVariant: 0
+  numFireballs: 0
+  angleBetween: 0
 --- !u!50 &5880564576460492017
 Rigidbody2D:
   serializedVersion: 4
