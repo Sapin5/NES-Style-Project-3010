@@ -6,10 +6,13 @@ TagManager:
   tags:
   - Ground
   - Weapon
-  - PickUps
   - CrouchCollider
   - HealthUI
   - Wall
+  - Health
+  - Shield
+  - Battery
+  - Heart
   layers:
   - Default
   - TransparentFX

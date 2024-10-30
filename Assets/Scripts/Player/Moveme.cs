@@ -22,6 +22,9 @@ public class Moveme : MonoBehaviour
     [SerializeField] private float coolDown;
     [SerializeField] private float dashForce;
     [SerializeField] private enum Dash {Ready, Dashing, CoolDown, End};
+
+    [Header("Contact Filter Properties:")]
+    [SerializeField] private ContactFilter2D contactFilter;
     private Dash dash;
     private Rigidbody2D physicsBody;
     private float timer;
@@ -31,6 +34,7 @@ public class Moveme : MonoBehaviour
     private Transform playerDmgBox, playerArt, dashCollider, normalCollider;
     private RigidbodyConstraints2D originalConstraints;
 
+    private float dir;
     private PlayerHealth health;
 
     void Awake(){
@@ -59,6 +63,7 @@ public class Moveme : MonoBehaviour
     }
 
     void FixedUpdate(){
+        dir = Input.GetAxis("Horizontal");
         if(health.RemainingHealth() > 0){
             Jumping();
             Movement();
@@ -69,7 +74,6 @@ public class Moveme : MonoBehaviour
     }
 
     private void DashAbility(){
-        float dir = Input.GetAxis("Horizontal");
 
         if(dir < 0){
             direction = -1;
@@ -129,7 +133,6 @@ public class Moveme : MonoBehaviour
     }
 
     private void Movement(){
-        float dir = Input.GetAxis("Horizontal");
         if (dir != 0) {
             playerDmgBox.localPosition = new Vector2(dir > 0 ? 0.2f : -0.2f, 0f);
             normalCollider.localPosition = new Vector2(dir > 0 ? 0f : 0.04f, 0f);
@@ -164,17 +167,12 @@ public class Moveme : MonoBehaviour
         return false;
         
     }
-    [SerializeField] private ContactFilter2D contactFilter;
     private bool Jammed(){
         RaycastHit2D[] results = new RaycastHit2D[9];
         Physics2D.BoxCast(new Vector2(transform.position.x, transform.position.y)+boxLocHead, boxSizeHead, 0f, Vector2.down, contactFilter, results, boxLocHead.y);
         foreach (var r in results) {
             if(r.collider !=null){
-                Debug.Log("'Collided With Nothing'");
-                if(r.collider.CompareTag("CrouchCollider")){
-                    Debug.Log("'Collided With Ground'");
-                    return true;
-                }
+                if(r.collider.CompareTag("CrouchCollider")) return true;
             }
         }
         return false;
@@ -234,6 +232,23 @@ public class Moveme : MonoBehaviour
         }else{
             return false;
         }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.transform.CompareTag("Weapon") && health.RemainingHealth() > 0){
+            playerArt.GetComponent<Animator>().SetTrigger("Hit");
+            float totalForce = playerArt.rotation.y == 1f ? 1f : -1f;
+
+            if(physicsBody.velocity.y != 0){
+                physicsBody.AddRelativeForce(new Vector2(100f*totalForce, 0f));
+            }else{
+                physicsBody.AddForce(new Vector2(100f*totalForce, 100f));
+            }
+        }
+    }
+
+    private void hit(){
 
     }
 

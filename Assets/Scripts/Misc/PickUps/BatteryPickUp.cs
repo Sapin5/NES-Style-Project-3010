@@ -12,7 +12,7 @@ public class BatteryPickUp : MonoBehaviour
     }
 
     private void DoStuff(Collider2D player = null){
-        switch (this.name){
+        switch (this.transform.tag){
             case "Bullet":
                 break;
 
