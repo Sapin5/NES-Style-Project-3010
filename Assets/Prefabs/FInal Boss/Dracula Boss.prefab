@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -1373850517, guid: 90b7c9d7d36ef3c44a25dc3630201d15, type: 3}
+  m_Sprite: {fileID: 801269433, guid: a066ee3f87d37df42941953c9a96017c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 200
   animator: {fileID: 5158618474045770592}
 --- !u!61 &3526345990268672498
 BoxCollider2D:
@@ -236,6 +236,9 @@ MonoBehaviour:
   projectileSpeed: 2
   selfDestructTimer: 4
   enemyRenderer: {fileID: 0}
+  isAFlyingVariant: 1
+  numFireballs: 5
+  angleBetween: 20
 --- !u!1 &8204822240900906075
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +467,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 2661632190153169945}
-  damage: 1
+  damage: 5
   knockbackStrength: 5
   knockbackDebounce: 0.1
