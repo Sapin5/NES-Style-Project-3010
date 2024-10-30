@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 0}
-  damage: 1
+  damage: 2
   knockbackStrength: 0
   knockbackDebounce: 0.126
 --- !u!61 &6850889029195621652
