@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRenderer: {fileID: 2877031598390482555}
-  movementSpeed: 1
+  movementSpeed: 0.7
   xWanderMaxDist: 2
   maxIdleTime: 3
   enemyAnimator: {fileID: 6047446795995880303}
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPos: {fileID: 0}
-  chaseSpeed: 1
+  chaseSpeed: 0.7
   enemyRenderer: {fileID: 2877031598390482555}
   isFlyingEnemy: 1
   yFromPlayer: 0.5
