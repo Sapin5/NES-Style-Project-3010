@@ -129,15 +129,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boxSize: {x: 0.2, y: 0.01}
+  boxSizeHead: {x: 0.2, y: 0.01}
   boxLoc: {x: 0.02, y: 0.2}
-  boxLocHead: {x: 0, y: 0.2}
+  boxLocHead: {x: 0, y: 0.1}
   jumpForce: 4.3
-  touchingGround: 0
+  touchingGround: 1
   spacePressed: 0
   movespeed: 3
   duration: 0.5
   coolDown: 1
   dashForce: 3
+  contactFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 128
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
 --- !u!50 &5062223782792706811
 Rigidbody2D:
   serializedVersion: 4

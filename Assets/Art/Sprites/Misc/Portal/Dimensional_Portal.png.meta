@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7f0d0b55fd3011e4caae749c1a176bbb
+guid: 848bd160f8db5634ab7e01586af11caa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -97,85 +97,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MenuButtons_Sheet_1
+      name: Dimensional_Portal_0
       rect:
         serializedVersion: 2
-        x: 70
-        y: 78
-        width: 115
-        height: 33
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e1dc269d72c9d04090ef0d2aa81d6ad
-      internalID: -1308947182
+      spriteID: cabe06c5d6d9e5248bbe9d688364b12a
+      internalID: 441143513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuButtons_Sheet_4
+      name: Dimensional_Portal_1
       rect:
         serializedVersion: 2
-        x: 261
-        y: 78
-        width: 245
-        height: 35
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60bcc581606dcd45abad013d2383ea3
-      internalID: 143940859
+      spriteID: 8eba611794b87d34096ccefed3643cfc
+      internalID: -1054570428
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuButtons_Sheet_8
+      name: Dimensional_Portal_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 12
-        width: 112
-        height: 39
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 936deca6b1a171a4c943ae34ef173540
-      internalID: 1736188748
+      spriteID: 00befd054634cc24da32bfa00d86e87c
+      internalID: 1465248309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MenuButtons_Sheet_10
+      name: Dimensional_Portal_3
       rect:
         serializedVersion: 2
-        x: 283
-        y: 15
-        width: 202
-        height: 34
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4aa95b8114f9764d8d1e545b01d6e56
-      internalID: 1006453572
+      spriteID: 785c5075285c07841863807a84893c08
+      internalID: 604698492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dimensional_Portal_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90aea4db586e99d48ac87c8bd7722428
+      internalID: 404577349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dimensional_Portal_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63c0c781ee245ad45855be44d589a5a8
+      internalID: -631591092
       vertices: []
       indices: 
       edges: []
@@ -183,7 +225,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 60699a8687a10164eaad1640d395b440
+    spriteID: 857e6eb7eb5065842a08189993a63c56
     internalID: 0
     vertices: []
     indices: 
@@ -191,20 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MenuButtons_Sheet_0: -605913662
-      MenuButtons_Sheet_1: -1308947182
-      MenuButtons_Sheet_10: 1006453572
-      MenuButtons_Sheet_11: 802008024
-      MenuButtons_Sheet_12: -360153523
-      MenuButtons_Sheet_13: -1008696612
-      MenuButtons_Sheet_2: 296385317
-      MenuButtons_Sheet_3: -1899973551
-      MenuButtons_Sheet_4: 143940859
-      MenuButtons_Sheet_5: 290155026
-      MenuButtons_Sheet_6: 379848742
-      MenuButtons_Sheet_7: 976015141
-      MenuButtons_Sheet_8: 1736188748
-      MenuButtons_Sheet_9: -308236016
+      Dimensional_Portal_0: 441143513
+      Dimensional_Portal_1: -1054570428
+      Dimensional_Portal_2: 1465248309
+      Dimensional_Portal_3: 604698492
+      Dimensional_Portal_4: 404577349
+      Dimensional_Portal_5: -631591092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

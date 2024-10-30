@@ -9,6 +9,7 @@ TagManager:
   - PickUps
   - CrouchCollider
   - HealthUI
+  - Wall
   layers:
   - Default
   - TransparentFX

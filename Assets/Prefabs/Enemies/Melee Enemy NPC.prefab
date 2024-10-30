@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
-  damage: 1
+  damage: 3
   knockbackStrength: 25
   knockbackDebounce: 0.2
 --- !u!1 &8618377195278945712
@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wielderTransform: {fileID: 3049143949302017163}
-  damage: 1
+  damage: 3
   knockbackStrength: 25
   knockbackDebounce: 0.2
 --- !u!1 &9187216109226872673
@@ -460,10 +460,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 256
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 346f9dc74a31c214ba37517c3b10d5e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 30
   animator: {fileID: 5180294861595434745}
 --- !u!61 &5661190183112192749
 BoxCollider2D:
@@ -612,7 +612,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 255
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -626,7 +626,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.01959569, y: -0.083439894}

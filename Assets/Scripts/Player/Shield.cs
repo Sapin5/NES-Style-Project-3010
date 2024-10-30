@@ -9,6 +9,8 @@ public class Shield : MonoBehaviour
     [SerializeField] private float rechargeDelay;
     private float timer = 0;
     private PlayerHealth health;
+
+    private float bleedDmg;
     private void Awake(){
         if(totalShield%2!=0){
             totalShield+=1;
@@ -26,8 +28,8 @@ public class Shield : MonoBehaviour
             shieldDisplay.HealOne();
         }
 
-        if(Input.GetKeyDown(KeyCode.J) && shield !=0){
-            Updateshield(1);
+        if(Input.GetKeyDown(KeyCode.J)){
+            Updateshield(6);
         }
     }
 
@@ -42,10 +44,17 @@ public class Shield : MonoBehaviour
         }else return false;
     }
 
+
     private void Updateshield(float dmg) {
-        if(shield > 0){
-            shield -= dmg;
-            shieldDisplay.UpdateHP();
+        if(dmg>shield && shield!=0){
+            health.BleedHealth(Mathf.Abs(shield-dmg));
+        }
+        for(float i =0; i<dmg; i ++){
+            if(shield > 0){
+                shield--;
+                shieldDisplay.UpdateHP();
+            
+            }
         }
     }
 
@@ -61,7 +70,7 @@ public class Shield : MonoBehaviour
 
     public void FullShield(){
         float tempshield = totalShield-shield;
-        shieldDisplay.FullHeal();
+        shieldDisplay.FullHeal(); 
         shield+=tempshield;
     }
 
@@ -71,15 +80,15 @@ public class Shield : MonoBehaviour
         }
     }
 
-    public bool ShieldLeft(){
-        if(shield == 0){
-            return false;
-        }else{
-            return true;
-        }
+    public float ShieldLeft(){
+        return shield;  
     }
 
     public float GetShield(){
         return totalShield;
     }
+    public float DmgBleed(){
+        return bleedDmg;
+    }
+
 }

@@ -7,10 +7,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float totalHealth = 10;
     private float health;
     [SerializeField] HPDisplay hpDisplay;
-    string currentSceneName;
 
     [Header("Select Shield if the player has shields:")]
-    [SerializeField] private bool shield;
+    [SerializeField] private float shield;
 
     [SerializeField] private bool hasShield;
 
@@ -27,27 +26,35 @@ public class PlayerHealth : MonoBehaviour
         if(hasShield == true){
             shield = GetComponent<Shield>().ShieldLeft();
         }
-
-        currentSceneName = SceneManager.GetActiveScene().name;
         health=totalHealth;
         hpDisplay = FindAnyObjectByType<Canvas>().GetComponent<Transform>().GetChild(0).GetChild(0).GetComponent<HPDisplay>();
     }
 
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.J)){
-            shield = GetComponent<Shield>().ShieldLeft();
-            UpdateHealth(1);
+    public void BleedHealth(float dmg){
+        for(float i =0; i<dmg; i ++){
+            health -= 1;
+            if(health>=0){
+                hpDisplay.UpdateHP();
+            } 
         }
     }
-    private void UpdateHealth(float dmg) {
-        if(!shield){
-            health -= dmg;
-            hpDisplay.UpdateHP();
+
+    private void UpdateHealth(float dmg){
+        if(shield == 0){
+            for(float i =0; i<dmg; i ++){
+                health -= 1;
+                if(health>=0){
+                    hpDisplay.UpdateHP();
+                }
+                else{
+                    break;
+                }
+            }
         }
     }
 
     public void Heal(){
-        if(!shield){
+        if(shield == 0){
             if(health!=totalHealth){
                 health += 1;
                 hpDisplay.HealOne();
@@ -56,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void FullHeal(){
-        if(!shield){
+        if(shield == 0){
             float tempHealth = totalHealth-health;
             hpDisplay.FullHeal();
             health+=tempHealth;
@@ -65,9 +72,9 @@ public class PlayerHealth : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.transform.CompareTag("Weapon")){
+        shield = GetComponent<Shield>().ShieldLeft();
+        if(other.transform.CompareTag("Weapon") && shield == 0){
             UpdateHealth(other.transform.GetComponent<Damage>().GetDamage());
-            shield = GetComponent<Shield>().ShieldLeft();
         }
     }
 

@@ -175,9 +175,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameScenes:
   - MainMenu
-  - DiddyParty
+  - Level1
   - ControlScene
   pauseMenuUI: {fileID: 0}
+  LossScreen: {fileID: 0}
 --- !u!20 &78263458 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3563670990035570635, guid: d587ce6d445b75547a89fe57c8b30f9c, type: 3}
