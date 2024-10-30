@@ -157,12 +157,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1006425115, guid: 4192bdbc01ea39e42b1384177af7c6e2, type: 3}
+  m_Sprite: {fileID: 466504117, guid: 6cfa2158ba636e242a11589d758ebd56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.6, y: 1.28}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -241,7 +241,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00204058, y: -0.21111326}
+  m_Offset: {x: 0.0064330064, y: 0.046620563}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -252,7 +252,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21941924, y: 0.34787175}
+  m_Size: {x: 0.19891688, y: 0.14871368}
   m_EdgeRadius: 0
 --- !u!114 &2654924138557006030
 MonoBehaviour:
@@ -359,6 +359,9 @@ MonoBehaviour:
   projectileSpeed: 1
   selfDestructTimer: 4
   enemyRenderer: {fileID: 2877031598390482555}
+  isAFlyingVariant: 0
+  numFireballs: 0
+  angleBetween: 0
 --- !u!50 &5880564576460492017
 Rigidbody2D:
   serializedVersion: 4
