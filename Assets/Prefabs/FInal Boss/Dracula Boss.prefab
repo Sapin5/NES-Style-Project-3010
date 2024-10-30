@@ -236,9 +236,9 @@ MonoBehaviour:
   projectileSpeed: 2
   selfDestructTimer: 4
   enemyRenderer: {fileID: 0}
-  isAFlyingVariant: 0
-  numFireballs: 0
-  angleBetween: 0
+  isAFlyingVariant: 1
+  numFireballs: 5
+  angleBetween: 20
 --- !u!1 &8204822240900906075
 GameObject:
   m_ObjectHideFlags: 0
