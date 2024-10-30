@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 6218916464715903288}
   m_Layer: 3
   m_Name: Flying Variant Enemy
-  m_TagString: Weapon
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
