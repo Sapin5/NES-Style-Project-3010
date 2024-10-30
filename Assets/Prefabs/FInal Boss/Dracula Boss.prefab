@@ -78,7 +78,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -136,7 +136,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 3d0f99f0c80898744ac90c94be645a74, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -238,7 +238,7 @@ MonoBehaviour:
   enemyRenderer: {fileID: 0}
   isAFlyingVariant: 1
   numFireballs: 5
-  angleBetween: 20
+  angleBetween: 35
 --- !u!1 &8204822240900906075
 GameObject:
   m_ObjectHideFlags: 0
