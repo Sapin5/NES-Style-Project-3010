@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DraculaStateHandler : MonoBehaviour
 {
+    public bool isActive = false;
+
     [SerializeField] private float maxIdleTime;
     [SerializeField] private Animator draculaAnimator;
 
@@ -31,6 +33,8 @@ public class DraculaStateHandler : MonoBehaviour
 
     private void Update()
     {
+        if (!isActive) return;
+
         switch (currentState) {
 
             case State.Idle: //---------------------------IDLE---------------------------------

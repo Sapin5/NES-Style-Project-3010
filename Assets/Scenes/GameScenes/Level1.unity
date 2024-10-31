@@ -412,14 +412,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dracula Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 3542865738427184502, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
-      propertyPath: angleBetween
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 3542865738427184502, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
-      propertyPath: numFireballs
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -63989,6 +63981,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 661829791}
+    - target: {fileID: 4186863412560325648, guid: dc23aac60e9f7b9498e4d5d56c54e9e3, type: 3}
+      propertyPath: draculaState
+      value: 
+      objectReference: {fileID: 1164345654}
+    - target: {fileID: 4186863412560325648, guid: dc23aac60e9f7b9498e4d5d56c54e9e3, type: 3}
+      propertyPath: isTheBossPortal
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7355491821567026396, guid: dc23aac60e9f7b9498e4d5d56c54e9e3, type: 3}
       propertyPath: m_Name
       value: PortalEntrance (1)
@@ -64374,6 +64374,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4492479369828657437, guid: c571b1e068bb0bd4fa5c22c0c19f0d19, type: 3}
   m_PrefabInstance: {fileID: 1095424126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1164345654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3643467476997701946, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
+  m_PrefabInstance: {fileID: 51077633}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ce01183d3b09834d92ab525bce1a35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1200762760
 GameObject:
   m_ObjectHideFlags: 0

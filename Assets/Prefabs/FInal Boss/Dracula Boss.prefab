@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ce01183d3b09834d92ab525bce1a35b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   maxIdleTime: 3
   draculaAnimator: {fileID: 5158618474045770592}
   xOffset: 0.2
@@ -241,8 +242,8 @@ MonoBehaviour:
   selfDestructTimer: 4
   enemyRenderer: {fileID: 0}
   isAFlyingVariant: 1
-  numFireballs: 15
-  angleBetween: 25
+  numFireballs: 10
+  angleBetween: 15
 --- !u!1 &5849162467563223295
 GameObject:
   m_ObjectHideFlags: 0

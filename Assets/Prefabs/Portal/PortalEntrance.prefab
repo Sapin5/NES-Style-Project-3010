@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  isTheBossPortal: 0
+  draculaState: {fileID: 0}
 --- !u!95 &2623367198274320749
 Animator:
   serializedVersion: 5
