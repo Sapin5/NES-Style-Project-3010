@@ -238,8 +238,8 @@ MonoBehaviour:
   selfDestructTimer: 4
   enemyRenderer: {fileID: 0}
   isAFlyingVariant: 1
-  numFireballs: 5
-  angleBetween: 35
+  numFireballs: 15
+  angleBetween: 25
 --- !u!1 &8204822240900906075
 GameObject:
   m_ObjectHideFlags: 0

@@ -412,6 +412,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dracula Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 3542865738427184502, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
+      propertyPath: angleBetween
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3542865738427184502, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
+      propertyPath: numFireballs
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
