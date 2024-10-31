@@ -727,8 +727,8 @@ MonoBehaviour:
   health: 30
   animator: {fileID: 5180294861595434745}
   audioClips:
-  - {fileID: 8300000, guid: 2bd02bf0995ba1d4f9303ebeefdae3b5, type: 3}
-  - {fileID: 8300000, guid: 893b9d2e853d8f7418c2d216b8aab070, type: 3}
+  - {fileID: 8300000, guid: 0fdda6fc521caf341b343f2ac398cbf9, type: 3}
+  - {fileID: 8300000, guid: bd5a986d39c2bef46aa8b3723d00f237, type: 3}
 --- !u!61 &5661190183112192749
 BoxCollider2D:
   m_ObjectHideFlags: 0
