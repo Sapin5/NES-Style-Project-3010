@@ -17,7 +17,7 @@ public class DraculaStateHandler : MonoBehaviour
 
     private float currentIdleTimer = 0f;
 
-    private Vector3 ORIGINAL_POS = new Vector3(0, -0.80f, 0); 
+    private Vector3 ORIGINAL_POS = new Vector3(0.65f, 22f, 0); 
 
     private void Awake()
     {
