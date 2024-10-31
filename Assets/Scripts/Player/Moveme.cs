@@ -37,6 +37,9 @@ public class Moveme : MonoBehaviour
     private float dir;
     private PlayerHealth health;
 
+    public AudioSource audioSource;
+    public AudioClip[] clip;
+    private bool dead;
     void Awake(){
         playerDmgBox = GetComponent<Transform>().GetChild(0);
         playerArt = GetComponent<Transform>().GetChild(1);
@@ -49,6 +52,7 @@ public class Moveme : MonoBehaviour
         originalConstraints = physicsBody.constraints;
         dashing = false;
         direction = 1;
+        dead = false;
     }
 
     void Update()
@@ -56,10 +60,12 @@ public class Moveme : MonoBehaviour
         if(health.RemainingHealth() > 0){
             Attack();
             Crouch();
+            dead = false;
         }else{
+            if(!dead) audioSource.PlayOneShot(clip[1], 0.3f);
+            dead = true;
             physicsBody.velocity = new Vector2(0, physicsBody.velocity.y);
-        }
-        
+        }  
     }
 
     void FixedUpdate(){
@@ -179,16 +185,17 @@ public class Moveme : MonoBehaviour
     }
 
     private void Attack(){
-        if(Input.GetKey(KeyCode.Space) && !spacePressed && Dashstate()){
+        if(Input.GetKey(KeyCode.Space) && !spacePressed && Dashstate() && !Jammed()){
             spacePressed = true;
             playerArt.GetComponent<AnimationSwapper>().StopParticles();
             playerArt.GetComponent<Animator>().SetTrigger("Attack");
+            audioSource.PlayOneShot(clip[3], 0.3f);
         }
 
         if(spacePressed){
             timer+=Time.deltaTime;
             playerDmgBox.GameObject().SetActive(true);
-            if(timer>0.4f){
+            if(timer>0.5f){
                 playerDmgBox.GameObject().SetActive(false);
                 spacePressed = false;
                 timer = 0;
@@ -198,11 +205,12 @@ public class Moveme : MonoBehaviour
     
     private void Jumping(){
 
-        if(touchingGround){
+        if(touchingGround && !Crouch()){
             if((Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.W))
                             && Dashstate()){
                 physicsBody.velocity = new Vector2(physicsBody.velocity.x, jumpForce);
                 touchingGround = false;
+                audioSource.PlayOneShot(clip[2], 0.3f);
             }
         }else{
             if((Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.S)) && physicsBody.velocity.y != 0){
@@ -240,16 +248,14 @@ public class Moveme : MonoBehaviour
             playerArt.GetComponent<Animator>().SetTrigger("Hit");
             float totalForce = playerArt.rotation.y == 1f ? 1f : -1f;
 
+            audioSource.PlayOneShot(clip[0], 0.3f);
+
             if(physicsBody.velocity.y != 0){
-                physicsBody.AddRelativeForce(new Vector2(100f*totalForce, 0f));
+                physicsBody.AddRelativeForce(new Vector2(50f*totalForce, 0f));
             }else{
-                physicsBody.AddForce(new Vector2(100f*totalForce, 100f));
+                physicsBody.AddForce(new Vector2(50f*totalForce, 50f));
             }
         }
-    }
-
-    private void hit(){
-
     }
 
     void OnDrawGizmos()
