@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DraculaStateHandler : MonoBehaviour
 {
@@ -6,6 +7,12 @@ public class DraculaStateHandler : MonoBehaviour
 
     [SerializeField] private float maxIdleTime;
     [SerializeField] private Animator draculaAnimator;
+    
+    [Header("Audio Settings:")]
+    [SerializeField] private AudioClip[] audioClips;
+    private AudioSource audioSource;
+    private const float AUDIO_VOLUME = 0.2f;
+
 
     [Header("Dracula Melee Attack 2 Properties:")]
     [SerializeField] private float xOffset;
@@ -29,7 +36,12 @@ public class DraculaStateHandler : MonoBehaviour
         if (playerPos == null) {
             Debug.LogError("No player position in DraculaStateHandler class. D: ");
         }
-    } 
+    }
+
+    private void OnEnable() {
+        audioSource = GetComponentInChildren<AudioSource>();
+    }
+
 
     private void Update()
     {
@@ -130,5 +142,17 @@ public class DraculaStateHandler : MonoBehaviour
         } else if (currentState == State.MeleeAttack2 && !isAttacking2) {
             transform.position = ORIGINAL_POS;
         }
+    }
+
+    public void PlayMelee1Sound() {
+        audioSource.PlayOneShot(audioClips[0], AUDIO_VOLUME);
+    }
+
+    public void PlayMelee2Sound() {
+        audioSource.PlayOneShot(audioClips[1], AUDIO_VOLUME);
+    }
+
+    public void PlayRangeSound() {
+        audioSource.PlayOneShot(audioClips[2], AUDIO_VOLUME);
     }
 }
