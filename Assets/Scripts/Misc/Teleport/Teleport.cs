@@ -22,7 +22,7 @@ public class Teleport : MonoBehaviour
                 canvasHpDisplay.SetActive(true);
                 audioSource.Stop();
                 draculaState.isActive = true;
-                audioSource.PlayOneShot(clip[1], 0.3f);
+                audioSource.PlayOneShot(clip[1], 1f);
             }
         }
     }
