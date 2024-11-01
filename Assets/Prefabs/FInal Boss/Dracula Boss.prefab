@@ -249,7 +249,7 @@ MonoBehaviour:
   selfDestructTimer: 4
   enemyRenderer: {fileID: 0}
   isAFlyingVariant: 1
-  numFireballs: 10
+  numFireballs: 6
   angleBetween: 15
 --- !u!114 &6946524600700142359
 MonoBehaviour:
@@ -625,4 +625,4 @@ MonoBehaviour:
   wielderTransform: {fileID: 2661632190153169945}
   damage: 5
   knockbackStrength: 5
-  knockbackDebounce: 0.1
+  knockbackDebounce: 0.4
