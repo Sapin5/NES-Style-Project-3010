@@ -68,8 +68,8 @@ public class PlayerHealth : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        shield = GetComponent<Shield>().ShieldLeft();
-        if(other.transform.CompareTag("Weapon") && shield == 0){
+        TryGetComponent<Shield>(out Shield shield);
+        if(other.transform.CompareTag("Weapon") && shield.ShieldLeft() == 0){
             UpdateHealth(other.transform.GetComponent<Damage>().GetDamage());
         }
     }
