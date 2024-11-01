@@ -412,17 +412,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dracula Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 5110417824222106279, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
-      propertyPath: isBoss
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6946524600700142359, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 302590538}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3494511488606530059, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1553555487}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
 --- !u!1001 &74741675
 PrefabInstance:
@@ -64551,7 +64548,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3643467476997701946, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
   m_PrefabInstance: {fileID: 51077633}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553555481}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ce01183d3b09834d92ab525bce1a35b, type: 3}
@@ -66079,27 +66076,6 @@ Transform:
   - {fileID: 1922135750}
   m_Father: {fileID: 1477629919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1553555481 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3494511488606530059, guid: 40567b26811cb23488be95e3ff1a8e46, type: 3}
-  m_PrefabInstance: {fileID: 51077633}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1553555487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553555481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c91316a9f4a05434a8106fa8e7d70635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthBar: {fileID: 302590538}
-  totalHP: 0
-  totalHPmodified: 0
-  bossHealth: {fileID: 0}
 --- !u!1001 &1574196101
 PrefabInstance:
   m_ObjectHideFlags: 0
