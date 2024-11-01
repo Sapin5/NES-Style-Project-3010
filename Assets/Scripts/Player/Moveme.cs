@@ -196,7 +196,7 @@ public class Moveme : MonoBehaviour
             timer+=Time.deltaTime;
             playerDmgBox.GameObject().SetActive(true);
             Debug.Log(timer);
-            if(timer>1f){
+            if(timer>0.5f){
                 playerDmgBox.GameObject().SetActive(false);
                 spacePressed = false;
                 timer = 0;
