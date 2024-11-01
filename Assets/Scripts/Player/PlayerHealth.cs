@@ -54,20 +54,16 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void Heal(){
-        if(shield == 0){
-            if(health!=totalHealth){
-                health += 1;
-                hpDisplay.HealOne();
-            }
+        if(health!=totalHealth){
+            health += 1;
+            hpDisplay.HealOne();
         }
     }
 
     public void FullHeal(){
-        if(shield == 0){
             float tempHealth = totalHealth-health;
             hpDisplay.FullHeal();
             health+=tempHealth;
-        }
     }
 
 

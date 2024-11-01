@@ -3576,6 +3576,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3666544270772205476, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
+      propertyPath: m_Pitch
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666544270772205476, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3841748179336213469, guid: fb4aa3d869b4ac941b7ab87b33a0ee90, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.87
