@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5110417824222106279}
   - component: {fileID: 3526345990268672498}
   - component: {fileID: 3542865738427184502}
+  - component: {fileID: 6946524600700142359}
   m_Layer: 3
   m_Name: Dracula Boss
   m_TagString: Untagged
@@ -160,6 +161,10 @@ MonoBehaviour:
   isActive: 0
   maxIdleTime: 3
   draculaAnimator: {fileID: 5158618474045770592}
+  audioClips:
+  - {fileID: 8300000, guid: c8dd459043664b04daf56f31c676427e, type: 3}
+  - {fileID: 8300000, guid: c8dd459043664b04daf56f31c676427e, type: 3}
+  - {fileID: 8300000, guid: 756723fbc25f65e4196bf40300c6035f, type: 3}
   xOffset: 0.2
   yOffset: 0
 --- !u!114 &5110417824222106279
@@ -179,6 +184,8 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: 2bd02bf0995ba1d4f9303ebeefdae3b5, type: 3}
   - {fileID: 8300000, guid: 88d2efab60cb2414b9024a0a5328f0ba, type: 3}
+  isBoss: 1
+  bossHealth: {fileID: 0}
 --- !u!61 &3526345990268672498
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -244,6 +251,22 @@ MonoBehaviour:
   isAFlyingVariant: 1
   numFireballs: 10
   angleBetween: 15
+--- !u!114 &6946524600700142359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494511488606530059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91316a9f4a05434a8106fa8e7d70635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  totalHP: 0
+  totalHPmodified: 0
+  bossHealth: {fileID: 0}
 --- !u!1 &5849162467563223295
 GameObject:
   m_ObjectHideFlags: 0
