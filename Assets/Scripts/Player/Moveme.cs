@@ -185,7 +185,7 @@ public class Moveme : MonoBehaviour
     }
 
     private void Attack(){
-        if(Input.GetKeyDown(KeyCode.Space) && !spacePressed && Dashstate() && !Jammed()){
+        if(Input.GetKeyDown(KeyCode.Z) && !spacePressed && Dashstate() && !Jammed()){
             spacePressed = true;
             playerArt.GetComponent<AnimationSwapper>().StopParticles();
             playerArt.GetComponent<Animator>().SetTrigger("Attack");
