@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ScoreHandler : MonoBehaviour
 {
-    [SerializeField] private Text[] scoreLabels;
+    [SerializeField] private Text scoreLabel;
 
     private int score = 0;
     const int MAX_NUM_DIGITS = 6;
@@ -21,15 +21,14 @@ public class ScoreHandler : MonoBehaviour
             numZerosPrior = MAX_NUM_DIGITS - 4;
         }
 
-        foreach (var label in scoreLabels) {
-            string newLabel = "";
-        
-            for (int i = 0; i < numZerosPrior; i++)
-                newLabel += "0";
 
-            newLabel += this.score.ToString();
-            label.text = newLabel;
-        }
+        string newLabel = "";
+        
+        for (int i = 0; i < numZerosPrior; i++)
+            newLabel += "0";
+
+        newLabel += this.score.ToString();
+        scoreLabel.text = newLabel;
     }
 
     public int GetScore()  => this.score;
