@@ -32,7 +32,7 @@ public class Health : MonoBehaviour
     }
 
     private void UpdateHealth(int dmg) {
-        if (isBoss) bossHealth.TakeDamage(dmg);
+        if(isBoss) bossHealth.TakeDamage(dmg);
         health -= dmg;
     }
 
