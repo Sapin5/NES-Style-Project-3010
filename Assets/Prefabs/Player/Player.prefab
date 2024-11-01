@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalShield: 10
   shieldDisplay: {fileID: 0}
-  rechargeDelay: 4
+  rechargeDelay: 2.5
 --- !u!1 &5561999462085978421
 GameObject:
   m_ObjectHideFlags: 0
