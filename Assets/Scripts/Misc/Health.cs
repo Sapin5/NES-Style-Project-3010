@@ -11,7 +11,17 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioClip[] audioClips;
     private AudioSource audioSource;
 
+    [Header("Select if it is boss:")]
+    [SerializeField] private bool isBoss;
+    [SerializeField] protected BosshpDisupdate bossHealth;
+
     private const float audioVolume = 0.2f;
+
+    void Awake(){
+        if(isBoss){
+            if(bossHealth == null) bossHealth = GetComponent<BosshpDisupdate>();
+        }
+    }
 
     private void OnEnable() {
         audioSource = GetComponentInChildren<AudioSource>();
@@ -22,6 +32,7 @@ public class Health : MonoBehaviour
     }
 
     private void UpdateHealth(int dmg) {
+        bossHealth.TakeDamage(dmg);
         health -= dmg;
     }
 
