@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e88c05b6c3e05840bcf9a6ea43e7bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DashCoolDownReduction: 0.1
+  DashCoolDownReduction: 0.25
