@@ -7,17 +7,19 @@ public class Teleport : MonoBehaviour
     [SerializeField] private DraculaStateHandler draculaState;
     public AudioSource audioSource;
     public AudioClip[] clip;
-
+    [SerializeField] private GameObject canvasHpDisplay;
     private void Awake() {
+        if (isTheBossPortal) canvasHpDisplay.SetActive(false);
         if (draculaState == null) {
             draculaState = FindObjectOfType<DraculaStateHandler>();
         }
     }
    
-    private void OnCollisionEnter2D(Collision2D collision){
+    protected void OnCollisionEnter2D(Collision2D collision){
         if(collision.transform.CompareTag("Player")){
             collision.transform.position = target.transform.position;
             if (isTheBossPortal) {
+                canvasHpDisplay.SetActive(true);
                 audioSource.Stop();
                 draculaState.isActive = true;
                 audioSource.PlayOneShot(clip[1], 0.3f);
